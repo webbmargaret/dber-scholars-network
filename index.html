@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DBER Scholars Network</title>
+<meta name="description" content="An interactive map of people connected to discipline-based education research (DBER), grouped by institution, program, field, and PhD era.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<style>
+  /* Full d3 bundle (not just d3-force) — d3-force's standalone UMD build expects
+     d3-quadtree/d3-dispatch/d3-timer already attached to window.d3, so loading it
+     alone leaves those internal calls undefined. We only use d3.forceSimulation etc;
+     canvas rendering and mouse/zoom/drag are hand-rolled in network.js. */
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <a class="brand" href="index.html">DBER Scholars Network</a>
+  <nav>
+    <a href="index.html" class="active">Network</a>
+    <a href="about.html">About</a>
+    <a href="contribute.html">Add / Edit</a>
+  </nav>
+</div>
+
+<div class="app">
+  <aside class="sidebar">
+    <h3>Group by</h3>
+    <div class="field-group">
+      <select id="attr-select">
+        <option value="institution">Institution</option>
+        <option value="program">Program</option>
+        <option value="dber_field">DBER Field</option>
+        <option value="phd_era">PhD Era</option>
+        <option value="none">None (no clustering)</option>
+      </select>
+    </div>
+
+    <div class="toggle-row">
+      <input type="checkbox" id="edge-toggle" checked>
+      <label for="edge-toggle" style="margin:0; text-transform:none; font-family:var(--sans); font-size:0.85rem; color:var(--ink);">Show connections</label>
+    </div>
+
+    <h3>Search</h3>
+    <input type="text" id="search" placeholder="Name, institution, program…">
+
+    <h3>PhD Year</h3>
+    <div class="toggle-row">
+      <input type="checkbox" id="year-range-toggle">
+      <label for="year-range-toggle" style="margin:0; text-transform:none; font-family:var(--sans); font-size:0.85rem; color:var(--ink);">Filter by range</label>
+    </div>
+    <div class="field-group">
+      <input type="range" id="year-min">
+      <input type="range" id="year-max">
+    </div>
+    <div class="mono" id="year-label" style="font-size:0.76rem; color:var(--ink-soft);"></div>
+
+    <h3 id="legend-title"></h3>
+    <ul class="legend" id="legend"></ul>
+
+    <div class="stat-line" id="count-readout"></div>
+  </aside>
+
+  <main class="stage" id="stage">
+    <canvas id="graph-canvas"></canvas>
+    <div class="loading-note" id="loading-note">Arranging the network…</div>
+    <div class="stage-hint">Scroll to zoom · drag to pan · drag a node to pin it · click a hub to isolate its group</div>
+    <div class="detail-panel" id="detail-panel"></div>
+  </main>
+</div>
+
+<script src="js/network.js"></script>
+<script src="js/filters.js"></script>
+<script src="js/detail-panel.js"></script>
+<script>
+(async function () {
+  const [scholars, groups] = await Promise.all([
+    fetch("data/scholars.json").then((r) => r.json()),
+    fetch("data/groups.json").then((r) => r.json()),
+  ]);
+
+  const canvas = document.getElementById("graph-canvas");
+  const detailPanel = document.getElementById("detail-panel");
+
+  const graph = new NetworkGraph(canvas, {
+    onSelectPerson: (scholar) => renderDetailPanel(detailPanel, scholar),
+  });
+  graph.load(scholars, groups);
+
+  document.getElementById("loading-note").remove();
+
+  initFilters({
+    graph,
+    scholars,
+    groups,
+    els: {
+      attrSelect: document.getElementById("attr-select"),
+      edgeToggle: document.getElementById("edge-toggle"),
+      search: document.getElementById("search"),
+      yearRangeToggle: document.getElementById("year-range-toggle"),
+      yearMin: document.getElementById("year-min"),
+      yearMax: document.getElementById("year-max"),
+      yearLabel: document.getElementById("year-label"),
+      legend: document.getElementById("legend"),
+      legendTitle: document.getElementById("legend-title"),
+      countReadout: document.getElementById("count-readout"),
+    },
+  });
+})();
+</script>
+
+</body>
+</html>

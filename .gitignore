@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.DS_Store
+
+# Backstop: never let a raw source CSV (which may still have the Email column)
+# get committed into this repo, even if copied here temporarily during a build run.
+*_DBER_scholars_merged.csv
+*.csv

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add / Edit — DBER Scholars Network</title>
+<meta name="description" content="Add yourself or request a correction to the DBER Scholars Network dataset.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="topnav">
+  <a class="brand" href="index.html">DBER Scholars Network</a>
+  <nav>
+    <a href="index.html">Network</a>
+    <a href="about.html">About</a>
+    <a href="contribute.html" class="active">Add / Edit</a>
+  </nav>
+</div>
+
+<div class="page">
+  <h1>Add yourself or request an edit</h1>
+  <p class="lede">
+    Not in the dataset, or something wrong about your own entry? Use the form below.
+  </p>
+
+  <div class="callout">
+    This site has no database behind it — submissions are reviewed and merged into the
+    dataset by hand, then the site is rebuilt and redeployed. It isn't instant, but
+    every submission is read.
+  </div>
+
+  <form class="contribute-form" id="contribute-form">
+    <label for="request-type">Request type</label>
+    <select id="request-type" name="requestType" required>
+      <option value="Add myself">Add myself</option>
+      <option value="Edit an existing record">Edit an existing record</option>
+      <option value="Report an error">Report an error</option>
+    </select>
+
+    <label for="which-record">Which record? (if editing or reporting an error — start typing a name)</label>
+    <input type="text" id="which-record" name="whichRecord" list="scholar-names" placeholder="e.g. Aaron Clark">
+    <datalist id="scholar-names"></datalist>
+
+    <label for="your-name">Your name</label>
+    <input type="text" id="your-name" name="yourName" required>
+
+    <label for="reply-email">Your email (so I can follow up or confirm details)</label>
+    <input type="email" id="reply-email" name="replyEmail">
+
+    <label for="message">What would you like added or changed?</label>
+    <textarea id="message" name="message" required placeholder="e.g. Institution: X University. DBER Field: PER. Program: Physics Education PhD, graduated 2019. Dissertation title: ..."></textarea>
+
+    <div>
+      <button type="submit" class="btn">Prepare email</button>
+    </div>
+  </form>
+
+  <div class="fallback-box" id="fallback-box" style="display:none;">
+    <p><strong>Ready to send.</strong> Click below to open your email client, or copy the text and paste it into an email yourself (useful if your computer has no mail app configured, or your submission is long and might get truncated).</p>
+    <a href="#" class="btn" id="mail-btn">Open email client</a>
+    <button type="button" class="btn secondary" id="copy-btn">Copy text</button>
+    <textarea id="fallback-textarea" readonly></textarea>
+  </div>
+</div>
+
+<footer class="site-footer">Submissions go to mew329@cornell.edu · reviewed and merged manually</footer>
+
+<script src="js/contribute-form.js"></script>
+<script>
+(async function () {
+  const scholars = await fetch("data/scholars.json").then((r) => r.json());
+  initContributeForm({
+    form: document.getElementById("contribute-form"),
+    scholarNames: scholars.map((s) => s.name).sort(),
+    fallbackTextarea: document.getElementById("fallback-textarea"),
+    fallbackBox: document.getElementById("fallback-box"),
+    mailBtn: document.getElementById("mail-btn"),
+  });
+})();
+</script>
+
+</body>
+</html>

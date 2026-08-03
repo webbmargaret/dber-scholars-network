@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — DBER Scholars Network</title>
+<meta name="description" content="How the DBER Scholars dataset and network map were built, and their known gaps and limitations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="topnav">
+  <a class="brand" href="index.html">DBER Scholars Network</a>
+  <nav>
+    <a href="index.html">Network</a>
+    <a href="about.html" class="active">About</a>
+    <a href="contribute.html">Add / Edit</a>
+  </nav>
+</div>
+
+<div class="page">
+  <h1>About this project</h1>
+  <p class="lede">
+    A map of people connected to discipline-based education research (DBER) —
+    physics, engineering, biology, chemistry, math, and general STEM education
+    research — built from public sources and merged into one dataset.
+  </p>
+
+  <h2>What you're looking at</h2>
+  <p>
+    The <a href="index.html">network view</a> shows every person in the dataset as a
+    small dot. Pick an attribute in the sidebar — Institution, Program, DBER Field, or
+    PhD Era — and people who share that attribute get pulled toward a shared "hub" node
+    and colored together. Click a hub to isolate its members; click a person to see
+    everything the dataset has on them.
+  </p>
+
+  <div class="callout warm">
+    <strong>Read this before you read the graph as a social network.</strong>
+    The lines connecting people are <em>shared-attribute</em> connections — same
+    institution, same program, same field — not confirmed real-world relationships.
+    Two people linked to the same "Purdue University" hub may never have met. The
+    clustering is genuinely informative about who's affiliated with what, but it isn't
+    a map of who knows whom, who advised whom, or who has worked together.
+  </div>
+
+  <p>
+    You'll also notice that grouping by <strong>Institution</strong> and by
+    <strong>Program</strong> often produce nearly identical clusters for the largest
+    schools — Purdue's School of Engineering Education essentially <em>is</em> Purdue's
+    presence in this dataset. That's not a bug; it reflects how the underlying data was
+    collected (see below), which leans heavily on institutions that happen to publish a
+    complete, dated alumni roster.
+  </p>
+
+  <h2>How the dataset was built</h2>
+  <p>
+    This started as a side project studying postdoctoral job markets in physics
+    education research (PER), on the premise that engineering, science, and mathematics
+    education research all belong to the same broader family of discipline-based
+    education research fields. That grew into an effort to map who actually works in
+    this space — current faculty, PhD program alumni, and recognized field leaders —
+    by merging eight separate source lists:
+  </p>
+  <ol>
+    <li>The STEM DBER Alliance's participant list (institution, field, role, and a
+      qualitative "expert type" tag like "Voices" or "Boundary Spanner")</li>
+    <li>A 2026 DBER conference attendee directory</li>
+    <li>An index of profiles from an Engineering Education Pioneers project</li>
+    <li>A compiled report of named PhD alumni across roughly 30 US engineering,
+      science, and mathematics education doctoral programs</li>
+    <li>Follow-up research filling in gaps for programs with no public alumni roster,
+      using institutional repositories and ProQuest-style dissertation records</li>
+    <li>A current-faculty research pass across the same ~30 programs</li>
+    <li>A cross-reference against ASEE's Educational Research and Methods (ERM)
+      Division Fellows list and the general Academy of Fellows, 2023–2025 classes</li>
+    <li>Manual review to reconcile the inevitable near-duplicates — nicknames, dropped
+      middle initials, and punctuation differences that made the same person look like
+      two people across sources (e.g. "Cindy" vs. "Cynthia" Atman)</li>
+  </ol>
+  <p>
+    Every person's record keeps a <strong>Source(s)</strong> field in the detail panel
+    tracing exactly which list(s) contributed their information, so any fact can be
+    traced back to where it came from.
+  </p>
+
+  <h2>Known gaps and limitations</h2>
+  <ul>
+    <li><strong>Coverage is uneven across fields and institutions.</strong> Programs
+      that publish a well-maintained public alumni page (Purdue, Virginia Tech, Western
+      Michigan, San Diego State/UC San Diego, Maryland, Delaware, and a handful of
+      others) are disproportionately well-represented — not because they're larger or
+      more active, just more publicly documented.</li>
+    <li><strong>Most fields are sparsely filled.</strong> A field tag (PER, EER, BER,
+      RUME, etc.) is only recorded for a minority of people; research interests,
+      dissertation titles, and current position are similarly partial. Where a person's
+      record looks thin, that reflects a genuine gap in the public record, not a
+      collection error.</li>
+    <li><strong>ASEE's historical Fellows roster is incomplete.</strong> It sits behind
+      a members-only login; only the 2023–2025 classes were retrievable in full. The
+      more directly DBER-relevant ERM Division Fellows list was retrieved in full.</li>
+    <li><strong>No names were invented.</strong> Where a source didn't clearly confirm a
+      detail, that field was left blank rather than guessed.</li>
+    <li><strong>Email addresses are deliberately excluded</strong> from this public
+      site, even where a source (a conference directory) originally included them —
+      republishing scraped contact information without the person's direct consent
+      isn't something this project does.</li>
+  </ul>
+
+  <h2>The dataset in numbers</h2>
+  <table class="stat-table" id="stats-table">
+    <tbody><tr><td colspan="2">Loading current build stats…</td></tr></tbody>
+  </table>
+
+  <h2>Corrections and additions</h2>
+  <p>
+    Not on here, or see something wrong about your own entry? Go to the
+    <a href="contribute.html">Add / Edit page</a> — every submission is reviewed and
+    merged in by hand, not published automatically.
+  </p>
+</div>
+
+<footer class="site-footer">Built from public sources · data reviewed and merged manually, not live-updating</footer>
+
+<script>
+fetch("data/build_meta.json").then(r => r.json()).then(meta => {
+  const tbody = document.querySelector("#stats-table tbody");
+  const rows = [
+    ["People in the dataset", meta.row_count],
+    ["Institutions represented", meta.group_attribute_counts.institution],
+    ["Programs represented", meta.group_attribute_counts.program],
+    ["DBER field tags recorded", meta.fill_counts.DBER_Field + " people (" + meta.group_attribute_counts.dber_field + " distinct tags)"],
+    ["PhD year recorded", meta.fill_counts.PhD_Year + " people"],
+    ["Dissertation title recorded", meta.fill_counts.Dissertation_Title + " people"],
+    ["Last rebuilt", meta.built.slice(0, 10)],
+  ];
+  tbody.innerHTML = rows.map(([label, val]) =>
+    `<tr><th>${label}</th><td>${val}</td></tr>`
+  ).join("");
+});
+</script>
+
+</body>
+</html>
