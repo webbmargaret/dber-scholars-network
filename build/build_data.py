@@ -21,24 +21,22 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = REPO_ROOT / "data"
 
 # Columns kept for display, excluding Name (handled separately) and Email (never kept).
+# Expert_Type, Phase, Source_List, and Data_Quality_Flag are intentionally excluded —
+# they're internal data-collection metadata (how/where a record was sourced), not
+# information this public site publishes.
 DISPLAY_COLUMNS = [
     "Institution",
     "DBER_Field",
     "Research_Interests",
     "Position_Title",
     "Position_Type",
-    "Expert_Type",
     "Program",
     "PhD_Year",
     "Dissertation_Title",
     "Current_Position",
-    "Phase",
     "Notes",
-    "Source_List",
-    "Data_Quality_Flag",
 ]
 
-# Grouping/hub attributes only — Expert_Type and Source_List are deliberately excluded.
 GROUP_ATTRS = ["institution", "program", "dber_field", "phd_era"]
 
 EMAIL_RE = re.compile(r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}")
@@ -55,12 +53,6 @@ def scrub_emails(value: str) -> str:
     return EMAIL_RE.sub("", value).strip()
 
 
-SOURCE_LIST_FIXES = {
-    "PhD Alumni List + ProQuest/Repository Research (Aug 2026)":
-        "PhD Alumni List || ProQuest/Repository Research (Aug 2026)",
-}
-
-
 def slugify(name: str) -> str:
     s = name.lower().strip()
     s = re.sub(r"[^a-z0-9]+", "-", s)
@@ -72,6 +64,135 @@ def split_pipe(value: str) -> list[str]:
     if not value:
         return []
     return [v.strip() for v in value.split("||") if v.strip()]
+
+
+# Simple whole-string name variants -> one canonical spelling. Checked against the
+# lowercased, trimmed raw string when nothing more specific (an override or a split)
+# applies.
+CANONICAL_INSTITUTION_NAMES = {
+    "clemson": "Clemson University",
+    "cornell": "Cornell University",
+    "ohio state university": "The Ohio State University",
+}
+
+# Exact raw `Institution` strings that pack a multi-institution history, a joint
+# program, or a career move into one piece of text, with no consistent delimiter.
+# Hand-curated because the dataset only has a few dozen of these total — a generic
+# splitter risks mangling legitimate comma-bearing names like "University of
+# Nevada, Reno". `status` is "former" or "current" only where the source text (or,
+# for two entries, unambiguous language elsewhere in that person's record) says so
+# outright; otherwise "unknown" — no institution history is guessed or invented.
+INSTITUTION_STRING_OVERRIDES: dict[str, list[dict[str, str]]] = {
+    "Cornell University (formerly CU Boulder)": [
+        {"name": "Cornell University", "status": "current", "note": ""},
+        {"name": "University of Colorado Boulder", "status": "former", "note": ""},
+    ],
+    "North Carolina State University (moved 2025)": [
+        {"name": "North Carolina State University", "status": "current", "note": "moved 2025"},
+    ],
+    "Florida International University: Now at UNM": [
+        {"name": "Florida International University", "status": "former", "note": ""},
+        {"name": "University of New Mexico", "status": "current", "note": ""},
+    ],
+    "Florida International University | OSU": [
+        {"name": "Florida International University", "status": "former", "note": ""},
+        {"name": "The Ohio State University", "status": "current", "note": ""},
+    ],
+    "Florida International University; multiple institutiosn": [
+        {"name": "Florida International University", "status": "current", "note": ""},
+    ],
+    "St. Olaf College (previously Carleton College, NSF)": [
+        {"name": "St. Olaf College", "status": "current", "note": ""},
+        {"name": "Carleton College", "status": "former", "note": ""},
+    ],
+    "San Diego State University + UC San Diego": [
+        {"name": "San Diego State University", "status": "current", "note": "joint program"},
+        {"name": "University of California, San Diego", "status": "current", "note": "joint program"},
+    ],
+    "Cornell University, FIU, Olin, MIT": [
+        {"name": "Cornell University", "status": "unknown", "note": ""},
+        {"name": "Florida International University", "status": "unknown", "note": ""},
+        {"name": "Olin College of Engineering", "status": "unknown", "note": ""},
+        {"name": "Massachusetts Institute of Technology", "status": "unknown", "note": ""},
+    ],
+    "Rice University, MIT": [
+        {"name": "Rice University", "status": "unknown", "note": ""},
+        {"name": "Massachusetts Institute of Technology", "status": "unknown", "note": ""},
+    ],
+    "Stanford University; PhET (CU Boulder)": [
+        {"name": "Stanford University", "status": "unknown", "note": ""},
+        {"name": "University of Colorado Boulder", "status": "unknown", "note": "PhET"},
+    ],
+    "UK Open University / Heriot-Watt": [
+        {"name": "The Open University", "status": "unknown", "note": ""},
+        {"name": "Heriot-Watt University", "status": "unknown", "note": ""},
+    ],
+    "University of Minnesota/Purdue": [
+        {"name": "University of Minnesota", "status": "unknown", "note": ""},
+        {"name": "Purdue University", "status": "unknown", "note": ""},
+    ],
+    "University of San Francisco / University of Washington": [
+        {"name": "University of San Francisco", "status": "unknown", "note": ""},
+        {"name": "University of Washington", "status": "unknown", "note": ""},
+    ],
+    "Lamont-Doherty Earth Observatory, Columbia University": [
+        {"name": "Columbia University", "status": "current", "note": ""},
+    ],
+}
+
+
+def canonicalize_institution_name(name: str) -> str:
+    name = name.strip()
+    return CANONICAL_INSTITUTION_NAMES.get(name.lower(), name)
+
+
+def normalize_institutions(raw_list: list[str]) -> list[dict[str, str]]:
+    """Turn a scholar's raw (already `||`-split) Institution pieces into a structured,
+    deduplicated history: [{name, status: current/former/unknown, note}, ...].
+
+    A source-CSV encoding bug (a Windows-1252 en dash miskeyed as \\x96) is fixed
+    inline so e.g. both spellings of "University of Nebraska-Lincoln" merge into one.
+    """
+    resolved: list[dict[str, str | None]] = []
+    for raw in raw_list:
+        raw = raw.replace("\x96", "-").strip()
+        if not raw:
+            continue
+        override = INSTITUTION_STRING_OVERRIDES.get(raw)
+        if override is not None:
+            resolved.extend(dict(entry) for entry in override)
+            continue
+        # Status is undetermined here — a plain raw piece with no annotation. It's
+        # resolved below based on how many institutions this scholar ends up with:
+        # "current" for the one-institution case, "unknown" when there's more than
+        # one and nothing else pins down the order (e.g. the CSV's `||`-joined pieces
+        # already represent a multi-institution history with no stated sequence).
+        resolved.append({"name": canonicalize_institution_name(raw), "status": None, "note": ""})
+
+    default_status = "current" if len(resolved) == 1 else "unknown"
+    for entry in resolved:
+        if entry["status"] is None:
+            entry["status"] = default_status
+
+    # A "(moved YYYY)" annotation on one entry implies any other undetermined entry
+    # in the same list is where the person moved *from* — e.g. ["Western Michigan
+    # University", "North Carolina State University (moved 2025)"].
+    moved = [e for e in resolved if e["note"].startswith("moved ")]
+    if len(moved) == 1:
+        moved_name = moved[0]["name"]
+        for entry in resolved:
+            if entry["name"] != moved_name and entry["status"] == default_status and not entry["note"]:
+                entry["status"] = "former"
+
+    deduped: list[dict[str, str]] = []
+    seen: set[str] = set()
+    for entry in resolved:
+        key = entry["name"].lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        deduped.append(entry)
+    return deduped
 
 
 def split_dber_field(value: str) -> list[str]:
@@ -136,10 +257,7 @@ def build(csv_path: Path):
             if row.get(c, "").strip():
                 fill_counts[c] += 1
 
-        raw_source_list = row.get("Source_List", "").strip()
-        raw_source_list = SOURCE_LIST_FIXES.get(raw_source_list, raw_source_list)
-
-        institutions = split_pipe(row.get("Institution", ""))
+        institutions = normalize_institutions(split_pipe(row.get("Institution", "")))
         programs = split_pipe(row.get("Program", ""))
         dber_fields = split_dber_field(row.get("DBER_Field", ""))
         year = coerce_phd_year(row.get("PhD_Year", ""))
@@ -156,21 +274,17 @@ def build(csv_path: Path):
             "research_interests": row.get("Research_Interests", "").strip(),
             "position_title": row.get("Position_Title", "").strip(),
             "position_type": row.get("Position_Type", "").strip(),
-            "expert_type": split_pipe(row.get("Expert_Type", "")),
             "phd_year": year,
             "phd_era": era,
             "dissertation_title": row.get("Dissertation_Title", "").strip(),
             "position_or_advisor_note": row.get("Current_Position", "").strip(),
-            "phase": row.get("Phase", "").strip(),
             "notes": row.get("Notes", "").strip(),
-            "source_list": split_pipe(raw_source_list),
-            "data_quality_flag": row.get("Data_Quality_Flag", "").strip(),
             "completeness": completeness_score(row),
         }
         scholars.append(scholar)
 
         for inst in institutions:
-            group_members["institution"][inst].append(person_id)
+            group_members["institution"][inst["name"]].append(person_id)
         for prog in programs:
             group_members["program"][prog].append(person_id)
         for field in dber_fields:

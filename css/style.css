@@ -206,6 +206,11 @@ input[type="range"] { width: 100%; }
   padding: 0.15rem 0.5rem;
   border-radius: 3px;
 }
+.chip--former {
+  background: transparent;
+  color: var(--ink-soft);
+  border: 1px solid var(--ink-soft);
+}
 .sparse-note {
   font-family: var(--mono);
   font-size: 0.75rem;

@@ -181,7 +181,7 @@ class NetworkGraph {
     }
     if (this.yearRange && scholar.phd_year == null) return false;
     if (this.searchTerm) {
-      const hay = (scholar.name + " " + scholar.institution.join(" ") + " " + scholar.program.join(" ")).toLowerCase();
+      const hay = (scholar.name + " " + scholar.institution.map((i) => i.name).join(" ") + " " + scholar.program.join(" ")).toLowerCase();
       if (!hay.includes(this.searchTerm)) return false;
     }
     return true;
