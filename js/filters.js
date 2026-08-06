@@ -2,6 +2,7 @@
 // legend, live count) to a NetworkGraph instance.
 
 function initFilters({ graph, scholars, groups, els }) {
+  let legendExpanded = false;
   const yearsWithData = scholars.map((s) => s.phd_year).filter((y) => y != null);
   const minYear = yearsWithData.length ? Math.min(...yearsWithData) : 1990;
   const maxYear = yearsWithData.length ? Math.max(...yearsWithData) : new Date().getFullYear();
@@ -36,8 +37,8 @@ function initFilters({ graph, scholars, groups, els }) {
     }
     const list = groups[attr] || [];
     els.legendTitle.textContent = `Top ${ATTR_LABELS[attr]} groups`;
-    const top = list.slice(0, 14);
-    top.forEach((g, i) => {
+    const visible = legendExpanded ? list : list.slice(0, 14);
+    visible.forEach((g, i) => {
       const li = document.createElement("li");
       const swatch = document.createElement("span");
       swatch.className = "swatch";
@@ -58,12 +59,25 @@ function initFilters({ graph, scholars, groups, els }) {
       li.addEventListener("click", () => graph.isolateHub(`hub:${g.groupId}`));
       els.legend.appendChild(li);
     });
-    if (list.length > top.length) {
-      const more = document.createElement("li");
-      more.textContent = `+ ${list.length - top.length} more…`;
-      more.style.color = "var(--ink-soft)";
-      more.style.cursor = "default";
-      els.legend.appendChild(more);
+    if (list.length > 14) {
+      const toggle = document.createElement("li");
+      toggle.className = "legend-toggle";
+      toggle.textContent = legendExpanded ? "Show fewer" : `+ ${list.length - 14} more…`;
+      toggle.tabIndex = 0;
+      toggle.setAttribute("role", "button");
+      toggle.setAttribute("aria-expanded", String(legendExpanded));
+      const toggleFn = () => {
+        legendExpanded = !legendExpanded;
+        renderLegend(attr);
+      };
+      toggle.addEventListener("click", toggleFn);
+      toggle.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          toggleFn();
+        }
+      });
+      els.legend.appendChild(toggle);
     }
   }
 
@@ -71,11 +85,23 @@ function initFilters({ graph, scholars, groups, els }) {
     const attr = els.attrSelect.value;
     const groupCount = attr === "none" ? 0 : (groups[attr] || []).length;
     const suffix = attr === "none" ? "" : ` across ${groupCount} ${ATTR_LABELS[attr].toLowerCase()} groups`;
+    const term = els.search.value.trim();
+    if (term) {
+      const n = graph.matchCount;
+      els.countReadout.classList.toggle("no-match", n === 0);
+      els.countReadout.textContent =
+        n === 0
+          ? `0 people match "${term}" — try a different term`
+          : `${n} ${n === 1 ? "person" : "people"} match "${term}"`;
+      return;
+    }
+    els.countReadout.classList.remove("no-match");
     els.countReadout.textContent = `Showing ${scholars.length} people${suffix}`;
   }
 
   els.attrSelect.addEventListener("change", () => {
     const attr = els.attrSelect.value;
+    legendExpanded = false;
     graph.setAttribute(attr);
     renderLegend(attr);
     updateCount();
@@ -87,6 +113,7 @@ function initFilters({ graph, scholars, groups, els }) {
 
   els.search.addEventListener("input", () => {
     graph.setSearch(els.search.value);
+    updateCount();
   });
 
   els.yearRangeToggle.addEventListener("change", applyYearFilter);

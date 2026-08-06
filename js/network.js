@@ -31,6 +31,8 @@ class NetworkGraph {
     this.activeAttr = "institution";
     this.showEdges = true;
     this.searchTerm = "";
+    this.searchWords = [];
+    this.matchCount = 0;
     this.yearRange = null; // [min, max] or null
     this.transform = { x: 0, y: 0, k: 1 };
     this.isolatedHub = null;
@@ -59,7 +61,25 @@ class NetworkGraph {
     this.scholars = scholars;
     this.groups = groups;
     this.scholarById = new Map(scholars.map((s) => [s.id, s]));
+    this._haystackById = new Map(scholars.map((s) => [s.id, this._buildHaystack(s)]));
     this.setAttribute(this.activeAttr, { warm: false });
+  }
+
+  _buildHaystack(scholar) {
+    return [
+      scholar.name,
+      scholar.institution.map((i) => i.name).join(" "),
+      scholar.program.join(" "),
+      scholar.dber_field.join(" "),
+      scholar.research_interests,
+      scholar.position_title,
+      scholar.dissertation_title,
+      scholar.position_or_advisor_note,
+      scholar.notes,
+    ]
+      .map((v) => v || "")
+      .join(" ")
+      .toLowerCase();
   }
 
   setAttribute(attr, { warm = true } = {}) {
@@ -78,6 +98,7 @@ class NetworkGraph {
 
   setSearch(term) {
     this.searchTerm = term.trim().toLowerCase();
+    this.searchWords = this.searchTerm.split(/\s+/).filter(Boolean);
     this._draw();
   }
 
@@ -180,9 +201,9 @@ class NetworkGraph {
       if (scholar.phd_year < this.yearRange[0] || scholar.phd_year > this.yearRange[1]) return false;
     }
     if (this.yearRange && scholar.phd_year == null) return false;
-    if (this.searchTerm) {
-      const hay = (scholar.name + " " + scholar.institution.map((i) => i.name).join(" ") + " " + scholar.program.join(" ")).toLowerCase();
-      if (!hay.includes(this.searchTerm)) return false;
+    if (this.searchWords.length) {
+      const hay = this._haystackById.get(scholar.id) || this._buildHaystack(scholar);
+      if (!this.searchWords.every((w) => hay.includes(w))) return false;
     }
     return true;
   }
@@ -217,10 +238,12 @@ class NetworkGraph {
     }
 
     // Person nodes
+    let matchCount = 0;
     for (const n of this.nodes) {
       if (n.type !== "person") continue;
       const sc = n.scholar;
       const passesFilter = this._matchesFilters(sc);
+      if (passesFilter) matchCount++;
       const dimmedByIsolation = isolated && !isolatedMemberIds.has(n.id);
       const dim = !passesFilter || dimmedByIsolation;
       const r = 2.4 + sc.completeness * 3.2;
@@ -230,6 +253,7 @@ class NetworkGraph {
       ctx.arc(n.x, n.y, r, 0, 2 * Math.PI);
       ctx.fill();
     }
+    this.matchCount = matchCount;
     ctx.globalAlpha = 1;
 
     // Hub nodes

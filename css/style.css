@@ -113,7 +113,14 @@ input[type="range"] { width: 100%; }
   padding-top: 0.6rem;
   margin-top: 0.9rem;
 }
-.legend { list-style: none; margin: 0.4rem 0 0; padding: 0; }
+.stat-line.no-match { color: var(--warm); }
+.legend {
+  list-style: none;
+  margin: 0.4rem 0 0;
+  padding: 0;
+  max-height: 320px;
+  overflow-y: auto;
+}
 .legend li {
   display: flex;
   justify-content: space-between;
@@ -132,6 +139,15 @@ input[type="range"] { width: 100%; }
   flex-shrink: 0;
 }
 .legend li .count { font-family: var(--mono); color: var(--ink-soft); }
+.legend li.legend-toggle {
+  justify-content: center;
+  color: var(--ink-soft);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+}
+.legend li.legend-toggle:hover,
+.legend li.legend-toggle:focus-visible { color: var(--accent); }
+.legend li.legend-toggle:focus-visible { outline: 1px solid var(--accent); outline-offset: 1px; }
 
 .stage {
   position: relative;
@@ -292,6 +308,7 @@ footer.site-footer {
 @media (max-width: 780px) {
   .app { grid-template-columns: 1fr; grid-template-rows: auto 1fr; height: auto; }
   .sidebar { border-right: none; border-bottom: 1px solid var(--panel-line); max-height: 40vh; }
+  .legend { max-height: 120px; }
   .stage { height: 60vh; }
   .detail-panel { width: 100%; }
 }
