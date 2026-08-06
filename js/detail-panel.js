@@ -8,14 +8,10 @@ const FIELD_DEFS = [
   { key: "position_type", label: "Position Type", type: "text" },
   { key: "dber_field", label: "DBER Field", type: "chips" },
   { key: "research_interests", label: "Research Interests", type: "text" },
-  { key: "expert_type", label: "Expert Type", type: "chips" },
   { key: "phd_year", label: "PhD Year", type: "text" },
   { key: "dissertation_title", label: "Dissertation Title", type: "text" },
   { key: "position_or_advisor_note", label: "First Position / Advisor Note", type: "text" },
-  { key: "phase", label: "Phase / Fellow Notes", type: "text" },
   { key: "notes", label: "Notes", type: "text" },
-  { key: "data_quality_flag", label: "Data Quality Flag", type: "text" },
-  { key: "source_list", label: "Source(s)", type: "chips" },
 ];
 
 function isEmpty(v) {
@@ -55,8 +51,13 @@ function renderDetailPanel(panelEl, scholar) {
       row.className = "chip-row";
       for (const v of val) {
         const chip = document.createElement("span");
-        chip.className = "chip";
-        chip.textContent = v;
+        if (def.key === "institution") {
+          chip.className = v.status === "former" ? "chip chip--former" : "chip";
+          chip.textContent = v.status === "former" ? `${v.name} (former)` : v.name;
+        } else {
+          chip.className = "chip";
+          chip.textContent = v;
+        }
         row.appendChild(chip);
       }
       wrap.appendChild(row);
