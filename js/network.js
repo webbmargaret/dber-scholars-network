@@ -33,6 +33,7 @@ class NetworkGraph {
     this.searchTerm = "";
     this.searchWords = [];
     this.matchCount = 0;
+    this.matches = [];
     this.yearRange = null; // [min, max] or null
     this.transform = { x: 0, y: 0, k: 1 };
     this.isolatedHub = null;
@@ -62,6 +63,7 @@ class NetworkGraph {
     this.groups = groups;
     this.scholarById = new Map(scholars.map((s) => [s.id, s]));
     this._haystackById = new Map(scholars.map((s) => [s.id, this._buildHaystack(s)]));
+    this._nameHaystackById = new Map(scholars.map((s) => [s.id, (s.name || "").toLowerCase()]));
     this.setAttribute(this.activeAttr, { warm: false });
   }
 
@@ -208,6 +210,11 @@ class NetworkGraph {
     return true;
   }
 
+  _isNameMatch(scholar) {
+    const nameHay = this._nameHaystackById.get(scholar.id) || (scholar.name || "").toLowerCase();
+    return this.searchWords.every((w) => nameHay.includes(w));
+  }
+
   _draw() {
     const ctx = this.ctx;
     ctx.clearRect(0, 0, this.width, this.height);
@@ -239,11 +246,17 @@ class NetworkGraph {
 
     // Person nodes
     let matchCount = 0;
+    const matches = [];
     for (const n of this.nodes) {
       if (n.type !== "person") continue;
       const sc = n.scholar;
       const passesFilter = this._matchesFilters(sc);
-      if (passesFilter) matchCount++;
+      if (passesFilter) {
+        matchCount++;
+        if (this.searchWords.length) {
+          matches.push({ scholar: sc, isNameMatch: this._isNameMatch(sc) });
+        }
+      }
       const dimmedByIsolation = isolated && !isolatedMemberIds.has(n.id);
       const dim = !passesFilter || dimmedByIsolation;
       const r = 2.4 + sc.completeness * 3.2;
@@ -254,6 +267,12 @@ class NetworkGraph {
       ctx.fill();
     }
     this.matchCount = matchCount;
+    if (this.searchWords.length) {
+      matches.sort((a, b) => b.isNameMatch - a.isNameMatch);
+      this.matches = matches;
+    } else {
+      this.matches = [];
+    }
     ctx.globalAlpha = 1;
 
     // Hub nodes

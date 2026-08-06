@@ -48,6 +48,7 @@
 
     <h3>Search</h3>
     <input type="text" id="search" placeholder="Name, institution, program, research interests…">
+    <ul class="search-results" id="search-results"></ul>
 
     <h3>PhD Year</h3>
     <div class="toggle-row">
@@ -102,6 +103,7 @@
       attrSelect: document.getElementById("attr-select"),
       edgeToggle: document.getElementById("edge-toggle"),
       search: document.getElementById("search"),
+      searchResults: document.getElementById("search-results"),
       yearRangeToggle: document.getElementById("year-range-toggle"),
       yearMin: document.getElementById("year-min"),
       yearMax: document.getElementById("year-max"),

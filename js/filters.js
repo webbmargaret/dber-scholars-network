@@ -81,6 +81,54 @@ function initFilters({ graph, scholars, groups, els }) {
     }
   }
 
+  const RESULTS_CAP = 8;
+
+  function renderSearchResults(term) {
+    els.searchResults.innerHTML = "";
+    if (!term) {
+      els.searchResults.hidden = true;
+      return;
+    }
+    els.searchResults.hidden = false;
+    const all = graph.matches;
+    const visible = all.slice(0, RESULTS_CAP);
+    visible.forEach(({ scholar, isNameMatch }) => {
+      const li = document.createElement("li");
+      li.tabIndex = 0;
+      li.setAttribute("role", "button");
+      const nameEl = document.createElement("span");
+      nameEl.className = "search-result-name";
+      nameEl.textContent = scholar.name;
+      const instEl = document.createElement("span");
+      instEl.className = "search-result-inst";
+      instEl.textContent = scholar.institution[0] ? scholar.institution[0].name : "Institution unknown";
+      li.appendChild(nameEl);
+      li.appendChild(instEl);
+      if (!isNameMatch) {
+        const badge = document.createElement("span");
+        badge.className = "search-result-badge";
+        badge.textContent = "mentioned in notes";
+        li.appendChild(badge);
+      }
+      const select = () => graph.onSelectPerson(scholar);
+      li.addEventListener("click", select);
+      li.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          select();
+        }
+      });
+      els.searchResults.appendChild(li);
+    });
+    if (all.length > RESULTS_CAP) {
+      const more = document.createElement("li");
+      more.className = "search-result-overflow";
+      const remaining = all.length - RESULTS_CAP;
+      more.textContent = `+ ${remaining} more match${remaining === 1 ? "" : "es"} — refine your search to narrow`;
+      els.searchResults.appendChild(more);
+    }
+  }
+
   function updateCount() {
     const attr = els.attrSelect.value;
     const groupCount = attr === "none" ? 0 : (groups[attr] || []).length;
@@ -114,6 +162,7 @@ function initFilters({ graph, scholars, groups, els }) {
   els.search.addEventListener("input", () => {
     graph.setSearch(els.search.value);
     updateCount();
+    renderSearchResults(els.search.value.trim());
   });
 
   els.yearRangeToggle.addEventListener("change", applyYearFilter);
@@ -122,4 +171,5 @@ function initFilters({ graph, scholars, groups, els }) {
 
   renderLegend(els.attrSelect.value);
   updateCount();
+  renderSearchResults(els.search.value.trim());
 }
