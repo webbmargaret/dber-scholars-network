@@ -1,13 +1,13 @@
 {
-  "built": "2026-08-06T11:37:51",
-  "row_count": 1567,
+  "built": "2026-08-07T16:31:14",
+  "row_count": 1581,
   "source_file": "1000_DBER_scholars_merged_scholar.csv",
   "fill_counts": {
     "Institution": 1048,
     "Research_Interests": 343,
     "Position_Title": 412,
     "Program": 894,
-    "Notes": 786,
+    "Notes": 800,
     "DBER_Field": 278,
     "PhD_Year": 469,
     "Dissertation_Title": 402,
