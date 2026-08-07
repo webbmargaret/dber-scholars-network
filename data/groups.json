@@ -1982,10 +1982,11 @@
   {
    "groupId": "program:school-of-engineering-education-ene",
    "label": "School of Engineering Education (ENE)",
-   "count": 132,
+   "count": 147,
    "memberIds": [
     "0020-aidsa-santiago-roman",
     "0023-alejandra-magana",
+    "0032-alice-pawley",
     "0042-amanda-johnston",
     "0060-anastasia-rynearson",
     "0065-andrea-mazzurco",
@@ -1993,10 +1994,12 @@
     "0085-anne-lucietto",
     "0091-anthony-lowe",
     "0092-antonette-cummings",
+    "0106-audeen-fentiman",
     "0109-avneet-hira",
     "0115-behzad-beigpourian",
     "0119-benjamin-ahn",
     "0123-beth-holloway",
+    "0133-brent-jesiek",
     "0140-brianna-benedict",
     "0141-brianna-dorie",
     "0146-brock-barry",
@@ -2039,6 +2042,8 @@
     "0473-james-cawthorne",
     "0478-james-holly-jr",
     "0479-james-l-huff",
+    "0492-jason-morphew",
+    "0514-jennifer-deboer",
     "0521-jenny-quintana-cifuentes",
     "0522-jeremi-london",
     "0531-jessica-rush-leeker",
@@ -2047,6 +2052,7 @@
     "0557-joi-lynn-mondisa",
     "0564-joseph-lyon",
     "0569-joyce-jin",
+    "0570-joyce-main",
     "0573-juan-david-ortega-alvarez",
     "0579-julia-thompson",
     "0580-julianna-gesun",
@@ -2058,7 +2064,9 @@
     "0611-katerina-bagiati",
     "0630-kelsey-rodgers",
     "0632-ken-reid",
+    "0636-kerrie-douglas",
     "0637-kerry-meyers",
+    "0643-khairiyah-mohd-yusof",
     "0679-laura-cruz",
     "0696-lee-rynearson",
     "0699-leslie-grundman",
@@ -2068,15 +2076,19 @@
     "0754-mark-carnes",
     "0767-mary-pilotte",
     "0771-matilde-sanchez-pena",
+    "0780-matthew-ohland",
     "0781-matthew-scheidt",
     "0782-matthew-verleger",
     "0787-meagan-pollock",
     "0804-mica-green",
+    "0812-michael-loui",
     "0817-michele-strutz",
     "0818-michele-yatchmeneff",
     "0830-ming-chien-hsu",
     "0833-molly-goldstein",
     "0838-monique-ross",
+    "0839-morgan-hynes",
+    "0842-muhsin-menekse",
     "0853-nataliia-perova-mello",
     "0854-natascha-buswell",
     "0857-nathan-hicks",
@@ -2100,6 +2112,8 @@
     "0968-ruth-wertz",
     "0971-ryan-senkpeil",
     "0974-saira-anwar",
+    "1001-sean-brophy",
+    "1004-senay-purzer",
     "1006-sensen-li",
     "1007-sergey-dubikovsky",
     "1014-shanna-daly",
@@ -2111,6 +2125,7 @@
     "1113-todd-fernandez",
     "1121-trina-fletcher",
     "1131-velvet-fitzpatrick",
+    "1151-william-oakes",
     "1157-xin-chen",
     "1158-xingyu-chen",
     "1165-yogesh-velankar",
@@ -2121,7 +2136,7 @@
   {
    "groupId": "program:department-of-engineering-education-enge",
    "label": "Department of Engineering Education (ENGE)",
-   "count": 95,
+   "count": 108,
    "memberIds": [
     "0007-abdulrahman-alsharif",
     "0014-adetoun-yeaman",
@@ -2153,10 +2168,13 @@
     "0234-cynthia-hampton",
     "0239-daniel-brogan",
     "0249-darren-maczka",
+    "0261-david-knight",
     "0267-david-reeping",
+    "0277-dayoung-kim",
     "0279-debarati-basu",
     "0281-deirdre-hunter",
     "0287-desen-ozkan",
+    "0320-ed-berger",
     "0333-elizabeth-spingola",
     "0354-erin-crede",
     "0407-glenda-young",
@@ -2167,9 +2185,11 @@
     "0439-hon-jie-teo",
     "0454-isil-anakok",
     "0462-jacob-moore",
+    "0470-jake-grohs",
     "0482-james-pembridge",
     "0489-janice-hall",
     "0497-jean-mohammadi-aragh",
+    "0510-jenni-case",
     "0517-jennifer-mullin",
     "0528-jessica-deters",
     "0551-john-morelock",
@@ -2186,8 +2206,13 @@
     "0655-kirsten-davis",
     "0687-lauren-thomas-quigley",
     "0703-lilianny-virguez",
+    "0711-lisa-mcnair",
     "0714-logan-perry",
+    "0732-margaret-maggie-webb",
+    "0733-mags-blackie",
     "0737-malle-schilling",
+    "0749-marie-paretti",
+    "0758-mark-huerta",
     "0774-matthew-boynton",
     "0785-maya-menon",
     "0786-mayra-artiles",
@@ -2202,17 +2227,20 @@
     "0917-rachel-mccord-ellestad",
     "0922-ramon-benitez",
     "0975-sam-snyder",
+    "0992-sarah-rodriguez",
     "1028-sidd-sunil-kumar",
     "1038-sophia-vicente",
     "1041-sreyoshi-bhaduri",
     "1048-stephanie-cutler",
     "1054-stephanie-kusano",
+    "1070-susan-sajadi",
     "1089-tawni-paradise",
     "1090-taylor-lightner",
     "1092-teirra-holloman",
     "1108-timothy-kinoshita",
     "1110-tina-griesinger",
     "1127-umair-shakir",
+    "1136-vinod-lohani",
     "1142-walter-lee",
     "1155-wm-michael-butler",
     "1160-yasir-gamieldien",
@@ -2383,71 +2411,6 @@
    ]
   },
   {
-   "groupId": "program:department-of-engineering-education",
-   "label": "Department of Engineering Education",
-   "count": 58,
-   "memberIds": [
-    "0009-adam-carberry",
-    "0017-adrienne-decker",
-    "0031-alice-nightingale",
-    "0047-amanpreet-kapoor",
-    "0052-amy-baird",
-    "0074-andrew-olewnik",
-    "0099-ashish-aggarwal",
-    "0200-cheryl-bodnar",
-    "0217-cole-lowman",
-    "0261-david-knight",
-    "0272-david-therriault",
-    "0277-dayoung-kim",
-    "0280-deborah-grzybowski",
-    "0297-diego-alvarado",
-    "0320-ed-berger",
-    "0334-elliot-douglas",
-    "0338-emily-hammond",
-    "0362-eunsil-lee",
-    "0371-farhoud-delijani",
-    "0405-giuseppe-grande",
-    "0422-hans-van-oostrom",
-    "0446-idalis-villanueva-alarcon",
-    "0470-jake-grohs",
-    "0510-jenni-case",
-    "0523-jeremiah-blanchard",
-    "0533-jessica-swenson",
-    "0536-jillian-seniuk-cicek",
-    "0538-jinnie-shin",
-    "0574-juan-gilbert",
-    "0576-jude-sabato",
-    "0578-julia-latorre",
-    "0638-keshab-acharya",
-    "0653-kinga-winnicka-ludwig",
-    "0656-kris-depowski-o-donnell",
-    "0658-krista-kecskemety",
-    "0669-kristy-boyer",
-    "0686-lauren-kuryloski",
-    "0711-lisa-mcnair",
-    "0733-mags-blackie",
-    "0740-marcia-friesen",
-    "0749-marie-paretti",
-    "0758-mark-huerta",
-    "0799-melissa-scheaffer",
-    "0836-monica-cox",
-    "0837-monica-miles",
-    "0870-ning-fang",
-    "0878-oenardi-lawanto",
-    "0913-rachel-bonnette",
-    "0915-rachel-kajfez",
-    "0992-sarah-rodriguez",
-    "1019-shawn-bailey",
-    "1030-simon-phillpot",
-    "1053-stephanie-hladik",
-    "1070-susan-sajadi",
-    "1128-v-dean-adams",
-    "1136-vinod-lohani",
-    "1138-wade-goodridge",
-    "1159-yashin-brijmohan"
-   ]
-  },
-  {
    "groupId": "program:center-for-mathematics-education-cfme",
    "label": "Center for Mathematics Education (CfME)",
    "count": 53,
@@ -2510,16 +2473,19 @@
   {
    "groupId": "program:school-of-education-mathematics-education-phd",
    "label": "School of Education Mathematics Education PhD",
-   "count": 44,
+   "count": 51,
    "memberIds": [
     "0030-ali-marzocchi",
     "0034-allison-gantt",
+    "0041-amanda-jansen",
     "0044-amanda-mohamed-mirzaei",
     "0135-brian-bowen",
     "0173-casey-griffin",
+    "0194-charles-hohensee",
     "0206-christine-phelps-gregory",
     "0224-corey-webel",
     "0271-david-slavit",
+    "0275-dawn-berk",
     "0282-delayne-johnson",
     "0339-emily-miller",
     "0352-eric-sisofo",
@@ -2527,8 +2493,10 @@
     "0360-ethan-smith",
     "0427-heather-gallivan",
     "0472-james-beyers",
+    "0477-james-hiebert",
     "0495-jathan-austin",
     "0508-jenifer-hummer",
+    "0537-jinfa-cai",
     "0539-joe-dinapoli",
     "0581-julie-cwikla",
     "0585-julien-corven",
@@ -2538,8 +2506,10 @@
     "0673-kwaku-edusei",
     "0683-laura-willoughby",
     "0685-lauren-goggins",
+    "0727-lynsey-gibbons",
     "0745-margaret-smith",
     "0778-matthew-melville",
+    "0820-michelle-cirillo",
     "0848-nancy-dyson",
     "0865-nicola-edwards",
     "0942-rob-wieman",
@@ -2561,7 +2531,7 @@
   {
    "groupId": "program:department-of-engineering-education-ened",
    "label": "Department of Engineering Education (ENED)",
-   "count": 41,
+   "count": 47,
    "memberIds": [
     "0008-abigail-lehto",
     "0019-ahmad-farooq",
@@ -2586,10 +2556,13 @@
     "0717-lori-openshaw",
     "0777-matthew-lammi",
     "0779-matthew-meyer",
+    "0799-melissa-scheaffer",
     "0832-mohammad-al-mestiraihi",
     "0841-muhammad-asghar",
     "0843-murad-mahmoud",
+    "0870-ning-fang",
     "0876-oai-ha",
+    "0878-oenardi-lawanto",
     "0906-presentacion-rivera-reyes",
     "0949-robert-warcup",
     "0954-rod-flanigan",
@@ -2600,6 +2573,9 @@
     "1079-talha-naqash",
     "1098-theresa-green",
     "1112-ting-song",
+    "1128-v-dean-adams",
+    "1138-wade-goodridge",
+    "1159-yashin-brijmohan",
     "1161-yemisi-oyewola",
     "1166-yongqing-guo",
     "1171-yuzhen-luo",
@@ -2609,7 +2585,7 @@
   {
    "groupId": "program:department-of-engineering-science-education-esed",
    "label": "Department of Engineering & Science Education (ESED)",
-   "count": 38,
+   "count": 47,
    "memberIds": [
     "0035-allison-godwin",
     "0105-aubrie-pfirman",
@@ -2618,22 +2594,31 @@
     "0181-catherine-kenyon",
     "0182-catherine-mcgough",
     "0190-charity-watson",
+    "0210-cindy-lee",
     "0230-courtney-faber",
     "0284-dennis-michael-lee",
     "0288-destinee-cooper",
     "0329-eliza-gallagher",
     "0367-evelyn-boyd",
+    "0376-felicia-benton-johnson",
     "0416-gustavo-moran",
     "0418-haleh-brotherton",
+    "0499-jeff-appling",
     "0512-jennifer-brown",
     "0519-jennifer-van-dyken",
     "0591-justine-chasmar",
+    "0600-karen-high",
     "0613-katherine-ehlert",
     "0622-keith-balts",
+    "0628-kelly-lazar",
     "0645-khushikumari-patel-desai",
+    "0657-kris-frady",
     "0694-leah-wiitablake",
     "0701-libby-flanagan",
+    "0707-lisa-benson",
     "0744-margaret-bolick",
+    "0773-matthew-boyer",
+    "0800-melissa-smith",
     "0888-paran-norton",
     "0912-rachel-anderson",
     "0924-randi-sims",
@@ -2652,10 +2637,52 @@
    ]
   },
   {
-   "groupId": "program:istep",
-   "label": "ISTEP",
-   "count": 20,
+   "groupId": "program:department-of-engineering-education",
+   "label": "Department of Engineering Education",
+   "count": 33,
    "memberIds": [
+    "0017-adrienne-decker",
+    "0031-alice-nightingale",
+    "0047-amanpreet-kapoor",
+    "0052-amy-baird",
+    "0074-andrew-olewnik",
+    "0099-ashish-aggarwal",
+    "0217-cole-lowman",
+    "0272-david-therriault",
+    "0285-dennis-parnell-jr",
+    "0297-diego-alvarado",
+    "0325-edwin-marte-zorrilla",
+    "0334-elliot-douglas",
+    "0338-emily-hammond",
+    "0362-eunsil-lee",
+    "0381-gadhaun-aslam",
+    "0422-hans-van-oostrom",
+    "0446-idalis-villanueva-alarcon",
+    "0457-jabari-wilson",
+    "0491-jasmine-smith",
+    "0523-jeremiah-blanchard",
+    "0533-jessica-swenson",
+    "0538-jinnie-shin",
+    "0574-juan-gilbert",
+    "0576-jude-sabato",
+    "0578-julia-latorre",
+    "0638-keshab-acharya",
+    "0653-kinga-winnicka-ludwig",
+    "0656-kris-depowski-o-donnell",
+    "0669-kristy-boyer",
+    "0686-lauren-kuryloski",
+    "0837-monica-miles",
+    "0913-rachel-bonnette",
+    "1030-simon-phillpot"
+   ]
+  },
+  {
+   "groupId": "program:institute-for-studies-in-transdisciplinary-engineering-education-practice-istep",
+   "label": "Institute for Studies in Transdisciplinary Engineering Education & Practice (ISTEP)",
+   "count": 31,
+   "memberIds": [
+    "1179-greg-evans",
+    "1180-philip-asare",
     "1181-jason-bazylak",
     "1182-chris-bouwmeester",
     "1183-ariel-chan",
@@ -2663,55 +2690,73 @@
     "1185-shai-cohen",
     "1186-fiona-coll",
     "1187-peter-devenyi",
+    "1188-robert-irish",
     "1189-alex-kaju",
     "1190-dawn-kilkenny-rocheleau",
     "1191-jenny-lofgreen",
     "1192-elham-marzi",
+    "1193-david-meyer",
+    "1194-susan-mccahan",
     "1195-emily-moore",
     "1196-ted-nolan",
+    "1197-alison-olechowski",
+    "1198-lisa-romkey",
     "1199-cindy-rottmann",
     "1200-patricia-sheridan",
     "1201-micah-stickel",
     "1202-deborah-tihanyi",
     "1203-chirag-variawa",
     "1204-lydia-wilkinson",
-    "1205-qin-liu"
+    "1205-qin-liu",
+    "1206-doug-reeve",
+    "1207-joseph-c-paradi",
+    "1208-ken-tallman",
+    "1209-peter-weiss"
    ]
   },
   {
-   "groupId": "program:school-of-engineering-education",
-   "label": "School of Engineering Education",
-   "count": 18,
+   "groupId": "program:mathematics-and-science-education-mse",
+   "label": "Mathematics and Science Education (MSE)",
+   "count": 25,
    "memberIds": [
-    "0023-alejandra-magana",
-    "0032-alice-pawley",
-    "0106-audeen-fentiman",
-    "0133-brent-jesiek",
-    "0492-jason-morphew",
-    "0514-jennifer-deboer",
-    "0570-joyce-main",
-    "0589-justin-hess",
-    "0636-kerrie-douglas",
-    "0643-khairiyah-mohd-yusof",
-    "0780-matthew-ohland",
-    "0812-michael-loui",
-    "0839-morgan-hynes",
-    "0842-muhsin-menekse",
-    "1001-sean-brophy",
-    "1004-senay-purzer",
-    "1082-tamara-moore",
-    "1151-william-oakes"
+    "0040-alyson-lischka",
+    "0043-amanda-lake-heath",
+    "0058-amy-phelps",
+    "0067-andrea-reeder",
+    "0078-angela-google",
+    "0147-brock-couch",
+    "0314-dovie-kimmins",
+    "0378-fonya-scott",
+    "0412-grant-gardner",
+    "0414-gregory-rushton",
+    "0515-jennifer-kaplan",
+    "0516-jennifer-lovett",
+    "0525-jeremy-strayer",
+    "0559-jordan-kirby",
+    "0621-katy-hosbein",
+    "0648-kim-cleary-sadler",
+    "0813-michael-rutledge",
+    "0814-michael-sanger",
+    "0879-olena-james",
+    "0960-rongjin-huang",
+    "0972-ryan-seth-jones",
+    "0979-samantha-fletcher-garcia",
+    "0983-sandy-lampley",
+    "0986-sara-salisbury",
+    "0987-sarah-bleiler-baxter"
    ]
   },
   {
    "groupId": "program:department-of-engineering-education-eed",
    "label": "Department of Engineering Education (EED)",
-   "count": 16,
+   "count": 21,
    "memberIds": [
     "0005-abby-clark",
+    "0009-adam-carberry",
     "0050-amena-shermadou",
     "0057-amy-kramer",
     "0177-cassie-wallwey",
+    "0280-deborah-grzybowski",
     "0300-dira-melissa-delpech",
     "0315-drew-phillips",
     "0340-emily-nutwell",
@@ -2719,8 +2764,11 @@
     "0467-jade-wang",
     "0471-jameka-wiggins",
     "0524-jeremy-grifski",
+    "0658-krista-kecskemety",
     "0790-meg-west",
+    "0836-monica-cox",
     "0856-nathan-harris",
+    "0915-rachel-kajfez",
     "0934-renee-desing",
     "1123-turhan-carroll",
     "1124-tyler-milburn"
@@ -2750,52 +2798,31 @@
    ]
   },
   {
-   "groupId": "program:mathematics-and-science-education-mse",
-   "label": "Mathematics and Science Education (MSE)",
+   "groupId": "program:science-and-mathematics-education-centre-smec",
+   "label": "Science and Mathematics Education Centre (SMEC)",
    "count": 15,
    "memberIds": [
-    "0040-alyson-lischka",
-    "0058-amy-phelps",
-    "0314-dovie-kimmins",
-    "0412-grant-gardner",
-    "0414-gregory-rushton",
-    "0515-jennifer-kaplan",
-    "0516-jennifer-lovett",
-    "0525-jeremy-strayer",
-    "0621-katy-hosbein",
-    "0648-kim-cleary-sadler",
-    "0813-michael-rutledge",
-    "0814-michael-sanger",
-    "0960-rongjin-huang",
-    "0972-ryan-seth-jones",
-    "0987-sarah-bleiler-baxter"
-   ]
-  },
-  {
-   "groupId": "program:mathematics-education-phd",
-   "label": "Mathematics Education PhD",
-   "count": 14,
-   "memberIds": [
-    "0041-amanda-jansen",
-    "0170-carrie-cutler",
-    "0194-charles-hohensee",
-    "0275-dawn-berk",
-    "0477-james-hiebert",
-    "0513-jennifer-chauvot",
-    "0537-jinfa-cai",
-    "0588-justin-burris",
-    "0661-kristian-edosomwan",
-    "0727-lynsey-gibbons",
-    "0820-michelle-cirillo",
-    "0864-nickolaus-ortiz",
-    "0905-pier-angeli-junor-clarke",
-    "1021-shea-culpepper"
+    "1299-david-treagust",
+    "1300-barry-fraser",
+    "1301-darrell-fisher",
+    "1302-leonie-rennie",
+    "1303-jill-aldridge",
+    "1304-kok-sing-tang",
+    "1305-rekha-koul",
+    "1306-sonja-kuzich",
+    "1307-susan-blackley",
+    "1308-sharon-davies",
+    "1309-jenny-jay",
+    "1310-karen-murcia",
+    "1311-rachel-sheffield",
+    "1312-john-williams",
+    "1313-nicoleta-maynard"
    ]
   },
   {
    "groupId": "program:engineering-education-engineering-pathways",
    "label": "Engineering Education (Engineering Pathways)",
-   "count": 12,
+   "count": 13,
    "memberIds": [
     "0036-allison-quiroga",
     "0174-casey-haskins",
@@ -2806,47 +2833,51 @@
     "0784-maya-denton",
     "0840-moses-olayemi",
     "0860-nicholas-brown",
+    "0884-p-k-imbrie",
     "0973-ryan-stoddard",
     "1073-susan-walden",
     "1104-tiantian-li"
    ]
   },
   {
-   "groupId": "program:mathematics-and-science-education-phd",
-   "label": "Mathematics and Science Education PhD",
-   "count": 9,
+   "groupId": "program:department-of-engineering-education-gsee",
+   "label": "Department of Engineering Education (GSEE)",
+   "count": 11,
    "memberIds": [
-    "0043-amanda-lake-heath",
-    "0067-andrea-reeder",
-    "0078-angela-google",
-    "0147-brock-couch",
-    "0378-fonya-scott",
-    "0559-jordan-kirby",
-    "0879-olena-james",
-    "0979-samantha-fletcher-garcia",
-    "0986-sara-salisbury"
+    "0371-farhoud-delijani",
+    "0405-giuseppe-grande",
+    "0536-jillian-seniuk-cicek",
+    "0740-marcia-friesen",
+    "1019-shawn-bailey",
+    "1053-stephanie-hladik",
+    "1211-chris-laing",
+    "1212-aidan-topping",
+    "1213-kari-zacharias",
+    "1214-ron-britton",
+    "1215-doug-ruth"
    ]
   },
   {
-   "groupId": "program:department-of-engineering-science-education",
-   "label": "Department of Engineering & Science Education",
-   "count": 9,
+   "groupId": "program:engineering-education-research",
+   "label": "Engineering Education Research",
+   "count": 10,
    "memberIds": [
-    "0210-cindy-lee",
-    "0376-felicia-benton-johnson",
-    "0499-jeff-appling",
-    "0600-karen-high",
-    "0628-kelly-lazar",
-    "0657-kris-frady",
-    "0707-lisa-benson",
-    "0773-matthew-boyer",
-    "0800-melissa-smith"
+    "0002-aaron-johnson",
+    "0235-cynthia-j-finelli",
+    "0344-emma-r-dodoo",
+    "0452-isabel-miller",
+    "0603-karin-jensen",
+    "0710-lisa-lattuca",
+    "0756-mark-guzdial",
+    "0846-nagash-clarke",
+    "0951-robin-fowler",
+    "1133-vibhavari-vempala"
    ]
   },
   {
    "groupId": "program:mathematics-education-phd-math-statistics",
    "label": "Mathematics Education (PhD, Math & Statistics)",
-   "count": 8,
+   "count": 10,
    "memberIds": [
     "0012-adam-kellam",
     "0088-annie-burns",
@@ -2855,14 +2886,17 @@
     "0251-darryl-j-chamberlain-jr",
     "0423-harrison-stalvey",
     "0501-jeffrey-e-mccammon",
+    "0864-nickolaus-ortiz",
+    "0905-pier-angeli-junor-clarke",
     "1011-shanah-k-grant"
    ]
   },
   {
-   "groupId": "program:upcerg-dept-of-information-technology",
-   "label": "UpCERG, Dept. of Information Technology",
-   "count": 8,
+   "groupId": "program:uppsala-computing-education-research-group-upcerg-dept-of-information-technology",
+   "label": "Uppsala Computing Education Research Group (UpCERG), Dept. of Information Technology",
+   "count": 9,
    "memberIds": [
+    "1255-asa-cajander",
     "1256-mats-daniels",
     "1257-anna-eckerdal",
     "1258-bedour-alshaigy",
@@ -2876,8 +2910,9 @@
   {
    "groupId": "program:engineering-education-research-group",
    "label": "Engineering Education Research group",
-   "count": 7,
+   "count": 8,
    "memberIds": [
+    "1274-olli-varis",
     "1275-marko-keskinen",
     "1276-maija-taka",
     "1277-matleena-muhonen",
@@ -2888,10 +2923,11 @@
    ]
   },
   {
-   "groupId": "program:super-group",
-   "label": "SUPER Group",
-   "count": 7,
+   "groupId": "program:sydney-university-physics-education-research-super-group",
+   "label": "Sydney University Physics Education Research (SUPER) Group",
+   "count": 8,
    "memberIds": [
+    "1282-manjula-sharma",
     "1283-daniel-schumayer",
     "1284-mohammad-rafat",
     "1285-helen-johnston",
@@ -2902,43 +2938,17 @@
    ]
   },
   {
-   "groupId": "program:stem-education-research-group",
-   "label": "STEM Education Research Group",
+   "groupId": "program:department-of-engineering-and-computing-education",
+   "label": "Department of Engineering and Computing Education",
    "count": 7,
    "memberIds": [
-    "1306-sonja-kuzich",
-    "1307-susan-blackley",
-    "1308-sharon-davies",
-    "1309-jenny-jay",
-    "1310-karen-murcia",
-    "1311-rachel-sheffield",
-    "1312-john-williams"
-   ]
-  },
-  {
-   "groupId": "program:engineering-education",
-   "label": "Engineering Education",
-   "count": 6,
-   "memberIds": [
-    "0001-aaron-clark",
-    "0013-adam-kirn",
-    "0243-daniel-kelly",
-    "0678-laura-bottomley",
-    "1214-ron-britton",
-    "1215-doug-ruth"
-   ]
-  },
-  {
-   "groupId": "program:engineering-education-research",
-   "label": "Engineering Education Research",
-   "count": 6,
-   "memberIds": [
-    "0002-aaron-johnson",
-    "0235-cynthia-j-finelli",
-    "0603-karin-jensen",
-    "0710-lisa-lattuca",
-    "0756-mark-guzdial",
-    "0951-robin-fowler"
+    "0186-cedrick-kwuimy",
+    "0402-gibin-raju",
+    "0541-joel-alejandro-mejia",
+    "0592-jutshi-agarwal",
+    "0730-madeline-martin",
+    "1036-so-yoon-yoon",
+    "1147-whitney-gaskins"
    ]
   },
   {
@@ -2955,6 +2965,32 @@
    ]
   },
   {
+   "groupId": "program:center-for-engineering-learning-teaching-celt",
+   "label": "Center for Engineering Learning & Teaching (CELT)",
+   "count": 6,
+   "memberIds": [
+    "0198-cheryl-allendoerfer",
+    "0403-giovanna-scalone",
+    "0633-ken-yasuhara",
+    "0805-micah-lande",
+    "0970-ryan-c-campbell",
+    "1096-terri-lovins"
+   ]
+  },
+  {
+   "groupId": "program:mathematics-science-environment-and-technology-education-research-group-mset-ed-centre-for-research-for-educational-impact-redi",
+   "label": "Mathematics, Science, Environment and Technology Education Research group (MSET-Ed) / Centre for Research for Educational Impact (REDI)",
+   "count": 6,
+   "memberIds": [
+    "1314-russell-tytler",
+    "1315-linda-hobbs",
+    "1316-peta-white",
+    "1317-john-cripps-clark",
+    "1318-seamus-delaney",
+    "1319-george-aranda"
+   ]
+  },
+  {
    "groupId": "program:mathematics-education-phd-edd",
    "label": "Mathematics Education PhD/EdD",
    "count": 5,
@@ -2964,6 +3000,18 @@
     "0819-michelle-chamberlin",
     "0938-richard-kitchen",
     "0997-scott-chamberlin"
+   ]
+  },
+  {
+   "groupId": "program:mathematics-education-phd",
+   "label": "Mathematics Education PhD",
+   "count": 5,
+   "memberIds": [
+    "0170-carrie-cutler",
+    "0513-jennifer-chauvot",
+    "0588-justin-burris",
+    "0661-kristian-edosomwan",
+    "1021-shea-culpepper"
    ]
   },
   {
@@ -2979,79 +3027,11 @@
    ]
   },
   {
-   "groupId": "program:engineering-education-phd",
-   "label": "Engineering Education (PhD)",
-   "count": 5,
-   "memberIds": [
-    "0285-dennis-parnell-jr",
-    "0325-edwin-marte-zorrilla",
-    "0381-gadhaun-aslam",
-    "0457-jabari-wilson",
-    "0491-jasmine-smith"
-   ]
-  },
-  {
-   "groupId": "program:smec",
-   "label": "SMEC",
-   "count": 5,
-   "memberIds": [
-    "1300-barry-fraser",
-    "1301-darrell-fisher",
-    "1302-leonie-rennie",
-    "1303-jill-aldridge",
-    "1304-kok-sing-tang"
-   ]
-  },
-  {
-   "groupId": "program:mset-ed-redi",
-   "label": "MSET-Ed / REDI",
-   "count": 5,
-   "memberIds": [
-    "1315-linda-hobbs",
-    "1316-peta-white",
-    "1317-john-cripps-clark",
-    "1318-seamus-delaney",
-    "1319-george-aranda"
-   ]
-  },
-  {
-   "groupId": "program:department-of-engineering-and-computing-education",
-   "label": "Department of Engineering and Computing Education",
-   "count": 4,
-   "memberIds": [
-    "0186-cedrick-kwuimy",
-    "0541-joel-alejandro-mejia",
-    "1036-so-yoon-yoon",
-    "1147-whitney-gaskins"
-   ]
-  },
-  {
-   "groupId": "program:center-for-engineering-learning-teaching-celt",
-   "label": "Center for Engineering Learning & Teaching (CELT)",
-   "count": 4,
-   "memberIds": [
-    "0198-cheryl-allendoerfer",
-    "0403-giovanna-scalone",
-    "0633-ken-yasuhara",
-    "1096-terri-lovins"
-   ]
-  },
-  {
-   "groupId": "program:engineering-education-research-phd",
-   "label": "Engineering Education Research (PhD)",
-   "count": 4,
-   "memberIds": [
-    "0344-emma-r-dodoo",
-    "0452-isabel-miller",
-    "0846-nagash-clarke",
-    "1133-vibhavari-vempala"
-   ]
-  },
-  {
    "groupId": "program:engineering-education-transformations-institute-eeti",
    "label": "Engineering Education Transformations Institute (EETI)",
-   "count": 4,
+   "count": 5,
    "memberIds": [
+    "0451-isaac-dunmoye",
     "0484-james-warnock",
     "0584-julie-p-martin",
     "0859-nathaniel-hunsu",
@@ -3059,25 +3039,60 @@
    ]
   },
   {
-   "groupId": "program:istep-affiliated",
-   "label": "ISTEP-affiliated",
-   "count": 4,
+   "groupId": "program:centre-for-computing-in-science-education-ccse",
+   "label": "Centre for Computing in Science Education (CCSE)",
+   "count": 5,
    "memberIds": [
-    "1194-susan-mccahan",
-    "1207-joseph-c-paradi",
-    "1208-ken-tallman",
-    "1209-peter-weiss"
-   ]
-  },
-  {
-   "groupId": "program:ccse",
-   "label": "CCSE",
-   "count": 4,
-   "memberIds": [
+    "1264-anders-malthe-sorenssen",
     "1265-tor-ole-odden",
     "1266-morten-hjorth-jensen",
     "1267-knut-morken",
     "1268-anders-hafreager"
+   ]
+  },
+  {
+   "groupId": "program:center-for-science-and-engineering-education-development-seed",
+   "label": "Center for Science and Engineering Education Development (SEED)",
+   "count": 5,
+   "memberIds": [
+    "1269-geir-egil-dahle-oien",
+    "1270-gabrielle-hansen",
+    "1271-guri-sivertsen-korpas",
+    "1272-reidar-lyng",
+    "1273-guttorm-sindre"
+   ]
+  },
+  {
+   "groupId": "program:engineering-education",
+   "label": "Engineering Education",
+   "count": 4,
+   "memberIds": [
+    "0001-aaron-clark",
+    "0013-adam-kirn",
+    "0243-daniel-kelly",
+    "0678-laura-bottomley"
+   ]
+  },
+  {
+   "groupId": "program:ucpbl",
+   "label": "UCPBL",
+   "count": 4,
+   "memberIds": [
+    "1243-xiangyun-du",
+    "1244-aida-guerra",
+    "1245-euan-lindsay",
+    "1247-jette-egelund-holgaard"
+   ]
+  },
+  {
+   "groupId": "program:communication-and-learning-in-science-cls-engineering-education-research-division",
+   "label": "Communication and Learning in Science (CLS), Engineering Education Research division",
+   "count": 4,
+   "memberIds": [
+    "1248-tom-adawi",
+    "1249-christian-stohr",
+    "1250-malin-kjellberg",
+    "1251-ake-ingerman"
    ]
   },
   {
@@ -3091,52 +3106,32 @@
    ]
   },
   {
-   "groupId": "program:engineering-and-computing-education-phd",
-   "label": "Engineering and Computing Education (PhD)",
-   "count": 3,
-   "memberIds": [
-    "0402-gibin-raju",
-    "0592-jutshi-agarwal",
-    "0730-madeline-martin"
-   ]
-  },
-  {
-   "groupId": "program:department-of-engineering-education-gsee",
-   "label": "Department of Engineering Education (GSEE)",
-   "count": 3,
-   "memberIds": [
-    "1211-chris-laing",
-    "1212-aidan-topping",
-    "1213-kari-zacharias"
-   ]
-  },
-  {
-   "groupId": "program:ucpbl",
-   "label": "UCPBL",
-   "count": 3,
-   "memberIds": [
-    "1243-xiangyun-du",
-    "1244-aida-guerra",
-    "1245-euan-lindsay"
-   ]
-  },
-  {
-   "groupId": "program:cls-engineering-education-research-division",
-   "label": "CLS, Engineering Education Research division",
-   "count": 3,
-   "memberIds": [
-    "1249-christian-stohr",
-    "1250-malin-kjellberg",
-    "1251-ake-ingerman"
-   ]
-  },
-  {
    "groupId": "program:discipline-based-education-research-dber",
    "label": "Discipline-Based Education Research (DBER)",
-   "count": 2,
+   "count": 3,
    "memberIds": [
     "0411-grace-panther",
-    "0430-heidi-diefes-dux"
+    "0430-heidi-diefes-dux",
+    "1114-toluwalase-eniola-brower"
+   ]
+  },
+  {
+   "groupId": "program:department-of-learning",
+   "label": "Department of Learning",
+   "count": 3,
+   "memberIds": [
+    "1252-arnold-pears",
+    "1253-annica-gullberg",
+    "1254-stefan-stenbom"
+   ]
+  },
+  {
+   "groupId": "program:experiential-engineering-education-exeed",
+   "label": "Experiential Engineering Education (ExEEd)",
+   "count": 2,
+   "memberIds": [
+    "0200-cheryl-bodnar",
+    "1050-stephanie-farrell"
    ]
   },
   {
@@ -3158,140 +3153,11 @@
    ]
   },
   {
-   "groupId": "program:center-for-engineering-learning-teaching-celt-uw-phd",
-   "label": "Center for Engineering Learning & Teaching (CELT), UW (PhD)",
+   "groupId": "program:smith-engineering",
+   "label": "Smith Engineering",
    "count": 2,
    "memberIds": [
-    "0805-micah-lande",
-    "0970-ryan-c-campbell"
-   ]
-  },
-  {
-   "groupId": "program:seed",
-   "label": "SEED",
-   "count": 2,
-   "memberIds": [
-    "1270-gabrielle-hansen",
-    "1272-reidar-lyng"
-   ]
-  },
-  {
-   "groupId": "program:engineering-engineering-education-transformative-practice-phd",
-   "label": "Engineering, Engineering Education & Transformative Practice (PhD)",
-   "count": 1,
-   "memberIds": [
-    "0451-isaac-dunmoye"
-   ]
-  },
-  {
-   "groupId": "program:2025-0",
-   "label": "2025.0",
-   "count": 1,
-   "memberIds": [
-    "0732-margaret-maggie-webb"
-   ]
-  },
-  {
-   "groupId": "program:school-of-aerospace-and-mechanical-engineering",
-   "label": "School of Aerospace and Mechanical Engineering",
-   "count": 1,
-   "memberIds": [
-    "0884-p-k-imbrie"
-   ]
-  },
-  {
-   "groupId": "program:mathematics-and-science-education-biology-ed-concentration-phd",
-   "label": "Mathematics and Science Education, Biology Ed concentration (PhD)",
-   "count": 1,
-   "memberIds": [
-    "0983-sandy-lampley"
-   ]
-  },
-  {
-   "groupId": "program:experiential-engineering-education-exeed",
-   "label": "Experiential Engineering Education (ExEEd)",
-   "count": 1,
-   "memberIds": [
-    "1050-stephanie-farrell"
-   ]
-  },
-  {
-   "groupId": "program:engineering-eer-specialization-uncertain",
-   "label": "Engineering (EER specialization, uncertain)",
-   "count": 1,
-   "memberIds": [
-    "1114-toluwalase-eniola-brower"
-   ]
-  },
-  {
-   "groupId": "program:institute-for-studies-in-transdisciplinary-engineering-education-practice-istep",
-   "label": "Institute for Studies in Transdisciplinary Engineering Education & Practice (ISTEP)",
-   "count": 1,
-   "memberIds": [
-    "1179-greg-evans"
-   ]
-  },
-  {
-   "groupId": "program:istep-engsci",
-   "label": "ISTEP / EngSci",
-   "count": 1,
-   "memberIds": [
-    "1180-philip-asare"
-   ]
-  },
-  {
-   "groupId": "program:istep-engineering-communication-program",
-   "label": "ISTEP / Engineering Communication Program",
-   "count": 1,
-   "memberIds": [
-    "1188-robert-irish"
-   ]
-  },
-  {
-   "groupId": "program:istep-civil-mineral-engineering",
-   "label": "ISTEP / Civil & Mineral Engineering",
-   "count": 1,
-   "memberIds": [
-    "1193-david-meyer"
-   ]
-  },
-  {
-   "groupId": "program:istep-mechanical-industrial-engineering",
-   "label": "ISTEP / Mechanical & Industrial Engineering",
-   "count": 1,
-   "memberIds": [
-    "1197-alison-olechowski"
-   ]
-  },
-  {
-   "groupId": "program:istep-collaborative-specialization-in-engineering-education-enged-w-oise",
-   "label": "ISTEP / Collaborative Specialization in Engineering Education (EngEd, w/ OISE)",
-   "count": 1,
-   "memberIds": [
-    "1198-lisa-romkey"
-   ]
-  },
-  {
-   "groupId": "program:istep-predecessor-units",
-   "label": "ISTEP (predecessor units)",
-   "count": 1,
-   "memberIds": [
-    "1206-doug-reeve"
-   ]
-  },
-  {
-   "groupId": "program:smith-engineering-teaching-and-learning",
-   "label": "Smith Engineering, Teaching and Learning",
-   "count": 1,
-   "memberIds": [
-    "1229-brian-frank"
-   ]
-  },
-  {
-   "groupId": "program:smith-engineering-integrated-learning-program",
-   "label": "Smith Engineering, Integrated Learning Program",
-   "count": 1,
-   "memberIds": [
+    "1229-brian-frank",
     "1230-david-strong"
    ]
   },
@@ -3304,139 +3170,11 @@
    ]
   },
   {
-   "groupId": "program:ucpbl-affiliated",
-   "label": "UCPBL-affiliated",
-   "count": 1,
-   "memberIds": [
-    "1247-jette-egelund-holgaard"
-   ]
-  },
-  {
-   "groupId": "program:communication-and-learning-in-science-cls-engineering-education-research-division",
-   "label": "Communication and Learning in Science (CLS), Engineering Education Research division",
-   "count": 1,
-   "memberIds": [
-    "1248-tom-adawi"
-   ]
-  },
-  {
-   "groupId": "program:department-of-learning-in-engineering-sciences",
-   "label": "Department of Learning in Engineering Sciences",
-   "count": 1,
-   "memberIds": [
-    "1252-arnold-pears"
-   ]
-  },
-  {
-   "groupId": "program:department-of-learning-learning-in-technology-and-science-education-group",
-   "label": "Department of Learning, Learning in Technology and Science Education group",
-   "count": 1,
-   "memberIds": [
-    "1253-annica-gullberg"
-   ]
-  },
-  {
-   "groupId": "program:department-of-learning-digital-learning-division",
-   "label": "Department of Learning, Digital Learning division",
-   "count": 1,
-   "memberIds": [
-    "1254-stefan-stenbom"
-   ]
-  },
-  {
-   "groupId": "program:uppsala-computing-education-research-group-upcerg-dept-of-information-technology",
-   "label": "Uppsala Computing Education Research Group (UpCERG), Dept. of Information Technology",
-   "count": 1,
-   "memberIds": [
-    "1255-asa-cajander"
-   ]
-  },
-  {
-   "groupId": "program:centre-for-computing-in-science-education-ccse",
-   "label": "Centre for Computing in Science Education (CCSE)",
-   "count": 1,
-   "memberIds": [
-    "1264-anders-malthe-sorenssen"
-   ]
-  },
-  {
-   "groupId": "program:center-for-science-and-engineering-education-development-seed",
-   "label": "Center for Science and Engineering Education Development (SEED)",
-   "count": 1,
-   "memberIds": [
-    "1269-geir-egil-dahle-oien"
-   ]
-  },
-  {
-   "groupId": "program:seed-department-of-physics",
-   "label": "SEED / Department of Physics",
-   "count": 1,
-   "memberIds": [
-    "1271-guri-sivertsen-korpas"
-   ]
-  },
-  {
-   "groupId": "program:seed-affiliated-dept-of-computer-science",
-   "label": "SEED-affiliated / Dept. of Computer Science",
-   "count": 1,
-   "memberIds": [
-    "1273-guttorm-sindre"
-   ]
-  },
-  {
-   "groupId": "program:engineering-education-research-group-school-of-engineering",
-   "label": "Engineering Education Research group, School of Engineering",
-   "count": 1,
-   "memberIds": [
-    "1274-olli-varis"
-   ]
-  },
-  {
-   "groupId": "program:sydney-university-physics-education-research-super-group",
-   "label": "Sydney University Physics Education Research (SUPER) Group",
-   "count": 1,
-   "memberIds": [
-    "1282-manjula-sharma"
-   ]
-  },
-  {
    "groupId": "program:feit-teaching-and-learning-laboratory",
    "label": "FEIT Teaching and Learning Laboratory",
    "count": 1,
    "memberIds": [
     "1290-sally-male"
-   ]
-  },
-  {
-   "groupId": "program:science-and-mathematics-education-centre-smec",
-   "label": "Science and Mathematics Education Centre (SMEC)",
-   "count": 1,
-   "memberIds": [
-    "1299-david-treagust"
-   ]
-  },
-  {
-   "groupId": "program:smec-stem-education-research-group",
-   "label": "SMEC / STEM Education Research Group",
-   "count": 1,
-   "memberIds": [
-    "1305-rekha-koul"
-   ]
-  },
-  {
-   "groupId": "program:smec-affiliated",
-   "label": "SMEC-affiliated",
-   "count": 1,
-   "memberIds": [
-    "1313-nicoleta-maynard"
-   ]
-  },
-  {
-   "groupId": "program:mathematics-science-environment-and-technology-education-research-group-mset-ed-centre-for-research-for-educational-impact-redi",
-   "label": "Mathematics, Science, Environment and Technology Education Research group (MSET-Ed) / Centre for Research for Educational Impact (REDI)",
-   "count": 1,
-   "memberIds": [
-    "1314-russell-tytler"
    ]
   }
  ],
@@ -4292,6 +4030,48 @@
    ]
   },
   {
+   "groupId": "phd_era:2025-2029",
+   "label": "2025–2029",
+   "count": 35,
+   "memberIds": [
+    "0007-abdulrahman-alsharif",
+    "0008-abigail-lehto",
+    "0046-amanda-ross",
+    "0068-andrea-schuman",
+    "0108-austin-zuckerman",
+    "0165-carol-geary",
+    "0285-dennis-parnell-jr",
+    "0288-destinee-cooper",
+    "0300-dira-melissa-delpech",
+    "0381-gadhaun-aslam",
+    "0418-haleh-brotherton",
+    "0451-isaac-dunmoye",
+    "0452-isabel-miller",
+    "0453-isabel-white",
+    "0454-isil-anakok",
+    "0457-jabari-wilson",
+    "0471-jameka-wiggins",
+    "0491-jasmine-smith",
+    "0505-jeffrey-stark",
+    "0666-kristin-tenney",
+    "0732-margaret-maggie-webb",
+    "0744-margaret-bolick",
+    "0846-nagash-clarke",
+    "0881-oluwarotimi-popoola",
+    "0909-queen-roach",
+    "0924-randi-sims",
+    "0990-sarah-otterbeck",
+    "1015-shannon-conner",
+    "1035-sloan-zak",
+    "1079-talha-naqash",
+    "1080-talia-latona-tequida",
+    "1105-tim-ransom",
+    "1133-vibhavari-vempala",
+    "1162-yi-cao",
+    "1177-zain-ul-abideen"
+   ]
+  },
+  {
    "groupId": "phd_era:2005-2009",
    "label": "2005–2009",
    "count": 35,
@@ -4331,47 +4111,6 @@
     "1082-tamara-moore",
     "1107-timothy-fukawa-connelly",
     "1116-toni-smith"
-   ]
-  },
-  {
-   "groupId": "phd_era:2025-2029",
-   "label": "2025–2029",
-   "count": 34,
-   "memberIds": [
-    "0007-abdulrahman-alsharif",
-    "0008-abigail-lehto",
-    "0046-amanda-ross",
-    "0068-andrea-schuman",
-    "0108-austin-zuckerman",
-    "0165-carol-geary",
-    "0285-dennis-parnell-jr",
-    "0288-destinee-cooper",
-    "0300-dira-melissa-delpech",
-    "0381-gadhaun-aslam",
-    "0418-haleh-brotherton",
-    "0451-isaac-dunmoye",
-    "0452-isabel-miller",
-    "0453-isabel-white",
-    "0454-isil-anakok",
-    "0457-jabari-wilson",
-    "0471-jameka-wiggins",
-    "0491-jasmine-smith",
-    "0505-jeffrey-stark",
-    "0666-kristin-tenney",
-    "0744-margaret-bolick",
-    "0846-nagash-clarke",
-    "0881-oluwarotimi-popoola",
-    "0909-queen-roach",
-    "0924-randi-sims",
-    "0990-sarah-otterbeck",
-    "1015-shannon-conner",
-    "1035-sloan-zak",
-    "1079-talha-naqash",
-    "1080-talia-latona-tequida",
-    "1105-tim-ransom",
-    "1133-vibhavari-vempala",
-    "1162-yi-cao",
-    "1177-zain-ul-abideen"
    ]
   },
   {

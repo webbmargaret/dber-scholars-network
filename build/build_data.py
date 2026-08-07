@@ -195,6 +195,145 @@ def normalize_institutions(raw_list: list[str]) -> list[dict[str, str]]:
     return deduped
 
 
+# Raw `Program` strings that unambiguously mean one program regardless of which
+# institution the scholar has, mapped to a canonical spelling. Most of the source
+# data's ~80 distinct Program strings are really the same handful of programs
+# written inconsistently: with vs. without the program's acronym, acronym-only vs.
+# full name, or a sub-department annotation tacked onto an otherwise-repeated name
+# (e.g. Toronto's "ISTEP / EngSci", Curtin's "SMEC-affiliated"). Hand-curated
+# against every Program value actually present in the source CSV — see
+# PROGRAM_INSTITUTION_OVERRIDES below for the handful of raw strings that are
+# reused, as the *same spelling*, by multiple institutions to mean genuinely
+# different programs.
+CANONICAL_PROGRAM_NAMES: dict[str, str] = {
+    "School of Engineering Education (ENE)": "School of Engineering Education (ENE)",
+    "School of Engineering Education": "School of Engineering Education (ENE)",
+    "Department of Engineering & Science Education (ESED)": "Department of Engineering & Science Education (ESED)",
+    "Department of Engineering & Science Education": "Department of Engineering & Science Education (ESED)",
+    "Mallinson Institute for Science Education": "Mallinson Institute for Science Education",
+    "Mathematics and Science Education (MSED)": "Mathematics and Science Education (MSED)",
+    "Center for Mathematics Education (CfME)": "Center for Mathematics Education (CfME)",
+    "School of Education Mathematics Education PhD": "School of Education Mathematics Education PhD",
+    "Department of Engineering Education (ENED)": "Department of Engineering Education (ENED)",
+    "Department of Engineering Education (ENGE)": "Department of Engineering Education (ENGE)",
+    "ISTEP": "Institute for Studies in Transdisciplinary Engineering Education & Practice (ISTEP)",
+    "ISTEP-affiliated": "Institute for Studies in Transdisciplinary Engineering Education & Practice (ISTEP)",
+    "Institute for Studies in Transdisciplinary Engineering Education & Practice (ISTEP)": "Institute for Studies in Transdisciplinary Engineering Education & Practice (ISTEP)",
+    "ISTEP / EngSci": "Institute for Studies in Transdisciplinary Engineering Education & Practice (ISTEP)",
+    "ISTEP / Engineering Communication Program": "Institute for Studies in Transdisciplinary Engineering Education & Practice (ISTEP)",
+    "ISTEP / Civil & Mineral Engineering": "Institute for Studies in Transdisciplinary Engineering Education & Practice (ISTEP)",
+    "ISTEP / Mechanical & Industrial Engineering": "Institute for Studies in Transdisciplinary Engineering Education & Practice (ISTEP)",
+    "ISTEP / Collaborative Specialization in Engineering Education (EngEd, w/ OISE)": "Institute for Studies in Transdisciplinary Engineering Education & Practice (ISTEP)",
+    "ISTEP (predecessor units)": "Institute for Studies in Transdisciplinary Engineering Education & Practice (ISTEP)",
+    "Department of Engineering Education (EED)": "Department of Engineering Education (EED)",
+    "Cornell Discipline-Based Education Research (CDER)": "Cornell Discipline-Based Education Research (CDER)",
+    "Mathematics and Science Education (MSE)": "Mathematics and Science Education (MSE)",
+    "Mathematics and Science Education PhD": "Mathematics and Science Education (MSE)",
+    "Mathematics and Science Education, Biology Ed concentration (PhD)": "Mathematics and Science Education (MSE)",
+    "Engineering Education (Engineering Pathways)": "Engineering Education (Engineering Pathways)",
+    "School of Aerospace and Mechanical Engineering": "Engineering Education (Engineering Pathways)",
+    "Science/Mathematics Education (SMED)": "Science/Mathematics Education (SMED)",
+    "Engineering Education (PhD)": "Department of Engineering Education",
+    "SMEC": "Science and Mathematics Education Centre (SMEC)",
+    "MSET-Ed / REDI": "Mathematics, Science, Environment and Technology Education Research group (MSET-Ed) / Centre for Research for Educational Impact (REDI)",
+    "Department of Engineering and Computing Education": "Department of Engineering and Computing Education",
+    "Center for Engineering Learning & Teaching (CELT)": "Center for Engineering Learning & Teaching (CELT)",
+    "Center for Engineering Learning & Teaching (CELT), UW (PhD)": "Center for Engineering Learning & Teaching (CELT)",
+    "Engineering Education Research (PhD)": "Engineering Education Research",
+    "Engineering Education Transformations Institute (EETI)": "Engineering Education Transformations Institute (EETI)",
+    "CCSE": "Centre for Computing in Science Education (CCSE)",
+    "PhD in Physics: Physics Education": "PhD in Physics: Physics Education",
+    "Engineering and Computing Education (PhD)": "Department of Engineering and Computing Education",
+    "Department of Engineering Education (GSEE)": "Department of Engineering Education (GSEE)",
+    "UCPBL": "UCPBL",
+    "UCPBL-affiliated": "UCPBL",
+    "CLS, Engineering Education Research division": "Communication and Learning in Science (CLS), Engineering Education Research division",
+    "Communication and Learning in Science (CLS), Engineering Education Research division": "Communication and Learning in Science (CLS), Engineering Education Research division",
+    "Discipline-Based Education Research (DBER)": "Discipline-Based Education Research (DBER)",
+    "PhD in Engineering Education": "PhD in Engineering Education",
+    "Engineering Education concentration": "Engineering Education concentration",
+    "SEED": "Center for Science and Engineering Education Development (SEED)",
+    "Engineering, Engineering Education & Transformative Practice (PhD)": "Engineering Education Transformations Institute (EETI)",
+    "Experiential Engineering Education (ExEEd)": "Experiential Engineering Education (ExEEd)",
+    "Engineering (EER specialization, uncertain)": "Discipline-Based Education Research (DBER)",
+    "Smith Engineering, Teaching and Learning": "Smith Engineering",
+    "Smith Engineering, Integrated Learning Program": "Smith Engineering",
+    "Department of Health Science and Technology": "Department of Health Science and Technology",
+    "Department of Learning in Engineering Sciences": "Department of Learning",
+    "Department of Learning, Learning in Technology and Science Education group": "Department of Learning",
+    "Department of Learning, Digital Learning division": "Department of Learning",
+    "Uppsala Computing Education Research Group (UpCERG), Dept. of Information Technology": "Uppsala Computing Education Research Group (UpCERG), Dept. of Information Technology",
+    "UpCERG, Dept. of Information Technology": "Uppsala Computing Education Research Group (UpCERG), Dept. of Information Technology",
+    "Centre for Computing in Science Education (CCSE)": "Centre for Computing in Science Education (CCSE)",
+    "Center for Science and Engineering Education Development (SEED)": "Center for Science and Engineering Education Development (SEED)",
+    "SEED / Department of Physics": "Center for Science and Engineering Education Development (SEED)",
+    "SEED-affiliated / Dept. of Computer Science": "Center for Science and Engineering Education Development (SEED)",
+    "Engineering Education Research group": "Engineering Education Research group",
+    "Engineering Education Research group, School of Engineering": "Engineering Education Research group",
+    "Sydney University Physics Education Research (SUPER) Group": "Sydney University Physics Education Research (SUPER) Group",
+    "SUPER Group": "Sydney University Physics Education Research (SUPER) Group",
+    "FEIT Teaching and Learning Laboratory": "FEIT Teaching and Learning Laboratory",
+    "Science and Mathematics Education Centre (SMEC)": "Science and Mathematics Education Centre (SMEC)",
+    "SMEC / STEM Education Research Group": "Science and Mathematics Education Centre (SMEC)",
+    "SMEC-affiliated": "Science and Mathematics Education Centre (SMEC)",
+    "STEM Education Research Group": "Science and Mathematics Education Centre (SMEC)",
+    "Mathematics, Science, Environment and Technology Education Research group (MSET-Ed) / Centre for Research for Educational Impact (REDI)": "Mathematics, Science, Environment and Technology Education Research group (MSET-Ed) / Centre for Research for Educational Impact (REDI)",
+    "Mathematics Education (PhD, Math & Statistics)": "Mathematics Education (PhD, Math & Statistics)",
+    "Engineering Education Research": "Engineering Education Research",
+    "Engineering Education Systems and Design (EESD)": "Engineering Education Systems and Design (EESD)",
+    "Mathematics Education PhD/EdD": "Mathematics Education PhD/EdD",
+}
+
+# Raw `Program` strings that are reused, as the *same spelling*, by multiple
+# institutions to mean genuinely different programs — resolving these needs the
+# scholar's institution, not just the string. Keyed by the raw string, then by
+# lowercased institution name. An institution not listed here for a given raw
+# string means: no fuller/acronym form is attested for it in the source data, so
+# the raw string is left as its own canonical form.
+PROGRAM_INSTITUTION_OVERRIDES: dict[str, dict[str, str]] = {
+    "Department of Engineering Education": {
+        "virginia tech": "Department of Engineering Education (ENGE)",
+        "the ohio state university": "Department of Engineering Education (EED)",
+        "utah state university": "Department of Engineering Education (ENED)",
+        "university of manitoba": "Department of Engineering Education (GSEE)",
+        "rowan university": "Experiential Engineering Education (ExEEd)",
+    },
+    "Mathematics Education PhD": {
+        "university of delaware": "School of Education Mathematics Education PhD",
+        "georgia state university": "Mathematics Education (PhD, Math & Statistics)",
+    },
+    "Engineering Education": {
+        "university of manitoba": "Department of Engineering Education (GSEE)",
+    },
+}
+
+
+def normalize_programs(raw_list: list[str], institutions: list[dict[str, str]]) -> list[str]:
+    """Canonicalize each Program piece, then dedupe (preserving order) — a few
+    rows list both the bare and acronym form of the same program as if they were
+    two, once the acronym is added back they'd otherwise show up twice."""
+    inst_names = {inst["name"].lower() for inst in institutions}
+    out = []
+    for raw in raw_list:
+        override = PROGRAM_INSTITUTION_OVERRIDES.get(raw)
+        if override:
+            for iname in inst_names:
+                if iname in override:
+                    out.append(override[iname])
+                    break
+            else:
+                out.append(raw)
+        else:
+            out.append(CANONICAL_PROGRAM_NAMES.get(raw, raw))
+
+    deduped, seen = [], set()
+    for p in out:
+        if p not in seen:
+            seen.add(p)
+            deduped.append(p)
+    return deduped
+
+
 def split_dber_field(value: str) -> list[str]:
     """DBER_Field mixes `||` and `;` as separators (e.g. "EER; CER")."""
     if not value:
@@ -258,7 +397,7 @@ def build(csv_path: Path):
                 fill_counts[c] += 1
 
         institutions = normalize_institutions(split_pipe(row.get("Institution", "")))
-        programs = split_pipe(row.get("Program", ""))
+        programs = normalize_programs(split_pipe(row.get("Program", "")), institutions)
         dber_fields = split_dber_field(row.get("DBER_Field", ""))
         year = coerce_phd_year(row.get("PhD_Year", ""))
         era = phd_era(year)
