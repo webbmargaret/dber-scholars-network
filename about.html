@@ -53,7 +53,8 @@
     schools — Purdue's School of Engineering Education essentially <em>is</em> Purdue's
     presence in this dataset. That's not a bug; it reflects how the underlying data was
     collected (see below), which leans heavily on institutions that happen to publish a
-    complete, dated alumni roster.
+    complete, 
+    dated alumni roster.
   </p>
 
   <h2>How the dataset was built</h2>
@@ -79,6 +80,29 @@
       middle initials, and punctuation differences that made the same person look like
       two people across sources</li>
   </ol>
+
+  <h2>The August 2026 expansion: coauthor-network mining</h2>
+  <p>
+    Starting in August 2026, the dataset began growing through a different method:
+    scanning the published papers of people already in the dataset for their frequent
+    co-authors. Someone who repeatedly co-authors DBER-relevant work alongside a scholar
+    already confirmed to work in this space gets added as a new entry. The first pass
+    surfaced roughly 3,400 people this way — collaborators, co-PIs, and colleagues who
+    don't show up on any alumni roster or conference attendee list, and who the original
+    eight sources above had no way of finding.
+  </p>
+  <div class="callout warm">
+    <strong>These entries are not individually vetted.</strong>
+    Co-authoring a paper with a DBER scholar is a weaker signal than the sources above —
+    it can just as easily mean a one-off collaboration outside someone's main field, a
+    shared methods paper, or a mismatched name. Entries surfaced this way are included
+    unreviewed, so the map reflects the fuller collaboration picture, rather than held
+    back until each identity is manually confirmed. Their record includes a note
+    explaining how they were found and which known scholar(s) they co-occur with. If you
+    spot one that doesn't belong, or a connection that's wrong, flag it via the
+    <a href="contribute.html">Add/Edit page</a>.
+  </div>
+
   <h2>Known gaps and limitations</h2>
   <ul>
     <li><strong>Coverage is uneven across fields and institutions.</strong> Programs
@@ -96,6 +120,11 @@
       more directly DBER-relevant ERM Division Fellows list was retrieved in full.</li>
     <li><strong>No names were invented.</strong> Where a source didn't clearly confirm a
       detail, that field was left blank rather than guessed.</li>
+    <li><strong>A large share of the dataset is unreviewed coauthor-mining output.</strong>
+      Most people added since August 2026 were surfaced by scanning existing scholars'
+      publication co-author lists (see above), not hand-curated from the original eight
+      sources. These entries haven't been individually verified as DBER scholars — treat
+      them as leads worth a second look, not confirmed identities.</li>
     <li><strong>Email addresses are deliberately excluded</strong> from this public
       site, even where a source (a conference directory) originally included them —
       republishing scraped contact information without the person's direct consent

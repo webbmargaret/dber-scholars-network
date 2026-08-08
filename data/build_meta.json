@@ -1,13 +1,13 @@
 {
-  "built": "2026-08-07T17:03:35",
-  "row_count": 1581,
+  "built": "2026-08-08T15:04:48",
+  "row_count": 4958,
   "source_file": "1000_DBER_scholars_merged_scholar.csv",
   "fill_counts": {
-    "Institution": 1048,
+    "Institution": 4744,
     "Research_Interests": 343,
     "Position_Title": 412,
     "Program": 894,
-    "Notes": 800,
+    "Notes": 4177,
     "DBER_Field": 278,
     "PhD_Year": 470,
     "Dissertation_Title": 402,
@@ -15,7 +15,7 @@
     "Position_Type": 86
   },
   "group_attribute_counts": {
-    "institution": 118,
+    "institution": 1603,
     "program": 43,
     "dber_field": 22,
     "phd_era": 7
