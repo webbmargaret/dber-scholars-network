@@ -6,3 +6,6 @@ __pycache__/
 # get committed into this repo, even if copied here temporarily during a build run.
 *_DBER_scholars_merged.csv
 *.csv
+
+# Semantic Scholar API key — never commit credentials.
+build/.s2_api_key

@@ -7,6 +7,7 @@ const FIELD_DEFS = [
   { key: "position_title", label: "Position", type: "text" },
   { key: "position_type", label: "Position Type", type: "text" },
   { key: "dber_field", label: "DBER Field", type: "chips" },
+  { key: "dber_field_inferred", label: "DBER Field (machine-inferred)", type: "chips" },
   { key: "research_interests", label: "Research Interests", type: "text" },
   { key: "phd_year", label: "PhD Year", type: "text" },
   { key: "dissertation_title", label: "Dissertation Title", type: "text" },
@@ -54,6 +55,10 @@ function renderDetailPanel(panelEl, scholar) {
         if (def.key === "institution") {
           chip.className = v.status === "former" ? "chip chip--former" : "chip";
           chip.textContent = v.status === "former" ? `${v.name} (former)` : v.name;
+        } else if (def.key === "dber_field_inferred") {
+          chip.className = "chip chip--inferred";
+          chip.textContent = v.code;
+          chip.title = `Inferred from publication venues/keywords, not hand-verified. Confidence: ${v.confidence}. Evidence: ${v.evidence}`;
         } else {
           chip.className = "chip";
           chip.textContent = v;

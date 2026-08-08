@@ -92,15 +92,40 @@
     eight sources above had no way of finding.
   </p>
   <div class="callout warm">
-    <strong>These entries are not individually vetted.</strong>
+    <strong>These entries are algorithmically surfaced, not hand-vetted.</strong>
     Co-authoring a paper with a DBER scholar is a weaker signal than the sources above —
     it can just as easily mean a one-off collaboration outside someone's main field, a
-    shared methods paper, or a mismatched name. Entries surfaced this way are included
-    unreviewed, so the map reflects the fuller collaboration picture, rather than held
-    back until each identity is manually confirmed. Their record includes a note
-    explaining how they were found and which known scholar(s) they co-occur with. If you
-    spot one that doesn't belong, or a connection that's wrong, flag it via the
+    shared methods paper, or a mismatched name. A follow-up pass re-checked each one
+    against live Semantic Scholar data — comparing name, institution, and whether their
+    publications actually appear in DBER-relevant venues — but that's still an automated
+    check, not a human one. Most come back either clearly supported by that evidence or
+    genuinely inconclusive (no matching venue found either way); a small number turn out
+    to be a likely name mismatch entirely. None of these outcomes get a person removed
+    automatically — every record keeps a plain-language note explaining what the
+    re-check found, and stays flagged for human review either way. If you spot one that
+    doesn't belong, or a connection that's wrong, flag it via the
     <a href="contribute.html">Add/Edit page</a>.
+  </div>
+
+  <h2>DBER field inference (August 2026)</h2>
+  <p>
+    Most people in this dataset have never had a DBER field (PER, EER, BER, RUME, etc.)
+    recorded at all — it was only ever entered when a source explicitly stated it. To
+    close that gap, a keyword-and-venue classifier was run over the text already in the
+    dataset for anyone without a field tag: research interests, dissertation titles, and
+    the journals/conferences their publications appeared in. A match to a clearly
+    DBER-specific venue (e.g. the <em>Journal of Engineering Education</em>, an ASEE
+    conference proceedings, <em>CBE—Life Sciences Education</em>) counts as stronger
+    evidence than a bare keyword match in free text.
+  </p>
+  <div class="callout warm">
+    <strong>These are suggestions, not confirmed field tags.</strong>
+    A machine-inferred field is shown as a dashed, separate chip from any hand-sourced
+    DBER Field tag — never merged into it — and hovering it shows the matched evidence
+    and a rough confidence level. It only fills in where a person had no tag at all; it
+    never overrides or second-guesses a tag that was already sourced from the original
+    lists. Think of it as a lead worth a second look, not a verified classification —
+    correct it via the <a href="contribute.html">Add/Edit page</a> if it's wrong.
   </div>
 
   <h2>Known gaps and limitations</h2>
@@ -110,11 +135,13 @@
       Michigan, San Diego State/UC San Diego, Maryland, Delaware, and a handful of
       others) are disproportionately well-represented — not because they're larger or
       more active, just more publicly documented.</li>
-    <li><strong>Most fields are sparsely filled.</strong> A field tag (PER, EER, BER,
-      RUME, etc.) is only recorded for a minority of people; research interests,
-      dissertation titles, and current position are similarly partial. Where a person's
-      record looks thin, that reflects a genuine gap in the public record, not a
-      collection error.</li>
+    <li><strong>Most fields are sparsely filled.</strong> A hand-sourced field tag (PER,
+      EER, BER, RUME, etc.) is only recorded for a minority of people; research
+      interests, dissertation titles, and current position are similarly partial. The
+      machine-inferred field layer (see above) fills in many — not all — of the gaps,
+      and is clearly marked as inferred rather than sourced. Where a record still looks
+      thin, that reflects a genuine gap in the public record, not a collection
+      error.</li>
     <li><strong>ASEE's historical Fellows roster is incomplete.</strong> It sits behind
       a members-only login; only the 2023–2025 classes were retrievable in full. The
       more directly DBER-relevant ERM Division Fellows list was retrieved in full.</li>
@@ -156,7 +183,8 @@ fetch("data/build_meta.json").then(r => r.json()).then(meta => {
     ["People in the dataset", meta.row_count],
     ["Institutions represented", meta.group_attribute_counts.institution],
     ["Programs represented", meta.group_attribute_counts.program],
-    ["DBER field tags recorded", meta.fill_counts.DBER_Field + " people (" + meta.group_attribute_counts.dber_field + " distinct tags)"],
+    ["DBER field tags recorded (hand-sourced)", meta.fill_counts.DBER_Field + " people"],
+    ["DBER field tags added (machine-inferred)", meta.dber_field_inferred_people + " people (" + meta.dber_field_inferred_distinct_tags + " distinct tags)"],
     ["PhD year recorded", meta.fill_counts.PhD_Year + " people"],
     ["Dissertation title recorded", meta.fill_counts.Dissertation_Title + " people"],
     ["Last rebuilt", meta.built.slice(0, 10)],

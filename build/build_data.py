@@ -17,6 +17,8 @@ from collections import defaultdict
 from datetime import date, datetime
 from pathlib import Path
 
+from dber_taxonomy import FIELD_TAXONOMY
+
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = REPO_ROOT / "data"
 
@@ -137,6 +139,10 @@ INSTITUTION_STRING_OVERRIDES: dict[str, list[dict[str, str]]] = {
     ],
     "Lamont-Doherty Earth Observatory, Columbia University": [
         {"name": "Columbia University", "status": "current", "note": ""},
+    ],
+    "Vanderbilt University (previously Virginia Tech, PhD)": [
+        {"name": "Vanderbilt University", "status": "current", "note": ""},
+        {"name": "Virginia Tech", "status": "former", "note": "PhD"},
     ],
 }
 
@@ -348,6 +354,30 @@ def split_dber_field(value: str) -> list[str]:
     return out
 
 
+def parse_dber_field_inferred(fields_str: str, confidence_str: str, evidence_str: str) -> list[dict]:
+    """Parses the three `||`-aligned DBER_Field_inferred* columns produced by
+    build/infer_dber_field.py into structured chips. Deliberately doesn't reuse
+    split_dber_field — that dedupes/reorders, which would break positional
+    alignment between a field code and its confidence/evidence."""
+    codes = split_pipe(fields_str)
+    confidences = split_pipe(confidence_str)
+    evidences = split_pipe(evidence_str)
+    out = []
+    seen = set()
+    for i, code in enumerate(codes):
+        if code in seen:
+            continue
+        seen.add(code)
+        spec = FIELD_TAXONOMY.get(code)
+        out.append({
+            "code": code,
+            "label": spec["label"] if spec else code,
+            "confidence": confidences[i] if i < len(confidences) else "",
+            "evidence": evidences[i] if i < len(evidences) else "",
+        })
+    return out
+
+
 def coerce_phd_year(value: str) -> int | None:
     """Handles float-string artifacts like "2007.0"."""
     if not value or not value.strip():
@@ -380,6 +410,8 @@ def build(csv_path: Path):
     scholars = []
     fill_counts = defaultdict(int)
     group_members = {attr: defaultdict(list) for attr in GROUP_ATTRS}
+    dber_field_inferred_people = 0
+    dber_field_inferred_distinct = set()
 
     for idx, row in enumerate(rows):
         name = row.get("Name", "").strip()
@@ -399,6 +431,15 @@ def build(csv_path: Path):
         institutions = normalize_institutions(split_pipe(row.get("Institution", "")))
         programs = normalize_programs(split_pipe(row.get("Program", "")), institutions)
         dber_fields = split_dber_field(row.get("DBER_Field", ""))
+        # Machine-inferred by build/infer_dber_field.py, not read into DISPLAY_COLUMNS
+        # so it never counts toward completeness_score/fill_counts (sourced-data-only
+        # metric) — kept as a separate scholar key so the site can render it distinctly
+        # from hand-sourced dber_field.
+        dber_field_inferred = parse_dber_field_inferred(
+            row.get("DBER_Field_inferred", ""),
+            row.get("DBER_Field_inferred_confidence", ""),
+            row.get("DBER_Field_inferred_evidence", ""),
+        )
         year = coerce_phd_year(row.get("PhD_Year", ""))
         era = phd_era(year)
 
@@ -410,6 +451,7 @@ def build(csv_path: Path):
             "institution": institutions,
             "program": programs,
             "dber_field": dber_fields,
+            "dber_field_inferred": dber_field_inferred,
             "research_interests": row.get("Research_Interests", "").strip(),
             "position_title": row.get("Position_Title", "").strip(),
             "position_type": row.get("Position_Type", "").strip(),
@@ -422,11 +464,20 @@ def build(csv_path: Path):
         }
         scholars.append(scholar)
 
+        if dber_field_inferred:
+            dber_field_inferred_people += 1
+            dber_field_inferred_distinct.update(d["code"] for d in dber_field_inferred)
+
         for inst in institutions:
             group_members["institution"][inst["name"]].append(person_id)
         for prog in programs:
             group_members["program"][prog].append(person_id)
-        for field in dber_fields:
+        # Inferred DBER fields feed into the same hub-clustering as sourced ones (an
+        # inferred "EER" merges into the sourced "EER" hub, since both key on the same
+        # code/label) — the network graph doesn't distinguish sourced vs. inferred
+        # membership; only the detail-panel chip does, via dber_field_inferred above.
+        all_dber_labels = list(dict.fromkeys(dber_fields + [d["code"] for d in dber_field_inferred]))
+        for field in all_dber_labels:
             group_members["dber_field"][field].append(person_id)
         if era:
             group_members["phd_era"][era].append(person_id)
@@ -451,6 +502,8 @@ def build(csv_path: Path):
         "source_file": csv_path.name,
         "fill_counts": dict(fill_counts),
         "group_attribute_counts": {attr: len(items) for attr, items in groups.items()},
+        "dber_field_inferred_people": dber_field_inferred_people,
+        "dber_field_inferred_distinct_tags": len(dber_field_inferred_distinct),
     }
 
     DATA_DIR.mkdir(exist_ok=True)
