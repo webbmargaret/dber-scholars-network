@@ -19,6 +19,8 @@ from pathlib import Path
 
 from dber_taxonomy import FIELD_TAXONOMY
 
+csv.field_size_limit(10_000_000)  # publications_json can exceed the 128KB default
+
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = REPO_ROOT / "data"
 
@@ -85,6 +87,12 @@ CANONICAL_INSTITUTION_NAMES = {
 # for two entries, unambiguous language elsewhere in that person's record) says so
 # outright; otherwise "unknown" — no institution history is guessed or invented.
 INSTITUTION_STRING_OVERRIDES: dict[str, list[dict[str, str]]] = {
+    "Virginia Tech (PhD)": [
+        {"name": "Virginia Tech", "status": "PhD", "note": ""},
+    ],
+    "Cornell University (current)": [
+        {"name": "Cornell University", "status": "current", "note": ""},
+    ],
     "Cornell University (formerly CU Boulder)": [
         {"name": "Cornell University", "status": "current", "note": ""},
         {"name": "University of Colorado Boulder", "status": "former", "note": ""},

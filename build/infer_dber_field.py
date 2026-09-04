@@ -21,6 +21,8 @@ import json
 import sys
 from pathlib import Path
 
+csv.field_size_limit(10_000_000)  # publications_json can exceed the 128KB default
+
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from dber_taxonomy import FIELD_TAXONOMY, score_fields  # noqa: E402
 

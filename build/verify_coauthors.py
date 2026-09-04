@@ -25,6 +25,8 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
+csv.field_size_limit(10_000_000)  # publications_json can exceed the 128KB default
+
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from dber_taxonomy import score_fields  # noqa: E402
 from s2_client import DEFAULT_FIELDS, S2Client, load_api_key  # noqa: E402

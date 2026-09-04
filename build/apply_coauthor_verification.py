@@ -19,6 +19,8 @@ import csv
 from collections import Counter
 from pathlib import Path
 
+csv.field_size_limit(10_000_000)  # publications_json can exceed the 128KB default
+
 SOURCE_LIST_TAG = "Coauthor-candidate shortlist review (2026-08-07)"
 
 STATUS_TO_CONFIRMED = {
