@@ -1,25 +1,25 @@
 {
-  "built": "2026-09-04T16:04:06",
-  "row_count": 4959,
-  "source_file": "1000_DBER_scholars_merged_scholar_v2_final.csv",
+  "built": "2026-09-06T18:10:59",
+  "row_count": 4945,
+  "source_file": "1000_DBER_scholars_merged_scholar_final.csv",
   "fill_counts": {
-    "Institution": 4745,
-    "Research_Interests": 344,
-    "Position_Title": 413,
+    "Institution": 4735,
+    "Research_Interests": 345,
+    "Position_Title": 414,
     "Program": 894,
-    "Notes": 4178,
-    "DBER_Field": 279,
+    "Notes": 4164,
+    "DBER_Field": 280,
     "PhD_Year": 470,
     "Dissertation_Title": 402,
     "Current_Position": 214,
-    "Position_Type": 87
+    "Position_Type": 88
   },
   "group_attribute_counts": {
-    "institution": 1602,
+    "institution": 1560,
     "program": 43,
     "dber_field": 22,
     "phd_era": 7
   },
-  "dber_field_inferred_people": 1846,
+  "dber_field_inferred_people": 2420,
   "dber_field_inferred_distinct_tags": 7
 }
