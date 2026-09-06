@@ -3,6 +3,16 @@
 
 function initFilters({ graph, scholars, groups, els }) {
   let legendExpanded = false;
+  const groupedCountCache = {};
+  function groupedPeopleCount(attr) {
+    if (attr === "none") return scholars.length;
+    if (groupedCountCache[attr] == null) {
+      const ids = new Set();
+      (groups[attr] || []).forEach((g) => g.memberIds.forEach((id) => ids.add(id)));
+      groupedCountCache[attr] = ids.size;
+    }
+    return groupedCountCache[attr];
+  }
   const yearsWithData = scholars.map((s) => s.phd_year).filter((y) => y != null);
   const minYear = yearsWithData.length ? Math.min(...yearsWithData) : 1990;
   const maxYear = yearsWithData.length ? Math.max(...yearsWithData) : new Date().getFullYear();
@@ -144,7 +154,7 @@ function initFilters({ graph, scholars, groups, els }) {
       return;
     }
     els.countReadout.classList.remove("no-match");
-    els.countReadout.textContent = `Showing ${scholars.length} people${suffix}`;
+    els.countReadout.textContent = `Showing ${groupedPeopleCount(attr)} people${suffix}`;
   }
 
   els.attrSelect.addEventListener("change", () => {
