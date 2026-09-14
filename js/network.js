@@ -29,11 +29,11 @@ function prominenceRadius(nCitations) {
 }
 
 class NetworkGraph {
-  constructor(canvas, { onSelectPerson, onIsolationChange } = {}) {
+  constructor(canvas, { onSelectPerson, onStateChange } = {}) {
     this.canvas = canvas;
     this.ctx = canvas.getContext("2d");
     this.onSelectPerson = onSelectPerson || (() => {});
-    this.onIsolationChange = onIsolationChange || (() => {});
+    this.onStateChange = onStateChange || (() => {});
     this.scholars = [];
     this.groups = {};
     this.collabEdgeDefs = [];
@@ -120,12 +120,13 @@ class NetworkGraph {
     this._buildNodesAndLinks(attr);
     if (prevPositions) this._restorePositions(prevPositions);
     this._startSimulation();
-    this.onIsolationChange(this.isolatedHub);
+    this.onStateChange();
   }
 
   setShowEdges(show) {
     this.showEdges = show;
     this._draw();
+    this.onStateChange();
   }
 
   setShowCollabEdges(show) {
@@ -138,17 +139,20 @@ class NetworkGraph {
     }
     this._restorePositions(prevPositions);
     this._startSimulation();
+    this.onStateChange();
   }
 
   setSearch(term) {
     this.searchTerm = term.trim().toLowerCase();
     this.searchWords = this.searchTerm.split(/\s+/).filter(Boolean);
     this._draw();
+    this.onStateChange();
   }
 
   setYearRange(range) {
     this.yearRange = range;
     this._draw();
+    this.onStateChange();
   }
 
   isolateHub(hubId) {
@@ -161,7 +165,7 @@ class NetworkGraph {
     } else {
       this._draw();
     }
-    this.onIsolationChange(this.isolatedHub);
+    this.onStateChange();
   }
 
   clearIsolation() {
@@ -183,6 +187,7 @@ class NetworkGraph {
     }
     this._restorePositions(prevPositions);
     this._startSimulation();
+    this.onStateChange();
   }
 
   _buildSubclusteredNodesAndLinks(hubId, subAttr) {
@@ -490,16 +495,37 @@ class NetworkGraph {
   _bindInteraction() {
     const canvas = this.canvas;
     let panStart = null;
+    // Pointer Events unify mouse/touch/pen into one code path — needed for real
+    // multi-touch pinch-zoom, which a mouse-only or parallel touch-listener
+    // approach can't get "for free" the way tracking each pointer's id can.
+    const pointers = new Map(); // pointerId -> {x, y}
+    let pinch = null; // { lastDist }
 
-    canvas.addEventListener("mousedown", (e) => {
+    const pinchDist = () => {
+      const pts = [...pointers.values()];
+      return Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
+    };
+    const pinchMidpoint = () => {
+      const pts = [...pointers.values()];
+      return { x: (pts[0].x + pts[1].x) / 2, y: (pts[0].y + pts[1].y) / 2 };
+    };
+
+    canvas.addEventListener("pointerdown", (e) => {
       const rect = canvas.getBoundingClientRect();
       const px = e.clientX - rect.left;
       const py = e.clientY - rect.top;
+      pointers.set(e.pointerId, { x: px, y: py });
+      canvas.setPointerCapture(e.pointerId);
+
+      if (pointers.size === 2) {
+        this.dragging = null;
+        panStart = null;
+        pinch = { lastDist: pinchDist() };
+        return;
+      }
+      if (pointers.size !== 1) return;
       const node = this._nodeAt(px, py);
-      if (node && node.type === "person") {
-        this.dragging = node;
-        this.simulation.alphaTarget(0.15).restart();
-      } else if (node && node.type === "hub") {
+      if (node) {
         this.dragging = node;
         this.simulation.alphaTarget(0.15).restart();
       } else {
@@ -507,10 +533,37 @@ class NetworkGraph {
       }
     });
 
-    window.addEventListener("mousemove", (e) => {
+    window.addEventListener("pointermove", (e) => {
+      if (!pointers.has(e.pointerId)) {
+        // Hover preview (mouse only — touch has no hover state before a tap).
+        if (e.pointerType !== "touch" && !this.dragging && !panStart) {
+          const rect = canvas.getBoundingClientRect();
+          const px = e.clientX - rect.left;
+          const py = e.clientY - rect.top;
+          const node = this._nodeAt(px, py);
+          this.hoveredId = node && node.type === "person" ? node.id : null;
+          canvas.style.cursor = node ? "pointer" : "grab";
+          this._draw();
+        }
+        return;
+      }
       const rect = canvas.getBoundingClientRect();
       const px = e.clientX - rect.left;
       const py = e.clientY - rect.top;
+      pointers.set(e.pointerId, { x: px, y: py });
+
+      if (pointers.size === 2 && pinch) {
+        const newDist = pinchDist();
+        const factor = newDist / pinch.lastDist;
+        const mid = pinchMidpoint();
+        const worldBefore = this._screenToWorld(mid.x, mid.y);
+        this.transform.k = Math.min(Math.max(this.transform.k * factor, 0.15), 6);
+        this.transform.x = mid.x - worldBefore.x * this.transform.k;
+        this.transform.y = mid.y - worldBefore.y * this.transform.k;
+        pinch.lastDist = newDist;
+        this._draw();
+        return;
+      }
       if (this.dragging) {
         const { x, y } = this._screenToWorld(px, py);
         this.dragging.fx = x;
@@ -519,23 +572,36 @@ class NetworkGraph {
         this.transform.x = e.clientX - panStart.x;
         this.transform.y = e.clientY - panStart.y;
         this._draw();
-      } else {
-        const node = this._nodeAt(px, py);
-        this.hoveredId = node && node.type === "person" ? node.id : null;
-        canvas.style.cursor = node ? "pointer" : "grab";
-        this._draw();
       }
     });
 
-    window.addEventListener("mouseup", () => {
-      if (this.dragging) {
-        this.dragging.fx = null;
-        this.dragging.fy = null;
-        if (this.simulation) this.simulation.alphaTarget(0);
+    const endPointer = (e) => {
+      pointers.delete(e.pointerId);
+      if (pointers.size === 0) {
+        if (this.dragging) {
+          this.dragging.fx = null;
+          this.dragging.fy = null;
+          if (this.simulation) this.simulation.alphaTarget(0);
+        }
+        this.dragging = null;
+        panStart = null;
+        pinch = null;
+      } else if (pointers.size === 1) {
+        // Dropped from two fingers to one — resume as a fresh pan from here,
+        // rather than jumping using the old two-finger midpoint as the anchor.
+        // `pointers` stores canvas-relative coords; panStart is compared against
+        // client-space clientX/Y in pointermove, so convert back via the rect.
+        const rect = canvas.getBoundingClientRect();
+        const [remaining] = [...pointers.values()];
+        panStart = {
+          x: remaining.x + rect.left - this.transform.x,
+          y: remaining.y + rect.top - this.transform.y,
+        };
+        pinch = null;
       }
-      this.dragging = null;
-      panStart = null;
-    });
+    };
+    window.addEventListener("pointerup", endPointer);
+    window.addEventListener("pointercancel", endPointer);
 
     canvas.addEventListener("click", (e) => {
       const rect = canvas.getBoundingClientRect();

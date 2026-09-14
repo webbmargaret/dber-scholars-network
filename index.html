@@ -25,75 +25,130 @@
     <a href="index.html" class="active">Network</a>
     <a href="about.html">About</a>
     <a href="contribute.html">Add / Edit</a>
+    <button type="button" class="info-btn" id="info-open-btn" aria-haspopup="dialog" aria-controls="info-modal"><span aria-hidden="true">?</span><span class="info-btn-label"> How this works</span></button>
   </nav>
 </div>
 
 <div class="app">
   <aside class="sidebar">
-    <h3>Group by</h3>
-    <div class="field-group">
-      <select id="attr-select">
-        <option value="institution">Institution</option>
-        <option value="program">Program</option>
-        <option value="dber_field">DBER Field</option>
-        <option value="phd_era">PhD Era</option>
-        <option value="none">None (no clustering)</option>
-      </select>
+    <button type="button" class="sidebar-toggle" id="sidebar-toggle" aria-expanded="false" aria-controls="sidebar-body">
+      <span>Filters &amp; legend</span>
+      <span class="chevron" aria-hidden="true">▲</span>
+    </button>
+    <div class="sidebar-body" id="sidebar-body">
+      <div class="filter-trail" id="filter-trail" aria-live="polite">
+        <span id="filter-trail-text"></span>
+        <button type="button" id="filter-trail-reset" class="link-btn" hidden>Reset filters</button>
+      </div>
+
+      <h3>Group by</h3>
+      <div class="field-group">
+        <select id="attr-select">
+          <option value="institution">Institution</option>
+          <option value="program">Program</option>
+          <option value="dber_field">DBER Field</option>
+          <option value="phd_era">PhD Era</option>
+          <option value="none">None (no clustering)</option>
+        </select>
+      </div>
+      <div class="provenance-note" id="group-caveat"></div>
+
+      <div class="field-group" id="subgroup-wrap" hidden>
+        <label for="subgroup-select" class="subtle-label">Sub-group isolated set by</label>
+        <select id="subgroup-select">
+          <option value="none">None</option>
+        </select>
+        <button type="button" id="clear-isolation-btn" class="link-btn">Clear isolation</button>
+      </div>
+
+      <div class="toggle-row">
+        <input type="checkbox" id="edge-toggle" checked>
+        <label for="edge-toggle" style="margin:0; text-transform:none; font-family:var(--sans); font-size:0.85rem; color:var(--ink);">Show connections</label>
+      </div>
+      <div class="provenance-note persistent">Lines show a shared attribute (same institution/program/field) — not a confirmed relationship. <a href="about.html">Read more</a>.</div>
+
+      <div class="toggle-row">
+        <input type="checkbox" id="collab-edge-toggle">
+        <label for="collab-edge-toggle" style="margin:0; text-transform:none; font-family:var(--sans); font-size:0.85rem; color:var(--ink);">Show collaboration signals</label>
+      </div>
+      <div class="provenance-note persistent">Dashed lines: who a co-author-mined person was found via. Algorithmic, not hand-vetted — off by default. <a href="about.html">Read more</a>.</div>
+
+      <h3>Search</h3>
+      <input type="text" id="search" placeholder="Name, institution, program, research interests…">
+      <ul class="search-results" id="search-results"></ul>
+
+      <h3>PhD Year</h3>
+      <div class="toggle-row">
+        <input type="checkbox" id="year-range-toggle">
+        <label for="year-range-toggle" style="margin:0; text-transform:none; font-family:var(--sans); font-size:0.85rem; color:var(--ink);">Filter by range</label>
+      </div>
+      <div class="field-group">
+        <input type="range" id="year-min">
+        <input type="range" id="year-max">
+      </div>
+      <div class="mono" id="year-label" style="font-size:0.76rem; color:var(--ink-soft);"></div>
+
+      <h3 id="legend-title"></h3>
+      <ul class="legend" id="legend"></ul>
+
+      <div class="stat-line" id="count-readout"></div>
     </div>
-    <div class="provenance-note" id="group-caveat"></div>
-
-    <div class="field-group" id="subgroup-wrap" hidden>
-      <label for="subgroup-select" class="subtle-label">Sub-group isolated set by</label>
-      <select id="subgroup-select">
-        <option value="none">None</option>
-      </select>
-      <button type="button" id="clear-isolation-btn" class="link-btn">Clear isolation</button>
-    </div>
-
-    <div class="toggle-row">
-      <input type="checkbox" id="edge-toggle" checked>
-      <label for="edge-toggle" style="margin:0; text-transform:none; font-family:var(--sans); font-size:0.85rem; color:var(--ink);">Show connections</label>
-    </div>
-    <div class="provenance-note persistent">Lines show a shared attribute (same institution/program/field) — not a confirmed relationship. <a href="about.html">Read more</a>.</div>
-
-    <div class="toggle-row">
-      <input type="checkbox" id="collab-edge-toggle">
-      <label for="collab-edge-toggle" style="margin:0; text-transform:none; font-family:var(--sans); font-size:0.85rem; color:var(--ink);">Show collaboration signals</label>
-    </div>
-    <div class="provenance-note persistent">Dashed lines: who a co-author-mined person was found via. Algorithmic, not hand-vetted — off by default. <a href="about.html">Read more</a>.</div>
-
-    <h3>Search</h3>
-    <input type="text" id="search" placeholder="Name, institution, program, research interests…">
-    <ul class="search-results" id="search-results"></ul>
-
-    <h3>PhD Year</h3>
-    <div class="toggle-row">
-      <input type="checkbox" id="year-range-toggle">
-      <label for="year-range-toggle" style="margin:0; text-transform:none; font-family:var(--sans); font-size:0.85rem; color:var(--ink);">Filter by range</label>
-    </div>
-    <div class="field-group">
-      <input type="range" id="year-min">
-      <input type="range" id="year-max">
-    </div>
-    <div class="mono" id="year-label" style="font-size:0.76rem; color:var(--ink-soft);"></div>
-
-    <h3 id="legend-title"></h3>
-    <ul class="legend" id="legend"></ul>
-
-    <div class="stat-line" id="count-readout"></div>
   </aside>
 
   <main class="stage" id="stage">
     <canvas id="graph-canvas"></canvas>
     <div class="loading-note" id="loading-note">Arranging the network…</div>
-    <div class="stage-hint">Scroll to zoom · drag to pan · drag a node to pin it · click a hub to isolate its group</div>
+    <div class="stage-hint">
+      <span class="hint-desktop">Scroll to zoom · drag to pan · drag a node to pin it · click a hub to isolate its group</span>
+      <span class="hint-mobile">Pinch to zoom · drag to pan · tap a hub to isolate it</span>
+    </div>
     <div class="detail-panel" id="detail-panel"></div>
   </main>
 </div>
- 
+
+<div class="info-modal" id="info-modal" hidden>
+  <div class="info-modal-backdrop" id="info-modal-backdrop"></div>
+  <div class="info-modal-card" role="dialog" aria-modal="true" aria-labelledby="info-modal-title">
+    <button type="button" class="close-btn" id="info-modal-close" aria-label="Close">✕</button>
+    <h2 id="info-modal-title">How this map works</h2>
+    <p>Every dot is one person in the dataset. Pick an attribute in "Group by" — Institution, Program,
+       DBER Field, or PhD Era — and people sharing that value get pulled toward a shared hub and colored
+       together.</p>
+    <p>Click a hub (or a legend row) to <strong>isolate</strong> it — everyone else dims out. While isolated,
+       use "Sub-group isolated set by" to re-cluster just that slice by a second attribute — e.g. isolate
+       Purdue University, then sub-group by DBER Field — a second lens on one slice of the data.</p>
+    <h3>Before you read too much into the pattern</h3>
+    <ul>
+      <li>Lines show a <em>shared attribute</em>, not a confirmed relationship — two people linked to the
+          same hub may never have met.</li>
+      <li>Only a small share of DBER Field tags are hand-sourced; most shown are machine-inferred
+          (dashed chips) and unverified.</li>
+      <li>PhD year is known for a small minority of people — most of the graph has no PhD-era group.</li>
+      <li>A large share of people were added via automated co-author mining, not hand-vetted.</li>
+    </ul>
+    <p>Full detail on sourcing and known gaps: <a href="about.html">About this project</a>.</p>
+    <button type="button" class="btn" id="info-modal-dismiss">Got it</button>
+  </div>
+</div>
+
 <script src="js/network.js"></script>
 <script src="js/filters.js"></script>
 <script src="js/detail-panel.js"></script>
+<script src="js/info-modal.js"></script>
+<script src="js/sidebar-drawer.js"></script>
+<script>
+initInfoModal({
+  openBtn: document.getElementById("info-open-btn"),
+  modal: document.getElementById("info-modal"),
+  closeBtn: document.getElementById("info-modal-close"),
+  dismissBtn: document.getElementById("info-modal-dismiss"),
+  backdrop: document.getElementById("info-modal-backdrop"),
+});
+initSidebarDrawer({
+  toggleBtn: document.getElementById("sidebar-toggle"),
+  sidebar: document.querySelector(".sidebar"),
+});
+</script>
 <script>
 (async function () {
   const [scholars, groups, collabEdges, apprenticeGrants] = await Promise.all([
@@ -123,6 +178,8 @@
     els: {
       attrSelect: document.getElementById("attr-select"),
       groupCaveat: document.getElementById("group-caveat"),
+      filterTrailText: document.getElementById("filter-trail-text"),
+      filterTrailReset: document.getElementById("filter-trail-reset"),
       subgroupWrap: document.getElementById("subgroup-wrap"),
       subgroupSelect: document.getElementById("subgroup-select"),
       clearIsolationBtn: document.getElementById("clear-isolation-btn"),

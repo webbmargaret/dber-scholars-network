@@ -40,23 +40,58 @@ function initFilters({ graph, scholars, groups, els }) {
       });
   }
 
-  if (els.subgroupWrap) {
-    graph.onIsolationChange = (hubId) => {
-      if (hubId) {
+  function renderTrail() {
+    if (!els.filterTrailText) return;
+    const parts = graph.activeAttr === "none" ? ["No grouping"] : [ATTR_LABELS[graph.activeAttr]];
+    if (graph.isolatedHub) {
+      const hub = (graph.hubNodes || []).find((h) => h.id === graph.isolatedHub);
+      parts.push(hub ? hub.label : "…");
+      if (graph.subAttr) parts.push(`sub-grouped by ${ATTR_LABELS[graph.subAttr]}`);
+    }
+    let text = parts.join(" → ");
+    const extras = [];
+    if (graph.searchTerm) extras.push(`search "${graph.searchTerm}"`);
+    if (graph.yearRange) extras.push(`PhD ${graph.yearRange[0]}–${graph.yearRange[1]}`);
+    if (extras.length) text += "  ·  " + extras.join(", ");
+    els.filterTrailText.textContent = text;
+    const resettable = !!(graph.isolatedHub || graph.searchTerm || graph.yearRange);
+    if (els.filterTrailReset) els.filterTrailReset.hidden = !resettable;
+  }
+
+  let lastIsolatedHub = graph.isolatedHub;
+  function syncFromGraphState() {
+    if (els.subgroupWrap && graph.isolatedHub !== lastIsolatedHub) {
+      if (graph.isolatedHub) {
         populateSubgroupOptions(els.attrSelect.value);
         els.subgroupSelect.value = "none";
         els.subgroupWrap.hidden = false;
       } else {
         els.subgroupWrap.hidden = true;
       }
-    };
+      lastIsolatedHub = graph.isolatedHub;
+    }
+    renderTrail();
   }
+  graph.onStateChange = syncFromGraphState;
 
   els.subgroupSelect?.addEventListener("change", () => {
     graph.setSubAttribute(els.subgroupSelect.value);
   });
   els.clearIsolationBtn?.addEventListener("click", () => {
     graph.clearIsolation();
+  });
+  els.filterTrailReset?.addEventListener("click", () => {
+    graph.clearIsolation();
+    if (els.search.value) {
+      els.search.value = "";
+      graph.setSearch("");
+      renderSearchResults("");
+    }
+    if (els.yearRangeToggle.checked) {
+      els.yearRangeToggle.checked = false;
+      applyYearFilter();
+    }
+    updateCount();
   });
   els.collabEdgeToggle?.addEventListener("change", () => {
     graph.setShowCollabEdges(els.collabEdgeToggle.checked);
@@ -241,5 +276,6 @@ function initFilters({ graph, scholars, groups, els }) {
   renderLegend(els.attrSelect.value);
   renderGroupCaveat(els.attrSelect.value);
   updateCount();
+  renderTrail();
   renderSearchResults(els.search.value.trim());
 }
