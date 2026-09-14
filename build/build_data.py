@@ -396,6 +396,16 @@ def coerce_phd_year(value: str) -> int | None:
         return None
 
 
+def coerce_int(value: str) -> int | None:
+    """Handles float-string artifacts like "42.0" in the scholar_* enrichment columns."""
+    if not value or not value.strip():
+        return None
+    try:
+        return int(float(value.strip()))
+    except ValueError:
+        return None
+
+
 def phd_era(year: int | None) -> str | None:
     if year is None:
         return None
@@ -420,6 +430,8 @@ def build(csv_path: Path):
     group_members = {attr: defaultdict(list) for attr in GROUP_ATTRS}
     dber_field_inferred_people = 0
     dber_field_inferred_distinct = set()
+    n_citations_known = 0
+    match_confidence_counts: defaultdict[str, int] = defaultdict(int)
 
     for idx, row in enumerate(rows):
         name = row.get("Name", "").strip()
@@ -469,12 +481,23 @@ def build(csv_path: Path):
             "position_or_advisor_note": row.get("Current_Position", "").strip(),
             "notes": row.get("Notes", "").strip(),
             "completeness": completeness_score(row),
+            # Enrichment data from the SerpAPI/Semantic Scholar identity-match pass, not
+            # hand-sourced — kept separate from completeness_score/fill_counts the same
+            # way dber_field_inferred is. Only populated where a scholar was confidently
+            # matched to a real Scholar profile (a minority of rows).
+            "n_citations": coerce_int(row.get("n_citations", "")),
+            "h_index": coerce_int(row.get("h_index", "")),
+            "match_confidence": row.get("match_confidence", "").strip() or None,
         }
         scholars.append(scholar)
 
         if dber_field_inferred:
             dber_field_inferred_people += 1
             dber_field_inferred_distinct.update(d["code"] for d in dber_field_inferred)
+
+        if scholar["n_citations"] is not None:
+            n_citations_known += 1
+        match_confidence_counts[scholar["match_confidence"] or "none"] += 1
 
         for inst in institutions:
             group_members["institution"][inst["name"]].append(person_id)
@@ -512,6 +535,8 @@ def build(csv_path: Path):
         "group_attribute_counts": {attr: len(items) for attr, items in groups.items()},
         "dber_field_inferred_people": dber_field_inferred_people,
         "dber_field_inferred_distinct_tags": len(dber_field_inferred_distinct),
+        "n_citations_known": n_citations_known,
+        "match_confidence_counts": dict(match_confidence_counts),
     }
 
     DATA_DIR.mkdir(exist_ok=True)

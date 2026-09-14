@@ -4,11 +4,12 @@
 const CONTACT_EMAIL = "mew329@cornell.edu";
 const MAILTO_BODY_SAFE_LENGTH = 1800;
 
-function buildSubmissionText({ requestType, yourName, replyEmail, whichRecord, message }) {
+function buildSubmissionText({ requestType, yourName, replyEmail, googleScholarLink, whichRecord, message }) {
   const lines = [
     `Request type: ${requestType}`,
     `Submitted name: ${yourName || "(not given)"}`,
     `Reply email: ${replyEmail || "(not given)"}`,
+    `Google Scholar link: ${googleScholarLink || "(not given)"}`,
     `Which record (if editing): ${whichRecord || "(n/a — new entry)"}`,
     "",
     "Message:",
@@ -30,6 +31,7 @@ function initContributeForm({ form, scholarNames, fallbackTextarea, fallbackBox,
       requestType: data.get("requestType"),
       yourName: data.get("yourName"),
       replyEmail: data.get("replyEmail"),
+      googleScholarLink: data.get("googleScholarLink"),
       whichRecord: data.get("whichRecord"),
       message: data.get("message"),
     });

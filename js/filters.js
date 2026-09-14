@@ -1,8 +1,66 @@
 // Wires the sidebar controls (attribute selector, edge toggle, search, PhD-year range,
 // legend, live count) to a NetworkGraph instance.
 
+// Per-grouping caveats, condensed from about.html / README_scholars_dataset.md — shown
+// under the Group-by select so a first-time visitor sees them without digging into
+// About. Percentages here are static (checked against data/build_meta.json's
+// fill_counts at time of writing); about.html's own stats table is the live source.
+const ATTR_CAVEATS = {
+  institution: "Coverage leans on institutions with a published, dated alumni roster — not a measure of program size or activity.",
+  program: "Institution and Program often cluster near-identically for the largest schools (Purdue's Engineering Education program essentially is Purdue's presence here).",
+  dber_field: "Only ~6% of people have a hand-sourced DBER field tag; the rest of any visible coverage is machine-inferred (dashed chips in the detail panel), not verified.",
+  phd_era: "PhD year is known for under 10% of people — most of the graph has no PhD-era group at all.",
+  none: "",
+};
+
 function initFilters({ graph, scholars, groups, els }) {
   let legendExpanded = false;
+
+  function renderGroupCaveat(attr) {
+    if (!els.groupCaveat) return;
+    const text = ATTR_CAVEATS[attr] || "";
+    els.groupCaveat.textContent = text;
+    els.groupCaveat.hidden = !text;
+  }
+
+  function populateSubgroupOptions(activeAttr) {
+    if (!els.subgroupSelect) return;
+    els.subgroupSelect.innerHTML = "";
+    const noneOpt = document.createElement("option");
+    noneOpt.value = "none";
+    noneOpt.textContent = "None";
+    els.subgroupSelect.appendChild(noneOpt);
+    Object.keys(ATTR_LABELS)
+      .filter((a) => a !== activeAttr)
+      .forEach((a) => {
+        const opt = document.createElement("option");
+        opt.value = a;
+        opt.textContent = ATTR_LABELS[a];
+        els.subgroupSelect.appendChild(opt);
+      });
+  }
+
+  if (els.subgroupWrap) {
+    graph.onIsolationChange = (hubId) => {
+      if (hubId) {
+        populateSubgroupOptions(els.attrSelect.value);
+        els.subgroupSelect.value = "none";
+        els.subgroupWrap.hidden = false;
+      } else {
+        els.subgroupWrap.hidden = true;
+      }
+    };
+  }
+
+  els.subgroupSelect?.addEventListener("change", () => {
+    graph.setSubAttribute(els.subgroupSelect.value);
+  });
+  els.clearIsolationBtn?.addEventListener("click", () => {
+    graph.clearIsolation();
+  });
+  els.collabEdgeToggle?.addEventListener("change", () => {
+    graph.setShowCollabEdges(els.collabEdgeToggle.checked);
+  });
   const groupedCountCache = {};
   function groupedPeopleCount(attr) {
     if (attr === "none") return scholars.length;
@@ -162,6 +220,7 @@ function initFilters({ graph, scholars, groups, els }) {
     legendExpanded = false;
     graph.setAttribute(attr);
     renderLegend(attr);
+    renderGroupCaveat(attr);
     updateCount();
   });
 
@@ -180,6 +239,7 @@ function initFilters({ graph, scholars, groups, els }) {
   els.yearMax.addEventListener("input", applyYearFilter);
 
   renderLegend(els.attrSelect.value);
+  renderGroupCaveat(els.attrSelect.value);
   updateCount();
   renderSearchResults(els.search.value.trim());
 }

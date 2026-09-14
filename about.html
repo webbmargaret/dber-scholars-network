@@ -64,10 +64,12 @@
     education research all belong to the same broader family of discipline-based
     education research fields. That grew into an effort to map who actually works in
     this space — current faculty, PhD program alumni, and recognized field leaders —
-    by merging eight separate source lists:
+    by merging nine separate source lists (a tenth, job-posting and institution-list
+    files with no named people in them, contributed nothing and was excluded):
   </p>
   <ol>
-    <li>A 2026 New York DBER conference attendee directory</li>
+    <li>A STEM DBER Alliance member list (name, institution, field, position)</li>
+    <li>A 2026 Upstate NY DBER conference attendee directory</li>
     <li>An index of profiles from an Engineering Education Pioneers project</li>
     <li>A compiled report of named PhD alumni across roughly 30 US engineering,
       science, and mathematics education doctoral programs</li>
@@ -76,10 +78,16 @@
     <li>A current-faculty research pass across the same ~30 programs</li>
     <li>A cross-reference against ASEE's Educational Research and Methods (ERM)
       Division Fellows list and the general Academy of Fellows, 2023–2025 classes</li>
+    <li>An international research pass covering Canada, Scandinavia, and Australia</li>
     <li>Manual review to reconcile the inevitable near-duplicates — nicknames, dropped
       middle initials, and punctuation differences that made the same person look like
       two people across sources</li>
   </ol>
+  <p>
+    The dataset has grown substantially since that original merge, mostly through the
+    co-author mining described next — see the live count at the bottom of this page for
+    today's total.
+  </p>
 
   <h2>The August 2026 expansion: coauthor-network mining</h2>
   <p>
@@ -128,6 +136,30 @@
     correct it via the <a href="contribute.html">Add/Edit page</a> if it's wrong.
   </div>
 
+  <h2>Identity verification — and what hasn't reached this site yet</h2>
+  <p>
+    Every scholar record here that carries a name gets checked against a live Google
+    Scholar profile where one can be found, so citation counts and h-index (shown in
+    the network view as node size, and in each person's detail panel) come from a real
+    match, not a guess. That match is scored a confidence level — high, medium, or low —
+    based on whether the name, institution, and the profile's actual research topics
+    line up. <strong>The live breakdown for what's on this site right now is in the
+    stats table below</strong> — a fair share of matches are medium- or low-confidence,
+    which means the citation count attached to some people may belong to someone else
+    with a similar name. The detail panel flags this with a dotted underline on
+    "Citations"/"h-index" wherever the match isn't high-confidence.
+  </p>
+  <div class="callout warm">
+    <strong>A more rigorous identity-verification pass exists, but hasn't been rebuilt
+    into this site yet.</strong> The separately maintained master dataset this site
+    draws from went through a second, more careful verification pass (using Google web
+    search plus Google Scholar's own author-search API, rather than Semantic Scholar
+    alone) that fixed several real matching bugs and re-checked weak matches. That pass
+    predates this site's most recent rebuild, so its improvements aren't reflected in
+    the confidence levels above yet — a future rebuild against the updated master file
+    will bring them in.
+  </div>
+
   <h2>Known gaps and limitations</h2>
   <ul>
     <li><strong>Coverage is uneven across fields and institutions.</strong> Programs
@@ -155,7 +187,12 @@
     <li><strong>Email addresses are deliberately excluded</strong> from this public
       site, even where a source (a conference directory) originally included them —
       republishing scraped contact information without the person's direct consent
-      isn't something this project does.</li>
+      isn't something this project does. The same rule applies to every dataset merged
+      in since.</li>
+    <li><strong>The "Show collaboration signals" lines on the network page are the
+      least verified data here.</strong> They show who a co-author-mined person was
+      found via — a real signal, but an algorithmic one, not a confirmed collaboration
+      or advising relationship. They're off by default for that reason.</li>
   </ul>
 
   <h2>The dataset in numbers</h2>
@@ -179,6 +216,11 @@
 <script>
 fetch("data/build_meta.json").then(r => r.json()).then(meta => {
   const tbody = document.querySelector("#stats-table tbody");
+  const conf = meta.match_confidence_counts || {};
+  const confSummary = ["high", "medium", "low", "not_found", "error", "none"]
+    .filter(k => conf[k])
+    .map(k => `${conf[k]} ${k}`)
+    .join(" / ");
   const rows = [
     ["People in the dataset", meta.row_count],
     ["Institutions represented", meta.group_attribute_counts.institution],
@@ -187,6 +229,8 @@ fetch("data/build_meta.json").then(r => r.json()).then(meta => {
     ["DBER field tags added (machine-inferred)", meta.dber_field_inferred_people + " people (" + meta.dber_field_inferred_distinct_tags + " distinct tags)"],
     ["PhD year recorded", meta.fill_counts.PhD_Year + " people"],
     ["Dissertation title recorded", meta.fill_counts.Dissertation_Title + " people"],
+    ["Citation count known (drives node size)", meta.n_citations_known + " people"],
+    ["Scholar-profile match confidence", confSummary || "—"],
     ["Last rebuilt", meta.built.slice(0, 10)],
   ];
   tbody.innerHTML = rows.map(([label, val]) =>

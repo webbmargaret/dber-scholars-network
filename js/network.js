@@ -18,18 +18,31 @@ function colorForIndex(i) {
   return PALETTE[i % PALETTE.length];
 }
 
+// Person node radius, sized by citation count where known (a Scholar-profile match) —
+// sqrt-scaled and clamped so the citation-count power law doesn't blow up the graph.
+// Opacity (see _draw) carries record-completeness instead, so the two axes stay
+// distinct rather than one field doing double duty.
+function prominenceRadius(nCitations) {
+  const base = 2;
+  if (!nCitations) return base;
+  return Math.min(base + Math.sqrt(nCitations) * 0.34, 15);
+}
+
 class NetworkGraph {
-  constructor(canvas, { onSelectPerson } = {}) {
+  constructor(canvas, { onSelectPerson, onIsolationChange } = {}) {
     this.canvas = canvas;
     this.ctx = canvas.getContext("2d");
     this.onSelectPerson = onSelectPerson || (() => {});
+    this.onIsolationChange = onIsolationChange || (() => {});
     this.scholars = [];
     this.groups = {};
+    this.collabEdgeDefs = [];
     this.nodes = [];
     this.links = [];
     this.scholarById = new Map();
     this.activeAttr = "institution";
     this.showEdges = true;
+    this.showCollabEdges = false;
     this.searchTerm = "";
     this.searchWords = [];
     this.matchCount = 0;
@@ -37,6 +50,8 @@ class NetworkGraph {
     this.yearRange = null; // [min, max] or null
     this.transform = { x: 0, y: 0, k: 1 };
     this.isolatedHub = null;
+    this.subAttr = null;
+    this._subclustered = false;
     this.dragging = null;
     this.hoveredId = null;
 
@@ -58,13 +73,25 @@ class NetworkGraph {
     this._draw();
   }
 
-  load(scholars, groups) {
+  load(scholars, groups, collabEdgeDefs = []) {
     this.scholars = scholars;
     this.groups = groups;
+    this.collabEdgeDefs = collabEdgeDefs;
     this.scholarById = new Map(scholars.map((s) => [s.id, s]));
     this._haystackById = new Map(scholars.map((s) => [s.id, this._buildHaystack(s)]));
     this._nameHaystackById = new Map(scholars.map((s) => [s.id, (s.name || "").toLowerCase()]));
     this.setAttribute(this.activeAttr, { warm: false });
+  }
+
+  _attrValuesForScholar(scholar, attr) {
+    if (attr === "institution") return scholar.institution.map((i) => i.name);
+    if (attr === "program") return scholar.program;
+    if (attr === "dber_field") {
+      const inferred = (scholar.dber_field_inferred || []).map((d) => d.code);
+      return [...new Set([...scholar.dber_field, ...inferred])];
+    }
+    if (attr === "phd_era") return scholar.phd_era ? [scholar.phd_era] : [];
+    return [];
   }
 
   _buildHaystack(scholar) {
@@ -87,15 +114,30 @@ class NetworkGraph {
   setAttribute(attr, { warm = true } = {}) {
     this.activeAttr = attr;
     this.isolatedHub = null;
+    this.subAttr = null;
+    this._subclustered = false;
     const prevPositions = warm ? this._capturePositions() : null;
     this._buildNodesAndLinks(attr);
     if (prevPositions) this._restorePositions(prevPositions);
     this._startSimulation();
+    this.onIsolationChange(this.isolatedHub);
   }
 
   setShowEdges(show) {
     this.showEdges = show;
     this._draw();
+  }
+
+  setShowCollabEdges(show) {
+    this.showCollabEdges = show;
+    const prevPositions = this._capturePositions();
+    if (this._subclustered) {
+      this._buildSubclusteredNodesAndLinks(this.isolatedHub, this.subAttr);
+    } else {
+      this._buildNodesAndLinks(this.activeAttr);
+    }
+    this._restorePositions(prevPositions);
+    this._startSimulation();
   }
 
   setSearch(term) {
@@ -111,7 +153,94 @@ class NetworkGraph {
 
   isolateHub(hubId) {
     this.isolatedHub = this.isolatedHub === hubId ? null : hubId;
-    this._draw();
+    this.subAttr = null;
+    if (this._subclustered) {
+      this._subclustered = false;
+      this._buildNodesAndLinks(this.activeAttr, { warm: true });
+      this._startSimulation();
+    } else {
+      this._draw();
+    }
+    this.onIsolationChange(this.isolatedHub);
+  }
+
+  clearIsolation() {
+    if (!this.isolatedHub) return;
+    this.isolateHub(this.isolatedHub);
+  }
+
+  setSubAttribute(attr) {
+    if (!this.isolatedHub) return;
+    const next = attr && attr !== "none" ? attr : null;
+    this.subAttr = next;
+    const prevPositions = this._capturePositions();
+    if (next) {
+      this._buildSubclusteredNodesAndLinks(this.isolatedHub, next);
+      this._subclustered = true;
+    } else {
+      this._subclustered = false;
+      this._buildNodesAndLinks(this.activeAttr);
+    }
+    this._restorePositions(prevPositions);
+    this._startSimulation();
+  }
+
+  _buildSubclusteredNodesAndLinks(hubId, subAttr) {
+    const groupId = hubId.replace("hub:", "");
+    const topGroup = (this.groups[this.activeAttr] || []).find((g) => g.groupId === groupId);
+    const memberIds = topGroup ? topGroup.memberIds : [];
+    const memberIdSet = new Set(memberIds);
+    const memberScholars = memberIds.map((id) => this.scholarById.get(id)).filter(Boolean);
+
+    const bySubValue = new Map();
+    for (const s of memberScholars) {
+      const values = this._attrValuesForScholar(s, subAttr);
+      const keys = values.length ? values : ["(none)"];
+      for (const v of keys) {
+        if (!bySubValue.has(v)) bySubValue.set(v, []);
+        bySubValue.get(v).push(s.id);
+      }
+    }
+    const subGroupList = [...bySubValue.entries()]
+      .map(([label, ids]) => ({ label, memberIds: ids }))
+      .sort((a, b) => b.memberIds.length - a.memberIds.length);
+
+    const subHubNodes = subGroupList.map((g, i) => ({
+      id: `subhub:${i}`,
+      type: "hub",
+      label: g.label,
+      count: g.memberIds.length,
+      color: colorForIndex(i),
+      x: this.width / 2 + Math.cos((i / Math.max(subGroupList.length, 1)) * 2 * Math.PI) * 40,
+      y: this.height / 2 + Math.sin((i / Math.max(subGroupList.length, 1)) * 2 * Math.PI) * 40,
+    }));
+
+    const personNodes = memberScholars.map((s) => ({
+      id: s.id,
+      type: "person",
+      scholar: s,
+      color: "#8C8F7E",
+      x: this.width / 2 + (Math.random() - 0.5) * 200,
+      y: this.height / 2 + (Math.random() - 0.5) * 200,
+    }));
+
+    const links = [];
+    subGroupList.forEach((g, i) => {
+      const hub = subHubNodes[i];
+      for (const memberId of g.memberIds) links.push({ source: memberId, target: hub.id, kind: "hub" });
+    });
+
+    if (this.showCollabEdges) {
+      for (const e of this.collabEdgeDefs) {
+        if (memberIdSet.has(e.source) && memberIdSet.has(e.target)) {
+          links.push({ source: e.source, target: e.target, kind: "collab" });
+        }
+      }
+    }
+
+    this.nodes = [...subHubNodes, ...personNodes];
+    this.links = links;
+    this.hubNodes = subHubNodes;
   }
 
   _capturePositions() {
@@ -158,10 +287,16 @@ class NetworkGraph {
       for (const g of groupList) {
         const hub = hubByGroupId.get(g.groupId);
         for (const memberId of g.memberIds) {
-          links.push({ source: memberId, target: hub.id });
+          links.push({ source: memberId, target: hub.id, kind: "hub" });
           const pn = personById.get(memberId);
           if (pn) pn.color = hub.color;
         }
+      }
+    }
+
+    if (this.showCollabEdges) {
+      for (const e of this.collabEdgeDefs) {
+        links.push({ source: e.source, target: e.target, kind: "collab" });
       }
     }
 
@@ -183,10 +318,17 @@ class NetworkGraph {
       .velocityDecay(0.42)
       .force(
         "link",
-        d3.forceLink(links).id((d) => d.id).distance(38).strength(0.55)
+        d3
+          .forceLink(links)
+          .id((d) => d.id)
+          .distance((d) => (d.kind === "collab" ? 60 : 38))
+          .strength((d) => (d.kind === "collab" ? 0.25 : 0.55))
       )
       .force("charge", d3.forceManyBody().strength((d) => (d.type === "hub" ? -220 : -32)))
-      .force("collide", d3.forceCollide().radius((d) => (d.type === "hub" ? 22 : 4.5)))
+      .force(
+        "collide",
+        d3.forceCollide().radius((d) => (d.type === "hub" ? 22 : prominenceRadius(d.scholar.n_citations) + 1.5))
+      )
       .force("center", d3.forceCenter(width / 2, height / 2))
       .on("tick", () => this._draw());
 
@@ -224,25 +366,39 @@ class NetworkGraph {
     ctx.translate(this.transform.x, this.transform.y);
     ctx.scale(this.transform.k, this.transform.k);
 
-    const isolated = this.isolatedHub;
+    // Isolation dimming only applies to the top-level hub view — once sub-clustered,
+    // this.nodes already contains only the isolated set, so there's nothing left to dim.
+    const isolated = this._subclustered ? null : this.isolatedHub;
     const isolatedMemberIds = isolated
-      ? new Set(this.links.filter((l) => l.target.id === isolated).map((l) => l.source.id))
+      ? new Set(
+          this.links
+            .filter((l) => l.kind === "hub" && l.target.id === isolated)
+            .map((l) => l.source.id)
+        )
       : null;
 
     // Edges
-    if (this.showEdges) {
-      ctx.lineWidth = 1 / this.transform.k;
-      for (const l of this.links) {
-        if (isolated && l.target.id !== isolated) continue;
-        const s = l.source, t = l.target;
-        if (typeof s !== "object" || typeof t !== "object") continue;
+    ctx.lineWidth = 1 / this.transform.k;
+    for (const l of this.links) {
+      const s = l.source, t = l.target;
+      if (typeof s !== "object" || typeof t !== "object") continue;
+      if (l.kind === "collab") {
+        if (!this.showCollabEdges) continue;
+        if (isolated && !(isolatedMemberIds.has(s.id) && isolatedMemberIds.has(t.id))) continue;
+        ctx.setLineDash([3 / this.transform.k, 2 / this.transform.k]);
+        ctx.strokeStyle = "rgba(200,146,56,0.4)";
+      } else {
+        if (!this.showEdges) continue;
+        if (isolated && t.id !== isolated) continue;
+        ctx.setLineDash([]);
         ctx.strokeStyle = isolated ? "rgba(31,91,99,0.35)" : "rgba(76,88,92,0.12)";
-        ctx.beginPath();
-        ctx.moveTo(s.x, s.y);
-        ctx.lineTo(t.x, t.y);
-        ctx.stroke();
       }
+      ctx.beginPath();
+      ctx.moveTo(s.x, s.y);
+      ctx.lineTo(t.x, t.y);
+      ctx.stroke();
     }
+    ctx.setLineDash([]);
 
     // Person nodes
     let matchCount = 0;
@@ -259,7 +415,7 @@ class NetworkGraph {
       }
       const dimmedByIsolation = isolated && !isolatedMemberIds.has(n.id);
       const dim = !passesFilter || dimmedByIsolation;
-      const r = 2.4 + sc.completeness * 3.2;
+      const r = prominenceRadius(sc.n_citations);
       ctx.globalAlpha = dim ? 0.08 : 0.35 + sc.completeness * 0.5;
       ctx.fillStyle = n.color;
       ctx.beginPath();
@@ -321,7 +477,7 @@ class NetworkGraph {
     let closest = null;
     let closestDist = Infinity;
     for (const n of this.nodes) {
-      const r = n.type === "hub" ? 5 + Math.sqrt(n.count) * 1.6 : 5;
+      const r = n.type === "hub" ? 5 + Math.sqrt(n.count) * 1.6 : prominenceRadius(n.scholar.n_citations);
       const d = Math.hypot(n.x - x, n.y - y);
       if (d < r + 3 && d < closestDist) {
         closest = n;
@@ -389,7 +545,9 @@ class NetworkGraph {
       if (!node) return;
       if (node.type === "person") {
         this.onSelectPerson(node.scholar);
-      } else if (node.type === "hub") {
+      } else if (node.type === "hub" && !this._subclustered) {
+        // Sub-hubs (shown once a top-level hub is isolated and sub-grouped) cap at one
+        // level of nesting for now — clicking one doesn't drill further.
         this.isolateHub(node.id);
       }
     });

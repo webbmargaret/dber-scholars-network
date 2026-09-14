@@ -40,11 +40,27 @@
         <option value="none">None (no clustering)</option>
       </select>
     </div>
+    <div class="provenance-note" id="group-caveat"></div>
+
+    <div class="field-group" id="subgroup-wrap" hidden>
+      <label for="subgroup-select" class="subtle-label">Sub-group isolated set by</label>
+      <select id="subgroup-select">
+        <option value="none">None</option>
+      </select>
+      <button type="button" id="clear-isolation-btn" class="link-btn">Clear isolation</button>
+    </div>
 
     <div class="toggle-row">
       <input type="checkbox" id="edge-toggle" checked>
       <label for="edge-toggle" style="margin:0; text-transform:none; font-family:var(--sans); font-size:0.85rem; color:var(--ink);">Show connections</label>
     </div>
+    <div class="provenance-note persistent">Lines show a shared attribute (same institution/program/field) — not a confirmed relationship. <a href="about.html">Read more</a>.</div>
+
+    <div class="toggle-row">
+      <input type="checkbox" id="collab-edge-toggle">
+      <label for="collab-edge-toggle" style="margin:0; text-transform:none; font-family:var(--sans); font-size:0.85rem; color:var(--ink);">Show collaboration signals</label>
+    </div>
+    <div class="provenance-note persistent">Dashed lines: who a co-author-mined person was found via. Algorithmic, not hand-vetted — off by default. <a href="about.html">Read more</a>.</div>
 
     <h3>Search</h3>
     <input type="text" id="search" placeholder="Name, institution, program, research interests…">
@@ -80,18 +96,23 @@
 <script src="js/detail-panel.js"></script>
 <script>
 (async function () {
-  const [scholars, groups] = await Promise.all([
+  const [scholars, groups, collabEdges, apprenticeGrants] = await Promise.all([
     fetch("data/scholars.json").then((r) => r.json()),
     fetch("data/groups.json").then((r) => r.json()),
+    fetch("data/collaboration_edges.json").then((r) => r.json()),
+    fetch("data/apprentice_grants.json").then((r) => r.json()),
   ]);
 
   const canvas = document.getElementById("graph-canvas");
   const detailPanel = document.getElementById("detail-panel");
+  const grantByScholarId = new Map(
+    apprenticeGrants.filter((g) => g.matched_scholar_id).map((g) => [g.matched_scholar_id, g])
+  );
 
   const graph = new NetworkGraph(canvas, {
-    onSelectPerson: (scholar) => renderDetailPanel(detailPanel, scholar),
+    onSelectPerson: (scholar) => renderDetailPanel(detailPanel, scholar, grantByScholarId.get(scholar.id)),
   });
-  graph.load(scholars, groups);
+  graph.load(scholars, groups, collabEdges);
 
   document.getElementById("loading-note").remove();
 
@@ -101,7 +122,12 @@
     groups,
     els: {
       attrSelect: document.getElementById("attr-select"),
+      groupCaveat: document.getElementById("group-caveat"),
+      subgroupWrap: document.getElementById("subgroup-wrap"),
+      subgroupSelect: document.getElementById("subgroup-select"),
+      clearIsolationBtn: document.getElementById("clear-isolation-btn"),
       edgeToggle: document.getElementById("edge-toggle"),
+      collabEdgeToggle: document.getElementById("collab-edge-toggle"),
       search: document.getElementById("search"),
       searchResults: document.getElementById("search-results"),
       yearRangeToggle: document.getElementById("year-range-toggle"),

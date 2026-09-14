@@ -12,6 +12,8 @@ const FIELD_DEFS = [
   { key: "phd_year", label: "PhD Year", type: "text" },
   { key: "dissertation_title", label: "Dissertation Title", type: "text" },
   { key: "position_or_advisor_note", label: "First Position / Advisor Note", type: "text" },
+  { key: "n_citations", label: "Citations (Scholar-matched)", type: "text" },
+  { key: "h_index", label: "h-index (Scholar-matched)", type: "text" },
   { key: "notes", label: "Notes", type: "text" },
 ];
 
@@ -22,7 +24,7 @@ function isEmpty(v) {
   return false;
 }
 
-function renderDetailPanel(panelEl, scholar) {
+function renderDetailPanel(panelEl, scholar, grant) {
   panelEl.innerHTML = "";
 
   const closeBtn = document.createElement("button");
@@ -35,6 +37,13 @@ function renderDetailPanel(panelEl, scholar) {
   h3.textContent = scholar.name;
   panelEl.appendChild(h3);
 
+  if (grant) {
+    const chip = document.createElement("span");
+    chip.className = "chip chip--grant";
+    chip.textContent = `Apprentice Faculty Grant, ${grant.award_year}`;
+    panelEl.appendChild(chip);
+  }
+
   let shown = 0;
   for (const def of FIELD_DEFS) {
     const val = scholar[def.key];
@@ -45,6 +54,10 @@ function renderDetailPanel(panelEl, scholar) {
     const label = document.createElement("span");
     label.className = "label";
     label.textContent = def.label;
+    if ((def.key === "n_citations" || def.key === "h_index") && scholar.match_confidence && scholar.match_confidence !== "high") {
+      label.title = `From an automated Scholar-profile match flagged '${scholar.match_confidence}' confidence — may reflect the wrong person. See About.`;
+      label.classList.add("label--caveat");
+    }
     wrap.appendChild(label);
 
     if (def.type === "chips") {

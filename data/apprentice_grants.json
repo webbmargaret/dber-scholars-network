@@ -1,0 +1,856 @@
+[
+ {
+  "award_year": 2025,
+  "name": "Alexandra Werth",
+  "institution": "Cornell University",
+  "notes": "",
+  "matched_scholar_id": "0027-alexandra-werth"
+ },
+ {
+  "award_year": 2025,
+  "name": "Carlos Perez",
+  "institution": "Pennsylvania State University",
+  "notes": "?? Don't have updated email",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2025,
+  "name": "Gibin Raju",
+  "institution": "Texas A&M University",
+  "notes": "",
+  "matched_scholar_id": "0402-gibin-raju"
+ },
+ {
+  "award_year": 2025,
+  "name": "Jennifer Brown",
+  "institution": "University of Georgia",
+  "notes": "",
+  "matched_scholar_id": "0512-jennifer-brown"
+ },
+ {
+  "award_year": 2024,
+  "name": "Ashish Agriwal,",
+  "institution": "Rochester Institute of Technology",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2024,
+  "name": "Cassie Wallwey,",
+  "institution": "Virginia Tech",
+  "notes": "",
+  "matched_scholar_id": "0177-cassie-wallwey"
+ },
+ {
+  "award_year": 2024,
+  "name": "Gabriella Fleming,",
+  "institution": "Virginia Tech",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2024,
+  "name": "Maya Denton,",
+  "institution": "University of Oklahoma",
+  "notes": "",
+  "matched_scholar_id": "0784-maya-denton"
+ },
+ {
+  "award_year": 2023,
+  "name": "Dayoung Kim",
+  "institution": "Virginia Tech",
+  "notes": "",
+  "matched_scholar_id": "0277-dayoung-kim"
+ },
+ {
+  "award_year": 2023,
+  "name": "Li Tan",
+  "institution": "Arizona State University",
+  "notes": "",
+  "matched_scholar_id": "3468-li-tan"
+ },
+ {
+  "award_year": 2023,
+  "name": "Robert Loweth",
+  "institution": "Purdue University",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2023,
+  "name": "Sindia M. Rivera-Jiménez",
+  "institution": "University of Florida",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2022,
+  "name": "Dina Verdín",
+  "institution": "Arizona State University",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2022,
+  "name": "Matthew Bahnson",
+  "institution": "Pennsylvania State University",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2022,
+  "name": "Saira Anwar",
+  "institution": "Texas A&M University",
+  "notes": "",
+  "matched_scholar_id": "0972-saira-anwar"
+ },
+ {
+  "award_year": 2022,
+  "name": "Trevion Henderson",
+  "institution": "Tufts University",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2021,
+  "name": "Amena Shermadou",
+  "institution": "Purdue University",
+  "notes": "",
+  "matched_scholar_id": "0050-amena-shermadou"
+ },
+ {
+  "award_year": 2021,
+  "name": "Cijy Elizabeth Sunny",
+  "institution": "University of Cincinnati",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2021,
+  "name": "Hannah Budinoff",
+  "institution": "University of Arizona",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2021,
+  "name": "Matilde Sanchez-Pena",
+  "institution": "University of Buffalo",
+  "notes": "",
+  "matched_scholar_id": "0771-matilde-sanchez-pena"
+ },
+ {
+  "award_year": 2020,
+  "name": "Aaron Johnson",
+  "institution": "University of Colorado Boulder",
+  "notes": "",
+  "matched_scholar_id": "0002-aaron-johnson"
+ },
+ {
+  "award_year": 2020,
+  "name": "Christina Smith",
+  "institution": "Brown University",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2020,
+  "name": "Jessica Swenson",
+  "institution": "University of Buffalo (SUNY)",
+  "notes": "",
+  "matched_scholar_id": "0533-jessica-swenson"
+ },
+ {
+  "award_year": 2020,
+  "name": "Jill Seniuk Cicek",
+  "institution": "University of Manitoba",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2019,
+  "name": "Carmen Lilley",
+  "institution": "University of Illinois at Chicago",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2019,
+  "name": "Leroy Long III",
+  "institution": "Embry-Riddle Aeronautical University",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2019,
+  "name": "Natascha Buswell",
+  "institution": "UC Irvine",
+  "notes": "",
+  "matched_scholar_id": "0854-natascha-buswell"
+ },
+ {
+  "award_year": 2018,
+  "name": "Cory Brozina",
+  "institution": "Youngstown State University",
+  "notes": "",
+  "matched_scholar_id": "0227-cory-brozina"
+ },
+ {
+  "award_year": 2018,
+  "name": "Elif Miskioğlu",
+  "institution": "Bucknell University",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2018,
+  "name": "Rachel Anderson",
+  "institution": "Clemson University",
+  "notes": "",
+  "matched_scholar_id": "0910-rachel-anderson"
+ },
+ {
+  "award_year": 2018,
+  "name": "Stephen Secules",
+  "institution": "University of Georgia",
+  "notes": "",
+  "matched_scholar_id": "1055-stephen-secules"
+ },
+ {
+  "award_year": 2017,
+  "name": "Brooke Coley",
+  "institution": "Arizona State University",
+  "notes": "",
+  "matched_scholar_id": "1518-brooke-coley"
+ },
+ {
+  "award_year": 2017,
+  "name": "Cory Hixson",
+  "institution": "Rowan University",
+  "notes": "",
+  "matched_scholar_id": "0229-cory-hixson"
+ },
+ {
+  "award_year": 2017,
+  "name": "Rebecca Reck",
+  "institution": "Kettering University",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2017,
+  "name": "Stephanie Cutler",
+  "institution": "Penn State University",
+  "notes": "",
+  "matched_scholar_id": "1045-stephanie-cutler"
+ },
+ {
+  "award_year": 2016,
+  "name": "Anastasia Rynearson",
+  "institution": "Purdue University",
+  "notes": "",
+  "matched_scholar_id": "0060-anastasia-rynearson"
+ },
+ {
+  "award_year": 2016,
+  "name": "Courtney Faber",
+  "institution": "The College of New Jersey",
+  "notes": "",
+  "matched_scholar_id": "0230-courtney-faber"
+ },
+ {
+  "award_year": 2016,
+  "name": "Jacqueline McNeil",
+  "institution": "University of Louisville",
+  "notes": "Left Academia - Small Business owner",
+  "matched_scholar_id": "0464-jacqueline-mcneil"
+ },
+ {
+  "award_year": 2016,
+  "name": "Justin Hess",
+  "institution": "Indiana University – Purdue University Indianapolis",
+  "notes": "",
+  "matched_scholar_id": "0589-justin-hess"
+ },
+ {
+  "award_year": 2016,
+  "name": "Laura Hirshfield",
+  "institution": "University of Michigan and Olin College of Engineering",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2015,
+  "name": "Adam Kirn",
+  "institution": "University of Nevada-Reno",
+  "notes": "",
+  "matched_scholar_id": "0013-adam-kirn"
+ },
+ {
+  "award_year": 2015,
+  "name": "Alexandra Coso",
+  "institution": "Georgia Tech",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2015,
+  "name": "Katherine Nelson",
+  "institution": "Arizona State University",
+  "notes": "Left Academia - working at Capital One",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2015,
+  "name": "Walter Lee",
+  "institution": "Virginia Tech",
+  "notes": "",
+  "matched_scholar_id": "1138-walter-lee"
+ },
+ {
+  "award_year": 2014,
+  "name": "Allison Godwin",
+  "institution": "Clemson University",
+  "notes": "",
+  "matched_scholar_id": "0035-allison-godwin"
+ },
+ {
+  "award_year": 2014,
+  "name": "Cheryl Bodnar",
+  "institution": "University of Pittsburgh",
+  "notes": "",
+  "matched_scholar_id": "0200-cheryl-bodnar"
+ },
+ {
+  "award_year": 2014,
+  "name": "Joyce Main",
+  "institution": "Purdue University",
+  "notes": "",
+  "matched_scholar_id": "0570-joyce-main"
+ },
+ {
+  "award_year": 2014,
+  "name": "Matthew Siniawski",
+  "institution": "Loyola-Marymount University",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2014,
+  "name": "Rachel Kajfez",
+  "institution": "Ohio State University",
+  "notes": "",
+  "matched_scholar_id": "0913-rachel-kajfez"
+ },
+ {
+  "award_year": 2013,
+  "name": "Diane Peters",
+  "institution": "University of Michigan",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2013,
+  "name": "James Huff",
+  "institution": "Purdue University",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2013,
+  "name": "Kyle Trenshaw",
+  "institution": "University of Illinois",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2013,
+  "name": "Mahnas Jean Mohammadi-Aragh",
+  "institution": "Virginia Tech",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2013,
+  "name": "Samantha Brunhaver",
+  "institution": "Stanford University",
+  "notes": "",
+  "matched_scholar_id": "0976-samantha-brunhaver"
+ },
+ {
+  "award_year": 2012,
+  "name": "Alejandra Magana",
+  "institution": "Purdue University",
+  "notes": "",
+  "matched_scholar_id": "0023-alejandra-magana"
+ },
+ {
+  "award_year": 2012,
+  "name": "James Pembridge",
+  "institution": "Embry-Riddle University",
+  "notes": "",
+  "matched_scholar_id": "0482-james-pembridge"
+ },
+ {
+  "award_year": 2012,
+  "name": "Maria-Isabel Carnasciali",
+  "institution": "University of New Haven",
+  "notes": "",
+  "matched_scholar_id": "4296-maria-isabel-carnasciali"
+ },
+ {
+  "award_year": 2012,
+  "name": "Morgan Hynes",
+  "institution": "Tufts University",
+  "notes": "",
+  "matched_scholar_id": "0839-morgan-hynes"
+ },
+ {
+  "award_year": 2011,
+  "name": "Adam Carberry",
+  "institution": "Arizona State University",
+  "notes": "",
+  "matched_scholar_id": "0009-adam-carberry"
+ },
+ {
+  "award_year": 2011,
+  "name": "Cheryl Cass",
+  "institution": "Clemson University",
+  "notes": "Left academia works at SAS",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2011,
+  "name": "Erin Crede",
+  "institution": "Virginia Tech",
+  "notes": "Left academia",
+  "matched_scholar_id": "0354-erin-crede"
+ },
+ {
+  "award_year": 2011,
+  "name": "Geoffrey Herman",
+  "institution": "University of Illinois – Urbana Champaign",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2011,
+  "name": "Sharnnia Artis",
+  "institution": "The Ohio State University",
+  "notes": "Works at GMU; no address found",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2010,
+  "name": "Aidsa Santiago Roman",
+  "institution": "University of Puerto Rico, Mayaguez",
+  "notes": "",
+  "matched_scholar_id": "0020-aidsa-santiago-roman"
+ },
+ {
+  "award_year": 2010,
+  "name": "Devlin Montfort",
+  "institution": "Washington State University",
+  "notes": "",
+  "matched_scholar_id": "1515-devlin-montfort"
+ },
+ {
+  "award_year": 2010,
+  "name": "Gillian Nicholls",
+  "institution": "The University of Alabama in Huntsville",
+  "notes": "left engineering",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2010,
+  "name": "Julie Linsey",
+  "institution": "Texas A&M University",
+  "notes": "",
+  "matched_scholar_id": "0583-julie-linsey"
+ },
+ {
+  "award_year": 2010,
+  "name": "Marisa Orr",
+  "institution": "Clemson University",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2010,
+  "name": "Sarah Zappe",
+  "institution": "Pennsylvania State University",
+  "notes": "",
+  "matched_scholar_id": "0992-sarah-zappe"
+ },
+ {
+  "award_year": 2009,
+  "name": "Jen Schoepke",
+  "institution": "University of Wisconsin-Madison",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2009,
+  "name": "Lora Oehlberg",
+  "institution": "University of California at Berkeley",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2009,
+  "name": "Matthew Verleger",
+  "institution": "Purdue University",
+  "notes": "",
+  "matched_scholar_id": "0782-matthew-verleger"
+ },
+ {
+  "award_year": 2009,
+  "name": "Mica Green",
+  "institution": "University of Cambridge",
+  "notes": "???",
+  "matched_scholar_id": "0804-mica-green"
+ },
+ {
+  "award_year": 2009,
+  "name": "Micah Lande",
+  "institution": "Stanford University",
+  "notes": "",
+  "matched_scholar_id": "0805-micah-lande"
+ },
+ {
+  "award_year": 2009,
+  "name": "Noemi Mendoza-Diaz",
+  "institution": "Purdue University",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2009,
+  "name": "Shawn Jordan",
+  "institution": "Purdue University",
+  "notes": "",
+  "matched_scholar_id": "1018-shawn-jordan"
+ },
+ {
+  "award_year": 2008,
+  "name": "Euridice Oware",
+  "institution": "Purdue University",
+  "notes": "left academia works at museum of science industry chicago",
+  "matched_scholar_id": "0363-euridice-oware"
+ },
+ {
+  "award_year": 2008,
+  "name": "Joachim Walther",
+  "institution": "University of Queensland",
+  "notes": "moved back to australlia",
+  "matched_scholar_id": "1317-joachim-walther"
+ },
+ {
+  "award_year": 2008,
+  "name": "Shanna Daly",
+  "institution": "Purdue University",
+  "notes": "",
+  "matched_scholar_id": "1012-shanna-daly"
+ },
+ {
+  "award_year": 2008,
+  "name": "Stephanie Rivale",
+  "institution": "University of Texas at Austin",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2007,
+  "name": "Alice Pawley",
+  "institution": "University of Wisconsin – Madison",
+  "notes": "",
+  "matched_scholar_id": "0032-alice-pawley"
+ },
+ {
+  "award_year": 2007,
+  "name": "Christine Guy Schnittka",
+  "institution": "University of Virginia",
+  "notes": "left academia; consultant",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2007,
+  "name": "Julie Martin",
+  "institution": "University of Houston",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2007,
+  "name": "Shane Brown",
+  "institution": "Washington State University",
+  "notes": "",
+  "matched_scholar_id": "1010-shane-brown"
+ },
+ {
+  "award_year": 2006,
+  "name": "Daria Kotys-Schwartz",
+  "institution": "University of Colorado",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2006,
+  "name": "Monica Cardella",
+  "institution": "University of Washington",
+  "notes": "",
+  "matched_scholar_id": "0835-monica-cardella"
+ },
+ {
+  "award_year": 2006,
+  "name": "Ravel Ammerman",
+  "institution": "Colorado School of Mines",
+  "notes": "emeritas",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2006,
+  "name": "Tamara Moore",
+  "institution": "Purdue University",
+  "notes": "",
+  "matched_scholar_id": "1078-tamara-moore"
+ },
+ {
+  "award_year": 2005,
+  "name": "Jenni Light",
+  "institution": "Washington State University",
+  "notes": "at lewis clark state college - can't find email",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2005,
+  "name": "Ken Yasuhara",
+  "institution": "University of Washington",
+  "notes": "",
+  "matched_scholar_id": "0633-ken-yasuhara"
+ },
+ {
+  "award_year": 2005,
+  "name": "Marcia Friesen",
+  "institution": "University of Manitoba",
+  "notes": "",
+  "matched_scholar_id": "0740-marcia-friesen"
+ },
+ {
+  "award_year": 2005,
+  "name": "Stephen Zemke",
+  "institution": "University of Idaho",
+  "notes": "emertis faculty",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2004,
+  "name": "Jessica M. Herrera Yellin",
+  "institution": "University of Washington",
+  "notes": "????",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2004,
+  "name": "Kristine R. Csavina",
+  "institution": "Arizona State University",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2004,
+  "name": "Tammy VanDeGrift",
+  "institution": "University of Washington",
+  "notes": "",
+  "matched_scholar_id": "3092-tammy-vandegrift"
+ },
+ {
+  "award_year": 2004,
+  "name": "Taryn Melkus Bayles",
+  "institution": "University of Maryland Baltimore County",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2003,
+  "name": "John Brader",
+  "institution": "University of South Carolina",
+  "notes": "????",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2003,
+  "name": "John Feland",
+  "institution": "Stanford University",
+  "notes": "Left Academia",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2003,
+  "name": "Lisa Bullard",
+  "institution": "North Carolina State University",
+  "notes": "Emeritus at NC State",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2003,
+  "name": "Sean St. Clair",
+  "institution": "Georgia Institute of Technology",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2002,
+  "name": "Ann McKenna",
+  "institution": "Northwestern University",
+  "notes": "",
+  "matched_scholar_id": "0081-ann-mckenna"
+ },
+ {
+  "award_year": 2002,
+  "name": "Betsy Aller",
+  "institution": "Western Michigan University",
+  "notes": "Emeritus",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2002,
+  "name": "Cynthia A. Finley",
+  "institution": "University of Texas at Austin",
+  "notes": "Left academia works in gov.",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2002,
+  "name": "Mary Cummings",
+  "institution": "Virginia Tech University",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2001,
+  "name": "Chad Korach",
+  "institution": "Northwestern University",
+  "notes": "at University of Mount Union no email foun",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2001,
+  "name": "Donald Carpenter",
+  "institution": "University of Michigan",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2000,
+  "name": "Brian Kinsey",
+  "institution": "Northwestern University",
+  "notes": "???",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2000,
+  "name": "Heather Nachtmann",
+  "institution": "University of Pittsburgh",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2000,
+  "name": "Kathryn Hollar",
+  "institution": "Cornell University",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 2000,
+  "name": "Robin Adams",
+  "institution": "University of Washington",
+  "notes": "Emerita",
+  "matched_scholar_id": "0948-robin-adams"
+ },
+ {
+  "award_year": 1999,
+  "name": "Clark Merkel",
+  "institution": "North Dakota State University",
+  "notes": "pAssed away",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 1999,
+  "name": "Debbie Kaufman",
+  "institution": "North Carolina State University",
+  "notes": "Retired (Portland State)",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 1999,
+  "name": "Philip Parker",
+  "institution": "University of Wisconsin-Platteville",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 1999,
+  "name": "Trevor Harding",
+  "institution": "University of Michigan",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 1998,
+  "name": "Diane Beaudoin",
+  "institution": "Purdue University",
+  "notes": "Retired/or something",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 1998,
+  "name": "John Bell",
+  "institution": "University of Illinois – Chicago",
+  "notes": "Emeritus",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 1998,
+  "name": "Kenneth Kauffman",
+  "institution": "-",
+  "notes": "No email taught at Uof Iowa",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 1998,
+  "name": "Sarah McComb",
+  "institution": "Purdue University",
+  "notes": "",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 1997,
+  "name": "Ann Marie Flynn",
+  "institution": "Manhattan College",
+  "notes": "DEI Consultant",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 1997,
+  "name": "Eric Mulkay",
+  "institution": "Purdue University",
+  "notes": "Left academia - Exxon",
+  "matched_scholar_id": null
+ },
+ {
+  "award_year": 1997,
+  "name": "Jennifer Turns",
+  "institution": "Georgia Tech",
+  "notes": "",
+  "matched_scholar_id": "0518-jennifer-turns"
+ },
+ {
+  "award_year": 1997,
+  "name": "William Oakes",
+  "institution": "Purdue University",
+  "notes": "",
+  "matched_scholar_id": "1147-william-oakes"
+ }
+]
