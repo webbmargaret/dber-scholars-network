@@ -97,22 +97,22 @@
     already confirmed to work in this space gets added as a new entry. The first pass
     surfaced roughly 3,400 people this way — collaborators, co-PIs, and colleagues who
     don't show up on any alumni roster or conference attendee list, and who the original
-    eight sources above had no way of finding.
+    nine sources above had no way of finding.
   </p>
   <div class="callout warm">
     <strong>These entries are algorithmically surfaced, not hand-vetted.</strong>
     Co-authoring a paper with a DBER scholar is a weaker signal than the sources above —
     it can just as easily mean a one-off collaboration outside someone's main field, a
-    shared methods paper, or a mismatched name. A follow-up pass re-checked each one
-    against live Semantic Scholar data — comparing name, institution, and whether their
-    publications actually appear in DBER-relevant venues — but that's still an automated
-    check, not a human one. Most come back either clearly supported by that evidence or
-    genuinely inconclusive (no matching venue found either way); a small number turn out
-    to be a likely name mismatch entirely. None of these outcomes get a person removed
-    automatically — every record keeps a plain-language note explaining what the
-    re-check found, and stays flagged for human review either way. If you spot one that
-    doesn't belong, or a connection that's wrong, flag it via the
-    <a href="contribute.html">Add/Edit page</a>.
+    shared methods paper, or a mismatched name. A follow-up pass re-checks each one
+    against a Google Scholar identity match where one can be found — comparing name,
+    institution, and whether their publications actually appear in DBER-relevant venues
+    — but that's still an automated check, not a human one. This site only publishes
+    citation counts, h-index, and match confidence for people matched via Google
+    Scholar; candidates whose only available identity match came from Semantic Scholar
+    are left without those fields rather than shown with data from a different source.
+    None of these outcomes get a person removed automatically — every record stays
+    flagged for human review either way. If you spot one that doesn't belong, or a
+    connection that's wrong, flag it via the <a href="contribute.html">Add/Edit page</a>.
   </div>
 
   <h2>DBER field inference (August 2026)</h2>
@@ -136,11 +136,12 @@
     correct it via the <a href="contribute.html">Add/Edit page</a> if it's wrong.
   </div>
 
-  <h2>Identity verification — and what hasn't reached this site yet</h2>
+  <h2>Identity verification — Google Scholar only</h2>
   <p>
     Every scholar record here that carries a name gets checked against a live Google
-    Scholar profile where one can be found, so citation counts and h-index (shown in
-    the network view as node size, and in each person's detail panel) come from a real
+    Scholar profile where one can be found (using Google web search plus Google
+    Scholar's own author-search API), so citation counts and h-index (shown in the
+    network view as node size, and in each person's detail panel) come from a real
     match, not a guess. That match is scored a confidence level — high, medium, or low —
     based on whether the name, institution, and the profile's actual research topics
     line up. <strong>The live breakdown for what's on this site right now is in the
@@ -150,14 +151,15 @@
     "Citations"/"h-index" wherever the match isn't high-confidence.
   </p>
   <div class="callout warm">
-    <strong>A more rigorous identity-verification pass exists, but hasn't been rebuilt
-    into this site yet.</strong> The separately maintained master dataset this site
-    draws from went through a second, more careful verification pass (using Google web
-    search plus Google Scholar's own author-search API, rather than Semantic Scholar
-    alone) that fixed several real matching bugs and re-checked weak matches. That pass
-    predates this site's most recent rebuild, so its improvements aren't reflected in
-    the confidence levels above yet — a future rebuild against the updated master file
-    will bring them in.
+    <strong>This site publishes Google Scholar matches only — never Semantic
+    Scholar.</strong> The separately maintained master dataset this site draws from
+    checks some coauthor-mined candidates' identities against Semantic Scholar as well
+    as Google Scholar. Anyone whose only available match came from Semantic Scholar
+    shows up here with no citation count, h-index, or match confidence at all — those
+    fields are left blank rather than published from a different source than the rest
+    of the site. The "none" count in the match-confidence breakdown below includes both
+    people with no Scholar match at all and people whose only match was
+    Semantic-Scholar-sourced.
   </div>
 
   <h2>Known gaps and limitations</h2>
@@ -181,7 +183,7 @@
       detail, that field was left blank rather than guessed.</li>
     <li><strong>A large share of the dataset is unreviewed coauthor-mining output.</strong>
       Most people added since August 2026 were surfaced by scanning existing scholars'
-      publication co-author lists (see above), not hand-curated from the original eight
+      publication co-author lists (see above), not hand-curated from the original nine
       sources. These entries haven't been individually verified as DBER scholars — treat
       them as leads worth a second look, not confirmed identities.</li>
     <li><strong>Email addresses are deliberately excluded</strong> from this public

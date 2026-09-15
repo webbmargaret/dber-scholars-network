@@ -1,7 +1,7 @@
 {
-  "built": "2026-09-14T15:29:59",
+  "built": "2026-09-15T09:57:16",
   "row_count": 4945,
-  "source_file": "1000_DBER_scholars_merged_scholar.csv",
+  "source_file": "1000_DBER_scholars_merged_scholar_inferred.csv",
   "fill_counts": {
     "Institution": 4735,
     "Research_Interests": 345,
@@ -20,15 +20,13 @@
     "dber_field": 22,
     "phd_era": 7
   },
-  "dber_field_inferred_people": 2420,
+  "dber_field_inferred_people": 2736,
   "dber_field_inferred_distinct_tags": 7,
-  "n_citations_known": 4923,
+  "n_citations_known": 3470,
   "match_confidence_counts": {
-    "medium": 2420,
-    "low": 625,
-    "high": 1881,
-    "not_found": 13,
-    "error": 1,
-    "none": 5
+    "medium": 1128,
+    "low": 1169,
+    "high": 1173,
+    "none": 1475
   }
 }

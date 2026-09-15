@@ -45,6 +45,15 @@ GROUP_ATTRS = ["institution", "program", "dber_field", "phd_era"]
 
 EMAIL_RE = re.compile(r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}")
 
+# Matches the exact reasoning suffix a now-retired Semantic Scholar re-verification
+# pass appended to Notes (e.g. '... || [coauthor re-verify, 2026-08-08] Re-verified
+# via Semantic Scholar API on 2026-08-08: name matches (S2: "..."). Status: confirmed.').
+# This site is Google Scholar/SerpAPI only now — strip any leftover S2 reasoning text
+# regardless of whether the row's scholar_data_source happens to mention it, since the
+# two aren't reliably correlated (some google_scholar-sourced rows still carry stale S2
+# text from an earlier identity match; some semantic_scholar-sourced rows carry none).
+S2_REASONING_RE = re.compile(r"\s*\|\|\s*\[coauthor re-verify.*$", re.DOTALL)
+
 
 def scrub_emails(value: str) -> str:
     """Safety net: the source CSV has email addresses miskeyed into non-Email columns
@@ -55,6 +64,14 @@ def scrub_emails(value: str) -> str:
     if not value:
         return value
     return EMAIL_RE.sub("", value).strip()
+
+
+def strip_s2_reasoning(value: str) -> str:
+    """Remove a leftover Semantic Scholar re-verification suffix from Notes, if present.
+    Always leaves the legitimate coauthor-mining evidence text before it intact."""
+    if not value:
+        return value
+    return S2_REASONING_RE.sub("", value).strip()
 
 
 def slugify(name: str) -> str:
@@ -443,6 +460,7 @@ def build(csv_path: Path):
         # non-Email column (e.g. Position_Title) rather than the Email column itself.
         for c in DISPLAY_COLUMNS:
             row[c] = scrub_emails(row.get(c, ""))
+        row["Notes"] = strip_s2_reasoning(row.get("Notes", ""))
 
         for c in DISPLAY_COLUMNS:
             if row.get(c, "").strip():
@@ -481,14 +499,21 @@ def build(csv_path: Path):
             "position_or_advisor_note": row.get("Current_Position", "").strip(),
             "notes": row.get("Notes", "").strip(),
             "completeness": completeness_score(row),
-            # Enrichment data from the SerpAPI/Semantic Scholar identity-match pass, not
-            # hand-sourced — kept separate from completeness_score/fill_counts the same
-            # way dber_field_inferred is. Only populated where a scholar was confidently
-            # matched to a real Scholar profile (a minority of rows).
-            "n_citations": coerce_int(row.get("n_citations", "")),
-            "h_index": coerce_int(row.get("h_index", "")),
-            "match_confidence": row.get("match_confidence", "").strip() or None,
         }
+        # Enrichment data from the Google Scholar/SerpAPI identity-match pass, not
+        # hand-sourced — kept separate from completeness_score/fill_counts the same
+        # way dber_field_inferred is. This site publishes Google Scholar data only;
+        # scholar_data_source is an allowlist check (not a Semantic-Scholar blocklist)
+        # so unmatched rows and any future/unrecognized source are excluded too, not
+        # just rows explicitly tagged "semantic_scholar".
+        if row.get("scholar_data_source", "").strip() == "google_scholar":
+            scholar["n_citations"] = coerce_int(row.get("n_citations", ""))
+            scholar["h_index"] = coerce_int(row.get("h_index", ""))
+            scholar["match_confidence"] = row.get("match_confidence", "").strip() or None
+        else:
+            scholar["n_citations"] = None
+            scholar["h_index"] = None
+            scholar["match_confidence"] = None
         scholars.append(scholar)
 
         if dber_field_inferred:
