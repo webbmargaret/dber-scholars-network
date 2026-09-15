@@ -8069,7 +8069,7 @@
     "code": "EER",
     "label": "Engineering Education Research (EER)",
     "confidence": "high",
-    "evidence": "venue:Journal of Engineering Education 111 (4), 2022; keyword:Engineering education"
+    "evidence": "venue:Journal of Engineering Education; keyword:Engineering education"
    }
   ],
   "research_interests": "",
@@ -10506,14 +10506,7 @@
    "Center for Mathematics Education (CfME)"
   ],
   "dber_field": [],
-  "dber_field_inferred": [
-   {
-    "code": "EER",
-    "label": "Engineering Education Research (EER)",
-    "confidence": "high",
-    "evidence": "venue:2015 ASEE Annual Conference & Exposition, 26.1129. 1-26.1129. 9, 2015; venue:ASEE Annual Conference and Exposition, Conference Proceedings 2016, 2016"
-   }
-  ],
+  "dber_field_inferred": [],
   "research_interests": "",
   "position_title": "",
   "position_type": "",
@@ -17580,14 +17573,7 @@
   ],
   "program": [],
   "dber_field": [],
-  "dber_field_inferred": [
-   {
-    "code": "CER",
-    "label": "Chemistry Education Research (CER)",
-    "confidence": "high",
-    "evidence": "venue:Journal of Chemical Education 94 (4), 480-482, 2017"
-   }
-  ],
+  "dber_field_inferred": [],
   "research_interests": "",
   "position_title": "",
   "position_type": "",
@@ -23164,9 +23150,9 @@
   "position_or_advisor_note": "",
   "notes": "PhD Alumni List; Advisor: Marie Paretti",
   "completeness": 0.6,
-  "n_citations": null,
-  "h_index": null,
-  "match_confidence": null
+  "n_citations": 53,
+  "h_index": 4,
+  "match_confidence": "high"
  },
  {
   "id": "0733-mags-blackie",
@@ -44319,14 +44305,7 @@
   ],
   "program": [],
   "dber_field": [],
-  "dber_field_inferred": [
-   {
-    "code": "EER",
-    "label": "Engineering Education Research (EER)",
-    "confidence": "high",
-    "evidence": "venue:2016 ASEE Annual Conference & Exposition, 2016"
-   }
-  ],
+  "dber_field_inferred": [],
   "research_interests": "",
   "position_title": "",
   "position_type": "",
@@ -45129,7 +45108,7 @@
     "code": "CS Ed",
     "label": "Computing Education Research (CS Ed)",
     "confidence": "high",
-    "evidence": "venue:Technical Symposium on Computer Science Education; keyword:Computer Science Education"
+    "evidence": "venue:Technical Symposium on Computer Science Education; venue:Proceedings of the 31st ACM Conference on Innovation and Technology in Computer Science Education V. 1"
    }
   ],
   "research_interests": "",
@@ -45608,8 +45587,8 @@
    {
     "code": "EER",
     "label": "Engineering Education Research (EER)",
-    "confidence": "high",
-    "evidence": "venue:Journal of engineering education 99 (4), 289-303, 2010"
+    "confidence": "low",
+    "evidence": "coauthor_cluster: 12/21 named co-occurring scholars tagged EER"
    }
   ],
   "research_interests": "",
@@ -49254,8 +49233,8 @@
    {
     "code": "EER",
     "label": "Engineering Education Research (EER)",
-    "confidence": "high",
-    "evidence": "venue:2016 ASEE Annual Conference & Exposition, 2016; venue:2018 ASEE Annual Conference & Exposition, 2018"
+    "confidence": "low",
+    "evidence": "coauthor_cluster: 5/5 named co-occurring scholars tagged EER"
    }
   ],
   "research_interests": "",
@@ -51212,8 +51191,8 @@
    {
     "code": "EER",
     "label": "Engineering Education Research (EER)",
-    "confidence": "high",
-    "evidence": "venue:Journal of Engineering Education 109 (2), 262-280, 2020; venue:2014 ASEE annual conference & exposition, 24.1197. 1-24.1197. 12, 2014"
+    "confidence": "low",
+    "evidence": "coauthor_cluster: 4/4 named co-occurring scholars tagged EER"
    }
   ],
   "research_interests": "",
@@ -52927,7 +52906,7 @@
     "code": "EER",
     "label": "Engineering Education Research (EER)",
     "confidence": "high",
-    "evidence": "venue:2025 ASEE Annual Conference & Exposition, 2025; venue:2025 ASEE Annual Conference &amp; Exposition  Proceedings"
+    "evidence": "venue:2025 ASEE Annual Conference &amp; Exposition  Proceedings"
    }
   ],
   "research_interests": "",
@@ -53142,7 +53121,7 @@
     "code": "EER",
     "label": "Engineering Education Research (EER)",
     "confidence": "high",
-    "evidence": "venue:2012 ASEE Annual Conference & Exposition, 25.300. 1-25.300. 13, 2012"
+    "evidence": "venue:Journal of Engineering Education"
    },
    {
     "code": "CS Ed",
@@ -55953,14 +55932,7 @@
   ],
   "program": [],
   "dber_field": [],
-  "dber_field_inferred": [
-   {
-    "code": "EER",
-    "label": "Engineering Education Research (EER)",
-    "confidence": "high",
-    "evidence": "venue:International Journal of Engineering Education 37 (2), 311-324, 2021; venue:2016 ASEE Annual Conference & Exposition, 2016"
-   }
-  ],
+  "dber_field_inferred": [],
   "research_interests": "",
   "position_title": "",
   "position_type": "",
@@ -56030,7 +56002,7 @@
     "code": "EER",
     "label": "Engineering Education Research (EER)",
     "confidence": "high",
-    "evidence": "venue:International Journal of Engineering Education 41 (3), 2025"
+    "evidence": "venue:2025 ASEE Annual Conference &amp; Exposition  Proceedings; venue:2024 ASEE Annual Conference &amp; Exposition Proceedings"
    }
   ],
   "research_interests": "",
@@ -57604,14 +57576,7 @@
   ],
   "program": [],
   "dber_field": [],
-  "dber_field_inferred": [
-   {
-    "code": "PER",
-    "label": "Physics Education Research (PER)",
-    "confidence": "high",
-    "evidence": "venue:American Journal of Physics 30 (6), 403-410, 1962; venue:American Journal of Physics 50 (2), 190-190, 1982"
-   }
-  ],
+  "dber_field_inferred": [],
   "research_interests": "",
   "position_title": "",
   "position_type": "",
@@ -63300,7 +63265,7 @@
     "code": "CS Ed",
     "label": "Computing Education Research (CS Ed)",
     "confidence": "high",
-    "evidence": "venue:Technical Symposium on Computer Science Education; keyword:Computing Education"
+    "evidence": "venue:Technical Symposium on Computer Science Education; venue:ACM Transactions on Computing Education"
    }
   ],
   "research_interests": "",
@@ -68231,7 +68196,7 @@
     "code": "CS Ed",
     "label": "Computing Education Research (CS Ed)",
     "confidence": "high",
-    "evidence": "venue:Computer Science Education 30 (4), 420-443, 2020; venue:Computer Science Education 6 (1), 15-31, 1995"
+    "evidence": "venue:Technical Symposium on Computer Science Education; venue:Computer Science Education"
    }
   ],
   "research_interests": "",
@@ -71821,13 +71786,7 @@
     "code": "CS Ed",
     "label": "Computing Education Research (CS Ed)",
     "confidence": "high",
-    "evidence": "venue:ACM SIGCSE Bulletin 34 (2), 129-134, 2002; venue:ACM SIGCSE Bulletin 34 (2), 121-127, 2002"
-   },
-   {
-    "code": "EER",
-    "label": "Engineering Education Research (EER)",
-    "confidence": "high",
-    "evidence": "venue:2026 ASEE Annual Conference & Exposition, 2026"
+    "evidence": "venue:Technical Symposium on Computer Science Education"
    }
   ],
   "research_interests": "",
@@ -72528,7 +72487,7 @@
     "code": "CS Ed",
     "label": "Computing Education Research (CS Ed)",
     "confidence": "high",
-    "evidence": "venue:Annual Conference on Innovation and Technology in Computer Science Education"
+    "evidence": "venue:Technical Symposium on Computer Science Education; venue:Annual Conference on Innovation and Technology in Computer Science Education"
    }
   ],
   "research_interests": "",
@@ -74012,7 +73971,7 @@
     "code": "CS Ed",
     "label": "Computing Education Research (CS Ed)",
     "confidence": "high",
-    "evidence": "venue:Annual Conference on Innovation and Technology in Computer Science Education"
+    "evidence": "venue:Technical Symposium on Computer Science Education; venue:Annual Conference on Innovation and Technology in Computer Science Education"
    }
   ],
   "research_interests": "",
@@ -74045,7 +74004,7 @@
     "code": "CS Ed",
     "label": "Computing Education Research (CS Ed)",
     "confidence": "high",
-    "evidence": "venue:ACM SIGCSE Bulletin 56 (4), 4-5, 2025; venue:ACM SIGCSE Bulletin 56 (2), 4-4, 2024"
+    "evidence": "venue:Annual Conference on Innovation and Technology in Computer Science Education; keyword:Computer Science Education"
    }
   ],
   "research_interests": "",
@@ -80521,6 +80480,12 @@
     "label": "Engineering Education Research (EER)",
     "confidence": "high",
     "evidence": "venue:Studies in Engineering Education"
+   },
+   {
+    "code": "BER",
+    "label": "Biology Education Research (BER)",
+    "confidence": "high",
+    "evidence": "venue:CBE - Life Sciences Education"
    }
   ],
   "research_interests": "",
@@ -81470,13 +81435,13 @@
     "code": "EER",
     "label": "Engineering Education Research (EER)",
     "confidence": "high",
-    "evidence": "venue:2023 ASEE Annual Conference & Exposition, 2023; venue:2023 ASEE Annual Conference &amp; Exposition Proceedings"
+    "evidence": "venue:2023 ASEE Annual Conference &amp; Exposition Proceedings"
    },
    {
     "code": "CER",
     "label": "Chemistry Education Research (CER)",
     "confidence": "high",
-    "evidence": "venue:Journal of Chemical Education 101 (1), 97-103, 2024; venue:Journal of Chemical Education 98 (12), 4061-4066, 2021"
+    "evidence": "venue:Journal of Chemical Education"
    }
   ],
   "research_interests": "",
@@ -81509,7 +81474,7 @@
     "code": "EER",
     "label": "Engineering Education Research (EER)",
     "confidence": "high",
-    "evidence": "venue:2023 ASEE Annual Conference & Exposition, 2023; venue:2023 ASEE Annual Conference &amp; Exposition Proceedings"
+    "evidence": "venue:2023 ASEE Annual Conference &amp; Exposition Proceedings"
    }
   ],
   "research_interests": "",
@@ -81990,7 +81955,7 @@
     "code": "EER",
     "label": "Engineering Education Research (EER)",
     "confidence": "high",
-    "evidence": "venue:2026 ASEE Annual Conference & Exposition, 2026; venue:2024 ASEE Annual Conference & Exposition, 2024"
+    "evidence": "venue:2024 ASEE Annual Conference &amp; Exposition Proceedings"
    }
   ],
   "research_interests": "",
@@ -84032,7 +83997,7 @@
     "code": "CS Ed",
     "label": "Computing Education Research (CS Ed)",
     "confidence": "high",
-    "evidence": "venue:Annual Conference on Innovation and Technology in Computer Science Education; keyword:Computing Education"
+    "evidence": "venue:Annual Conference on Innovation and Technology in Computer Science Education; venue:Technical Symposium on Computer Science Education"
    }
   ],
   "research_interests": "",
@@ -88668,7 +88633,7 @@
     "code": "CS Ed",
     "label": "Computing Education Research (CS Ed)",
     "confidence": "high",
-    "evidence": "venue:Annual Conference on Innovation and Technology in Computer Science Education"
+    "evidence": "venue:Annual Conference on Innovation and Technology in Computer Science Education; keyword:Computing Education"
    }
   ],
   "research_interests": "",
@@ -90443,7 +90408,7 @@
     "code": "CS Ed",
     "label": "Computing Education Research (CS Ed)",
     "confidence": "high",
-    "evidence": "venue:Proceedings of the 25th Koli Calling International Conference on Computing …, 2025"
+    "evidence": "venue:Technical Symposium on Computer Science Education"
    }
   ],
   "research_interests": "",
@@ -93155,14 +93120,7 @@
   ],
   "program": [],
   "dber_field": [],
-  "dber_field_inferred": [
-   {
-    "code": "MER",
-    "label": "Mathematics Education Research (MER/RUME)",
-    "confidence": "high",
-    "evidence": "venue:Journal for Research in Mathematics Education 43 (3), 316-350, 2012"
-   }
-  ],
+  "dber_field_inferred": [],
   "research_interests": "",
   "position_title": "",
   "position_type": "",
@@ -93847,7 +93805,7 @@
     "code": "CS Ed",
     "label": "Computing Education Research (CS Ed)",
     "confidence": "high",
-    "evidence": "venue:ACM SIGCSE Bulletin 54 (2), 6-6, 2022; venue:ACM SIGCSE Bulletin 53 (1), 6-6, 2021"
+    "evidence": "venue:Annual Conference on Innovation and Technology in Computer Science Education; keyword:Computing Education"
    }
   ],
   "research_interests": "",
@@ -93913,7 +93871,7 @@
     "code": "CS Ed",
     "label": "Computing Education Research (CS Ed)",
     "confidence": "high",
-    "evidence": "venue:Proceedings of the 2017 ACM SIGCSE Technical Symposium on Computer Science …, 2017; venue:Technical Symposium on Computer Science Education"
+    "evidence": "venue:Technical Symposium on Computer Science Education"
    }
   ],
   "research_interests": "",
@@ -95233,7 +95191,7 @@
     "code": "CS Ed",
     "label": "Computing Education Research (CS Ed)",
     "confidence": "high",
-    "evidence": "venue:Technical Symposium on Computer Science Education"
+    "evidence": "venue:Technical Symposium on Computer Science Education; venue:Annual Conference on Innovation and Technology in Computer Science Education"
    }
   ],
   "research_interests": "",
@@ -96362,10 +96320,22 @@
   "dber_field": [],
   "dber_field_inferred": [
    {
+    "code": "BER",
+    "label": "Biology Education Research (BER)",
+    "confidence": "high",
+    "evidence": "venue:CBE - Life Sciences Education; venue:Journal of Microbiology & Biology Education"
+   },
+   {
     "code": "PER",
     "label": "Physics Education Research (PER)",
     "confidence": "high",
     "evidence": "venue:Physical Review Physics Education Research; keyword:introductory physics"
+   },
+   {
+    "code": "CER",
+    "label": "Chemistry Education Research (CER)",
+    "confidence": "high",
+    "evidence": "venue:Journal of Chemical Education"
    }
   ],
   "research_interests": "",
@@ -96530,14 +96500,7 @@
   ],
   "program": [],
   "dber_field": [],
-  "dber_field_inferred": [
-   {
-    "code": "CER",
-    "label": "Chemistry Education Research (CER)",
-    "confidence": "high",
-    "evidence": "venue:Journal of Chemical Education 92 (5), 797-802, 2015"
-   }
-  ],
+  "dber_field_inferred": [],
   "research_interests": "",
   "position_title": "",
   "position_type": "",
@@ -100446,8 +100409,8 @@
    {
     "code": "EER",
     "label": "Engineering Education Research (EER)",
-    "confidence": "high",
-    "evidence": "venue:European Journal of Engineering Education 36 (3), 211-224, 2011; venue:Journal of Engineering Education 95 (3), 241-248, 2006"
+    "confidence": "low",
+    "evidence": "coauthor_cluster: 4/5 named co-occurring scholars tagged EER"
    }
   ],
   "research_interests": "",
@@ -102069,8 +102032,8 @@
    {
     "code": "EER",
     "label": "Engineering Education Research (EER)",
-    "confidence": "high",
-    "evidence": "venue:Journal of Engineering Education 96 (2), 89, 2007; venue:Journal of engineering education (Washington, DC) 95 (4), 257-258, 2006"
+    "confidence": "low",
+    "evidence": "coauthor_cluster: 4/5 named co-occurring scholars tagged EER"
    }
   ],
   "research_interests": "",
@@ -102463,10 +102426,10 @@
   "dber_field": [],
   "dber_field_inferred": [
    {
-    "code": "GER",
-    "label": "Geoscience Education Research (GER)",
-    "confidence": "high",
-    "evidence": "venue:Journal of Geoscience Education 55 (4), 326-332, 2007"
+    "code": "EER",
+    "label": "Engineering Education Research (EER)",
+    "confidence": "low",
+    "evidence": "coauthor_cluster: 4/5 named co-occurring scholars tagged EER"
    }
   ],
   "research_interests": "",
@@ -103144,14 +103107,7 @@
   ],
   "program": [],
   "dber_field": [],
-  "dber_field_inferred": [
-   {
-    "code": "EER",
-    "label": "Engineering Education Research (EER)",
-    "confidence": "high",
-    "evidence": "venue:The International Journal of Engineering Education 35 (3), 842-852, 2019; venue:2017 ASEE annual conference & exposition, 2017"
-   }
-  ],
+  "dber_field_inferred": [],
   "research_interests": "",
   "position_title": "",
   "position_type": "",
@@ -105376,6 +105332,12 @@
     "label": "Engineering Education Research (EER)",
     "confidence": "high",
     "evidence": "venue:Journal of Engineering Education; keyword:Engineering Education"
+   },
+   {
+    "code": "CS Ed",
+    "label": "Computing Education Research (CS Ed)",
+    "confidence": "high",
+    "evidence": "venue:Technical Symposium on Computer Science Education"
    }
   ],
   "research_interests": "",
@@ -105507,7 +105469,7 @@
     "code": "EER",
     "label": "Engineering Education Research (EER)",
     "confidence": "high",
-    "evidence": "venue:Journal of Engineering Education 106 (4), 534-563, 2017; venue:Journal of Engineering Education 108 (1), 82-102, 2019"
+    "evidence": "venue:Journal of Engineering Education"
    }
   ],
   "research_interests": "",
@@ -108012,7 +107974,7 @@
     "code": "EER",
     "label": "Engineering Education Research (EER)",
     "confidence": "high",
-    "evidence": "venue:Australasian Journal of Engineering Education 23 (2), 95-105, 2018; venue:Australasian Journal of Engineering Education"
+    "evidence": "venue:Australasian Journal of Engineering Education"
    }
   ],
   "research_interests": "",
@@ -108722,14 +108684,7 @@
   ],
   "program": [],
   "dber_field": [],
-  "dber_field_inferred": [
-   {
-    "code": "EER",
-    "label": "Engineering Education Research (EER)",
-    "confidence": "high",
-    "evidence": "venue:2023 ASEE Annual Conference & Exposition, 2023"
-   }
-  ],
+  "dber_field_inferred": [],
   "research_interests": "",
   "position_title": "",
   "position_type": "",
@@ -109258,7 +109213,7 @@
     "code": "CS Ed",
     "label": "Computing Education Research (CS Ed)",
     "confidence": "high",
-    "evidence": "venue:Annual Conference on Innovation and Technology in Computer Science Education; keyword:computing education"
+    "evidence": "venue:Annual Conference on Innovation and Technology in Computer Science Education; venue:Technical Symposium on Computer Science Education"
    }
   ],
   "research_interests": "",
@@ -109627,7 +109582,7 @@
     "code": "BER",
     "label": "Biology Education Research (BER)",
     "confidence": "high",
-    "evidence": "venue:CBE—Life Sciences Education 15 (2), ar24, 2016; venue:CBE - Life Sciences Education"
+    "evidence": "venue:CBE - Life Sciences Education; venue:Journal of Microbiology & Biology Education"
    }
   ],
   "research_interests": "",
@@ -109825,13 +109780,13 @@
     "code": "PER",
     "label": "Physics Education Research (PER)",
     "confidence": "high",
-    "evidence": "venue:Physical Review Physics Education Research; keyword:introductory physics"
+    "evidence": "venue:Physical Review Physics Education Research; venue:Physics Education Research Conference Proceedings"
    },
    {
     "code": "BER",
     "label": "Biology Education Research (BER)",
     "confidence": "high",
-    "evidence": "venue:Journal of Microbiology & Biology Education"
+    "evidence": "venue:Journal of Microbiology & Biology Education; keyword:Undergraduate Biology"
    }
   ],
   "research_interests": "",
@@ -109863,8 +109818,8 @@
    {
     "code": "EER",
     "label": "Engineering Education Research (EER)",
-    "confidence": "high",
-    "evidence": "venue:2017 ASEE Annual Conference & Exposition, 2017; venue:2023 ASEE Annual Conference & Exposition, 2023"
+    "confidence": "medium",
+    "evidence": "keyword[pub_titles]:Engineering Education; keyword[coauthor_evidence_titles]:Engineering Education"
    }
   ],
   "research_interests": "",
@@ -110017,14 +109972,7 @@
   ],
   "program": [],
   "dber_field": [],
-  "dber_field_inferred": [
-   {
-    "code": "CER",
-    "label": "Chemistry Education Research (CER)",
-    "confidence": "high",
-    "evidence": "venue:Journal of Chemical Education 97 (5), 1336-1344, 2020"
-   }
-  ],
+  "dber_field_inferred": [],
   "research_interests": "",
   "position_title": "",
   "position_type": "",
@@ -112032,14 +111980,7 @@
   ],
   "program": [],
   "dber_field": [],
-  "dber_field_inferred": [
-   {
-    "code": "EER",
-    "label": "Engineering Education Research (EER)",
-    "confidence": "high",
-    "evidence": "venue:2014 ASEE Annual Conference & Exposition, 24.1406. 1-24.1406. 19, 2014; venue:2014 ASEE Annual Conference & Exposition, 24.141. 1-24.141. 24, 2014"
-   }
-  ],
+  "dber_field_inferred": [],
   "research_interests": "",
   "position_title": "",
   "position_type": "",
@@ -113189,14 +113130,7 @@
   ],
   "program": [],
   "dber_field": [],
-  "dber_field_inferred": [
-   {
-    "code": "EER",
-    "label": "Engineering Education Research (EER)",
-    "confidence": "high",
-    "evidence": "venue:International Journal of Engineering Education 40 (4), 715-732, 2024; venue:2023 ASEE Annual Conference & Exposition, 2023"
-   }
-  ],
+  "dber_field_inferred": [],
   "research_interests": "",
   "position_title": "",
   "position_type": "",
@@ -123581,14 +123515,7 @@
   ],
   "program": [],
   "dber_field": [],
-  "dber_field_inferred": [
-   {
-    "code": "EER",
-    "label": "Engineering Education Research (EER)",
-    "confidence": "high",
-    "evidence": "venue:2019 ASEE Annual Conference & Exposition, 2019; venue:2024 ASEE Annual Conference & Exposition, 2024"
-   }
-  ],
+  "dber_field_inferred": [],
   "research_interests": "",
   "position_title": "",
   "position_type": "",
@@ -124682,7 +124609,7 @@
     "code": "EER",
     "label": "Engineering Education Research (EER)",
     "confidence": "high",
-    "evidence": "venue:Journal of Engineering Education"
+    "evidence": "venue:Journal of Engineering Education; keyword:Engineering Education"
    }
   ],
   "research_interests": "",
@@ -124900,7 +124827,7 @@
     "code": "EER",
     "label": "Engineering Education Research (EER)",
     "confidence": "high",
-    "evidence": "venue:Journal of Engineering Education 113 (4), 838-871, 2024; venue:Journal of Engineering Education"
+    "evidence": "venue:Journal of Engineering Education"
    }
   ],
   "research_interests": "",
@@ -125749,14 +125676,7 @@
   ],
   "program": [],
   "dber_field": [],
-  "dber_field_inferred": [
-   {
-    "code": "PER",
-    "label": "Physics Education Research (PER)",
-    "confidence": "high",
-    "evidence": "venue:American Journal of Physics 82 (5), 368-377, 2014; venue:American Journal of Physics 82 (5), 387-393, 2014"
-   }
-  ],
+  "dber_field_inferred": [],
   "research_interests": "",
   "position_title": "",
   "position_type": "",
@@ -125874,14 +125794,7 @@
   ],
   "program": [],
   "dber_field": [],
-  "dber_field_inferred": [
-   {
-    "code": "EER",
-    "label": "Engineering Education Research (EER)",
-    "confidence": "high",
-    "evidence": "venue:2018 ASEE Annual Conference & Exposition, 2018; venue:ASEE Annual Conference proceedings, 2019"
-   }
-  ],
+  "dber_field_inferred": [],
   "research_interests": "",
   "position_title": "",
   "position_type": "",
@@ -126602,7 +126515,7 @@
     "code": "EER",
     "label": "Engineering Education Research (EER)",
     "confidence": "high",
-    "evidence": "venue:2022 ASEE Annual Conference & Exposition, 2022"
+    "evidence": "venue:2022 ASEE Annual Conference &amp; Exposition Proceedings"
    }
   ],
   "research_interests": "",
@@ -128717,8 +128630,8 @@
    {
     "code": "EER",
     "label": "Engineering Education Research (EER)",
-    "confidence": "high",
-    "evidence": "venue:International Journal of Engineering Education 32 (1), 111-122, 2016; venue:International Journal of Engineering Education 28 (4), 799, 2012"
+    "confidence": "low",
+    "evidence": "coauthor_cluster: 3/3 named co-occurring scholars tagged EER"
    }
   ],
   "research_interests": "",
@@ -129735,7 +129648,7 @@
     "code": "MER",
     "label": "Mathematics Education Research (MER/RUME)",
     "confidence": "high",
-    "evidence": "venue:Journal for Research in Mathematics Education"
+    "evidence": "venue:Journal for Research in Mathematics Education; keyword:Mathematics Education"
    }
   ],
   "research_interests": "",
@@ -130158,14 +130071,7 @@
   ],
   "program": [],
   "dber_field": [],
-  "dber_field_inferred": [
-   {
-    "code": "EER",
-    "label": "Engineering Education Research (EER)",
-    "confidence": "high",
-    "evidence": "venue:ASEE Annual Conference & Exposition, 2019"
-   }
-  ],
+  "dber_field_inferred": [],
   "research_interests": "",
   "position_title": "",
   "position_type": "",
@@ -130869,14 +130775,7 @@
   ],
   "program": [],
   "dber_field": [],
-  "dber_field_inferred": [
-   {
-    "code": "EER",
-    "label": "Engineering Education Research (EER)",
-    "confidence": "high",
-    "evidence": "venue:2015 ASEE Annual Conference & Exposition, 26.590. 1-26.590. 8, 2015; venue:2015 ASEE Annual Conference & Exposition, 26.1230. 1-26.1230. 5, 2015"
-   }
-  ],
+  "dber_field_inferred": [],
   "research_interests": "",
   "position_title": "",
   "position_type": "",
@@ -135510,7 +135409,7 @@
     "code": "CS Ed",
     "label": "Computing Education Research (CS Ed)",
     "confidence": "high",
-    "evidence": "venue:Technical Symposium on Computer Science Education"
+    "evidence": "venue:Technical Symposium on Computer Science Education; venue:Annual Conference on Innovation and Technology in Computer Science Education"
    }
   ],
   "research_interests": "",
@@ -135837,7 +135736,7 @@
     "code": "EER",
     "label": "Engineering Education Research (EER)",
     "confidence": "high",
-    "evidence": "venue:Journal of Engineering Education 110 (3), 636-670, 2021; venue:Journal of Engineering Education"
+    "evidence": "venue:Journal of Engineering Education"
    }
   ],
   "research_interests": "",
@@ -136946,7 +136845,7 @@
     "code": "EER",
     "label": "Engineering Education Research (EER)",
     "confidence": "high",
-    "evidence": "venue:2017 ASEE Annual Conference & Exposition, 2017"
+    "evidence": "venue:2025 ASEE Annual Conference &amp; Exposition  Proceedings"
    }
   ],
   "research_interests": "",
@@ -139391,8 +139290,8 @@
    {
     "code": "EER",
     "label": "Engineering Education Research (EER)",
-    "confidence": "high",
-    "evidence": "venue:International Journal of Engineering Education 22 (3), 540, 2007; keyword:engineering education"
+    "confidence": "medium",
+    "evidence": "keyword[pub_titles]:Engineering Education; keyword[coauthor_evidence_titles]:Engineering Education"
    }
   ],
   "research_interests": "",
@@ -140564,7 +140463,7 @@
     "code": "EER",
     "label": "Engineering Education Research (EER)",
     "confidence": "medium",
-    "evidence": "keyword:Engineering Education; keyword:First-Year Engineering"
+    "evidence": "keyword[pub_titles]:First-Year Engineering; keyword[coauthor_evidence_titles]:First-Year Engineering"
    }
   ],
   "research_interests": "",
@@ -140592,14 +140491,7 @@
   ],
   "program": [],
   "dber_field": [],
-  "dber_field_inferred": [
-   {
-    "code": "EER",
-    "label": "Engineering Education Research (EER)",
-    "confidence": "high",
-    "evidence": "venue:2016 ASEE Annual Conference & Exposition, 2016"
-   }
-  ],
+  "dber_field_inferred": [],
   "research_interests": "",
   "position_title": "",
   "position_type": "",
@@ -141698,14 +141590,7 @@
   ],
   "program": [],
   "dber_field": [],
-  "dber_field_inferred": [
-   {
-    "code": "EER",
-    "label": "Engineering Education Research (EER)",
-    "confidence": "high",
-    "evidence": "venue:International Journal of Engineering Education 32 (1(A)), 111-122, 2016; venue:International Journal of Engineering Education 28 (4), 1-12, 2012"
-   }
-  ],
+  "dber_field_inferred": [],
   "research_interests": "",
   "position_title": "",
   "position_type": "",
@@ -145523,7 +145408,7 @@
     "code": "MER",
     "label": "Mathematics Education Research (MER/RUME)",
     "confidence": "high",
-    "evidence": "venue:Educational Studies in Mathematics"
+    "evidence": "venue:Educational Studies in Mathematics; keyword:mathematics education"
    }
   ],
   "research_interests": "",
@@ -145619,10 +145504,10 @@
   "dber_field": [],
   "dber_field_inferred": [
    {
-    "code": "PER",
-    "label": "Physics Education Research (PER)",
-    "confidence": "high",
-    "evidence": "venue:American Journal of Physics 57 (8), 764-765, 1989"
+    "code": "EER",
+    "label": "Engineering Education Research (EER)",
+    "confidence": "medium",
+    "evidence": "keyword:Engineering Education; keyword:First-Year Engineering"
    }
   ],
   "research_interests": "",
@@ -146951,6 +146836,18 @@
     "label": "Engineering Education Research (EER)",
     "confidence": "high",
     "evidence": "venue:European Journal of Engineering Education"
+   },
+   {
+    "code": "BER",
+    "label": "Biology Education Research (BER)",
+    "confidence": "high",
+    "evidence": "venue:CBE - Life Sciences Education"
+   },
+   {
+    "code": "CS Ed",
+    "label": "Computing Education Research (CS Ed)",
+    "confidence": "high",
+    "evidence": "venue:Technical Symposium on Computer Science Education"
    }
   ],
   "research_interests": "",
@@ -147296,7 +147193,7 @@
     "code": "EER",
     "label": "Engineering Education Research (EER)",
     "confidence": "high",
-    "evidence": "venue:2011 ASEE Annual Conference & Exposition, 22.153. 1-22.153. 10, 2011; venue:2011 ASEE Annual Conference & Exposition, 22.238. 1-22.238. 17, 2011"
+    "evidence": "venue:2023 ASEE Annual Conference &amp; Exposition Proceedings; venue:2025 ASEE Annual Conference &amp; Exposition  Proceedings"
    }
   ],
   "research_interests": "",
@@ -148668,7 +148565,13 @@
     "code": "BER",
     "label": "Biology Education Research (BER)",
     "confidence": "high",
-    "evidence": "venue:CBE - Life Sciences Education"
+    "evidence": "venue:CBE - Life Sciences Education; keyword:Biology Education"
+   },
+   {
+    "code": "CER",
+    "label": "Chemistry Education Research (CER)",
+    "confidence": "high",
+    "evidence": "venue:Journal of Chemical Education"
    }
   ],
   "research_interests": "",
@@ -150414,7 +150317,7 @@
     "code": "BER",
     "label": "Biology Education Research (BER)",
     "confidence": "high",
-    "evidence": "venue:CBE - Life Sciences Education"
+    "evidence": "venue:CBE - Life Sciences Education; keyword:Biology Education"
    }
   ],
   "research_interests": "",

@@ -527,7 +527,15 @@ def build(csv_path: Path):
         # just rows explicitly tagged "semantic_scholar". Also excludes weak matches
         # (see is_weak_scholar_match) regardless of source — a same-name coincidence
         # with zero institution/field agreement isn't a verified match either.
-        is_google = row.get("scholar_data_source", "").strip() == "google_scholar"
+        # A hand-verified "manual_correction" is trusted too, but only when its own
+        # scholar_id_format confirms the corrected profile is Google Scholar, not
+        # Semantic Scholar — a human fixing a bad match doesn't change which service
+        # the resulting profile lives on.
+        source = row.get("scholar_data_source", "").strip()
+        is_google = source == "google_scholar" or (
+            source == "manual_correction"
+            and row.get("scholar_id_format", "").strip() == "google_scholar"
+        )
         if is_google and not is_weak_scholar_match(row.get("match_notes", "")):
             scholar["n_citations"] = coerce_int(row.get("n_citations", ""))
             scholar["h_index"] = coerce_int(row.get("h_index", ""))
