@@ -152,14 +152,18 @@
   </p>
   <div class="callout warm">
     <strong>This site publishes Google Scholar matches only — never Semantic
-    Scholar.</strong> The separately maintained master dataset this site draws from
-    checks some coauthor-mined candidates' identities against Semantic Scholar as well
-    as Google Scholar. Anyone whose only available match came from Semantic Scholar
-    shows up here with no citation count, h-index, or match confidence at all — those
-    fields are left blank rather than published from a different source than the rest
-    of the site. The "none" count in the match-confidence breakdown below includes both
-    people with no Scholar match at all and people whose only match was
-    Semantic-Scholar-sourced.
+    Scholar — and drops weak Google Scholar matches too.</strong> The separately
+    maintained master dataset this site draws from checks some coauthor-mined
+    candidates' identities against Semantic Scholar as well as Google Scholar; anyone
+    whose only available match came from Semantic Scholar shows up here with no
+    citation count, h-index, or match confidence at all. On top of that, a same-name
+    Google Scholar match where neither the person's institution nor their research
+    field lined up with anything already on file gets dropped too, regardless of what
+    confidence level the matching pass assigned it — checked against real examples site
+    visitors flagged as clearly the wrong person. In every case the field is simply left
+    blank rather than shown from an unreliable source. The "none" count in the
+    match-confidence breakdown below covers all of these: no Scholar match at all, a
+    Semantic-Scholar-only match, or a Google Scholar match too weak to trust.
   </div>
 
   <h2>Known gaps and limitations</h2>

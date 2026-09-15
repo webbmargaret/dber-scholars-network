@@ -74,6 +74,25 @@ def strip_s2_reasoning(value: str) -> str:
     return S2_REASONING_RE.sub("", value).strip()
 
 
+MATCH_SCORE_RE = re.compile(r"inst=([\d.-]+).*?field=([\d.-]+)")
+
+
+def is_weak_scholar_match(match_notes: str) -> bool:
+    """A Google Scholar identity match where neither the institution nor the research
+    field lined up at all (inst=0.00, field=0.00 in the source pipeline's own scoring)
+    is frequently just a same-name coincidence, not the right person — confirmed by
+    spot-checking real examples the site's owner flagged as wrong (e.g. matched to an
+    unrelated person at a different institution in a different field entirely). This
+    pattern covers ~1,100 of 3,470 Google-Scholar-sourced rows and, notably, doesn't
+    occur in ANY row the source pipeline itself scored "high" confidence — so it's a
+    reliable additional filter on top of match_confidence, not a replacement for it."""
+    m = MATCH_SCORE_RE.search(match_notes or "")
+    if not m:
+        return False
+    inst, field = float(m.group(1)), float(m.group(2))
+    return inst == 0.0 and field == 0.0
+
+
 def slugify(name: str) -> str:
     s = name.lower().strip()
     s = re.sub(r"[^a-z0-9]+", "-", s)
@@ -505,8 +524,11 @@ def build(csv_path: Path):
         # way dber_field_inferred is. This site publishes Google Scholar data only;
         # scholar_data_source is an allowlist check (not a Semantic-Scholar blocklist)
         # so unmatched rows and any future/unrecognized source are excluded too, not
-        # just rows explicitly tagged "semantic_scholar".
-        if row.get("scholar_data_source", "").strip() == "google_scholar":
+        # just rows explicitly tagged "semantic_scholar". Also excludes weak matches
+        # (see is_weak_scholar_match) regardless of source — a same-name coincidence
+        # with zero institution/field agreement isn't a verified match either.
+        is_google = row.get("scholar_data_source", "").strip() == "google_scholar"
+        if is_google and not is_weak_scholar_match(row.get("match_notes", "")):
             scholar["n_citations"] = coerce_int(row.get("n_citations", ""))
             scholar["h_index"] = coerce_int(row.get("h_index", ""))
             scholar["match_confidence"] = row.get("match_confidence", "").strip() or None

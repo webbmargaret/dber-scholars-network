@@ -1,5 +1,5 @@
 {
-  "built": "2026-09-15T09:57:16",
+  "built": "2026-09-15T11:15:25",
   "row_count": 4945,
   "source_file": "1000_DBER_scholars_merged_scholar_inferred.csv",
   "fill_counts": {
@@ -22,11 +22,11 @@
   },
   "dber_field_inferred_people": 2736,
   "dber_field_inferred_distinct_tags": 7,
-  "n_citations_known": 3470,
+  "n_citations_known": 2370,
   "match_confidence_counts": {
-    "medium": 1128,
-    "low": 1169,
+    "medium": 550,
+    "low": 647,
     "high": 1173,
-    "none": 1475
+    "none": 2575
   }
 }
