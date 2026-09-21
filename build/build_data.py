@@ -129,6 +129,18 @@ INSTITUTION_STRING_OVERRIDES: dict[str, list[dict[str, str]]] = {
     "Cornell University (current)": [
         {"name": "Cornell University", "status": "current", "note": ""},
     ],
+    "Stanford University (PhD)": [
+        {"name": "Stanford University", "status": "PhD", "note": ""},
+    ],
+    "Harvey Mudd College (current)": [
+        {"name": "Harvey Mudd College", "status": "current", "note": ""},
+    ],
+    "University of Illinois (former)": [
+        {"name": "University of Illinois", "status": "former", "note": ""},
+    ],
+    "University of Michigan (current)": [
+        {"name": "University of Michigan", "status": "current", "note": ""},
+    ],
     "Cornell University (formerly CU Boulder)": [
         {"name": "Cornell University", "status": "current", "note": ""},
         {"name": "University of Colorado Boulder", "status": "former", "note": ""},

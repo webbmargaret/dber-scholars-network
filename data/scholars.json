@@ -48589,7 +48589,9 @@
    }
   ],
   "program": [],
-  "dber_field": [],
+  "dber_field": [
+   "CER"
+  ],
   "dber_field_inferred": [
    {
     "code": "CER",
@@ -48611,8 +48613,8 @@
   "phd_era": null,
   "dissertation_title": "",
   "position_or_advisor_note": "",
-  "notes": "Co-author of Daniel Reinholz || Jeffrey Froyd || Marcy H. Towns || Megan Wawro || Naneh Apkarian (source tier: B_multi_scholar_signal, 5 distinct source scholars). Evidence publication(s): STEM Is Not a Monolith: A Preliminary Analysis of Variations in STEM Disciplinary Cultures and Implications for Change || Supporting sustained adoption of education innovations: The Designing for Sustained Adoption Assessment Instrument || From Dissemination to Propagation: A New Paradigm for Education Developers",
-  "completeness": 0.2,
+  "notes": "Co-author of Daniel Reinholz || Jeffrey Froyd || Marcy H. Towns || Megan Wawro || Naneh Apkarian (source tier: B_multi_scholar_signal, 5 distinct source scholars). Evidence publication(s): STEM Is Not a Monolith: A Preliminary Analysis of Variations in STEM Disciplinary Cultures and Implications for Change || Supporting sustained adoption of education innovations: The Designing for Sustained Adoption Assessment Instrument || From Dissemination to Propagation: A New Paradigm for Education Developers | Self-confirmed CER via Add/Edit submission, Sept 2026: collaborates with DBER scholars in math, physics, and engineering.",
+  "completeness": 0.3,
   "n_citations": null,
   "h_index": null,
   "match_confidence": null
@@ -106922,11 +106924,11 @@
   "match_confidence": null
  },
  {
-  "id": "3474-d-burkey",
-  "name": "D. Burkey",
+  "id": "3474-daniel-burkey",
+  "name": "Daniel Burkey",
   "institution": [
    {
-    "name": "University of British Columbia",
+    "name": "University of Connecticut",
     "status": "current",
     "note": ""
    }
@@ -106942,14 +106944,14 @@
    }
   ],
   "research_interests": "",
-  "position_title": "",
+  "position_title": "Professor, Chemical & Biomolecular Engineering",
   "position_type": "",
   "phd_year": null,
   "phd_era": null,
   "dissertation_title": "",
-  "position_or_advisor_note": "",
-  "notes": "Surfaced by coauthor-candidate mining, not previously in roster. Co-occurs with 3 known DBER scholar(s) (Cheryl Bodnar || Emily Dringenberg || Jeffrey Stransky). Sample evidence: Engineers at Play: Games as Teaching Tools for Undergraduate Engineering Students || Authentic process safety decisions in an engineering ethics context: expression of student moral development within surveys and immersive environments || Towards understanding the moral reasoning process of senior chemical engineering students in process safety contexts",
-  "completeness": 0.2,
+  "position_or_advisor_note": "Associate Dean, Undergraduate Education and Diversity; Program Director, Engineering Education PhD Program",
+  "notes": "Surfaced by coauthor-candidate mining, not previously in roster. Co-occurs with 3 known DBER scholar(s) (Cheryl Bodnar || Emily Dringenberg || Jeffrey Stransky). Sample evidence: Engineers at Play: Games as Teaching Tools for Undergraduate Engineering Students || Authentic process safety decisions in an engineering ethics context: expression of student moral development within surveys and immersive environments || Towards understanding the moral reasoning process of senior chemical engineering students in process safety contexts | Institution corrected via Add/Edit submission, Sept 2026 (was misattributed to University of British Columbia).",
+  "completeness": 0.4,
   "n_citations": 1191,
   "h_index": 16,
   "match_confidence": "medium"
@@ -149873,7 +149875,7 @@
   "name": "Umer Farooq",
   "institution": [
    {
-    "name": "Jiangsu University",
+    "name": "Texas A&M University",
     "status": "current",
     "note": ""
    }
@@ -149895,7 +149897,7 @@
   "phd_era": null,
   "dissertation_title": "",
   "position_or_advisor_note": "",
-  "notes": "Surfaced by coauthor-candidate mining, not previously in roster. Co-occurs with 2 known DBER scholar(s) (Saira Anwar || Swetha Nittala). Sample evidence: ChatGPT Performance on Standardized Testing Exam - A Proposed Strategy for Learners || EdGUIDE - Aligning Content, Assessment, and Pedagogy Using Interactive Technology Environment",
+  "notes": "Surfaced by coauthor-candidate mining, not previously in roster. Co-occurs with 2 known DBER scholar(s) (Saira Anwar || Swetha Nittala). Sample evidence: ChatGPT Performance on Standardized Testing Exam - A Proposed Strategy for Learners || EdGUIDE - Aligning Content, Assessment, and Pedagogy Using Interactive Technology Environment | Institution corrected via Add/Edit submission, Sept 2026 (was misattributed to Jiangsu University; publications are genuinely this person's).",
   "completeness": 0.2,
   "n_citations": 84,
   "h_index": 5,
@@ -152028,6 +152030,130 @@
   "position_or_advisor_note": "",
   "notes": "Surfaced by coauthor-candidate mining, not previously in roster. Co-occurs with 1 known DBER scholar(s) (Sri Yash Tadimalla). Sample evidence: Broadening Participation in Computing Education: Advancing LGBTQIA+ Voices",
   "completeness": 0.1,
+  "n_citations": null,
+  "h_index": null,
+  "match_confidence": null
+ },
+ {
+  "id": "4945-aya-mouallem",
+  "name": "Aya Mouallem",
+  "institution": [
+   {
+    "name": "Stanford University",
+    "status": "PhD",
+    "note": ""
+   },
+   {
+    "name": "Harvey Mudd College",
+    "status": "current",
+    "note": ""
+   }
+  ],
+  "program": [
+   "Electrical Engineering PhD / Education MA"
+  ],
+  "dber_field": [
+   "EER"
+  ],
+  "dber_field_inferred": [],
+  "research_interests": "",
+  "position_title": "Visiting Assistant Professor",
+  "position_type": "Faculty",
+  "phd_year": 2026,
+  "phd_era": "2025–2029",
+  "dissertation_title": "Improving the Accessibility of Engineering Education for Learners Who Are Blind or Have Low Vision",
+  "position_or_advisor_note": "Department of Engineering, Harvey Mudd College",
+  "notes": "Added via Add/Edit submission, Sept 2026.",
+  "completeness": 0.9,
+  "n_citations": null,
+  "h_index": null,
+  "match_confidence": null
+ },
+ {
+  "id": "4946-stephanie-gardner",
+  "name": "Stephanie Gardner",
+  "institution": [
+   {
+    "name": "Purdue University",
+    "status": "current",
+    "note": ""
+   }
+  ],
+  "program": [],
+  "dber_field": [
+   "BER"
+  ],
+  "dber_field_inferred": [],
+  "research_interests": "",
+  "position_title": "Professor",
+  "position_type": "Faculty",
+  "phd_year": null,
+  "phd_era": null,
+  "dissertation_title": "",
+  "position_or_advisor_note": "Director of Mentorship Success (Biology); Director of Integrated Academic and Experiential Pathways (College of Science); Faculty Director, Undergraduate Science Scholars Program",
+  "notes": "Department of Biological Sciences, Purdue University. Added via Add/Edit submission, Sept 2026.",
+  "completeness": 0.6,
+  "n_citations": null,
+  "h_index": null,
+  "match_confidence": null
+ },
+ {
+  "id": "4947-joseph-mirabelli",
+  "name": "Joseph Mirabelli",
+  "institution": [
+   {
+    "name": "University of Illinois",
+    "status": "former",
+    "note": ""
+   },
+   {
+    "name": "University of Michigan",
+    "status": "current",
+    "note": ""
+   }
+  ],
+  "program": [],
+  "dber_field": [
+   "EER"
+  ],
+  "dber_field_inferred": [],
+  "research_interests": "",
+  "position_title": "",
+  "position_type": "",
+  "phd_year": 2023,
+  "phd_era": "2020–2024",
+  "dissertation_title": "",
+  "position_or_advisor_note": "",
+  "notes": "PhD in Educational Psychology, 2023. Added via Add/Edit submission, Sept 2026.",
+  "completeness": 0.4,
+  "n_citations": null,
+  "h_index": null,
+  "match_confidence": null
+ },
+ {
+  "id": "4948-crystal-uminski",
+  "name": "Crystal Uminski",
+  "institution": [
+   {
+    "name": "Towson University",
+    "status": "current",
+    "note": ""
+   }
+  ],
+  "program": [],
+  "dber_field": [
+   "BER"
+  ],
+  "dber_field_inferred": [],
+  "research_interests": "Assessment; Visual Literacy; Scientific Practices",
+  "position_title": "Assistant Professor",
+  "position_type": "Faculty",
+  "phd_year": 2023,
+  "phd_era": "2020–2024",
+  "dissertation_title": "",
+  "position_or_advisor_note": "Biological Sciences, Towson University",
+  "notes": "Added via Add/Edit submission, Sept 2026.",
+  "completeness": 0.8,
   "n_citations": null,
   "h_index": null,
   "match_confidence": null
