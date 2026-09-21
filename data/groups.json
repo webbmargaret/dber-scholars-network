@@ -223,7 +223,7 @@
   {
    "groupId": "institution:virginia-tech",
    "label": "Virginia Tech",
-   "count": 165,
+   "count": 166,
    "memberIds": [
     "0007-abdulrahman-alsharif",
     "0014-adetoun-yeaman",
@@ -389,7 +389,8 @@
     "4681-stacey-vaziri",
     "4746-andr-s-nieto-leal",
     "4757-katherine-drinkwater",
-    "4803-jordan-l-laney"
+    "4803-jordan-l-laney",
+    "4949-nathan-li"
    ]
   },
   {
@@ -16984,7 +16985,7 @@
   {
    "groupId": "dber_field:eer",
    "label": "EER",
-   "count": 1814,
+   "count": 1815,
    "memberIds": [
     "0001-aaron-clark",
     "0002-aaron-johnson",
@@ -18799,7 +18800,8 @@
     "4942-stephanie-adams",
     "4943-taylor-johnson",
     "4945-aya-mouallem",
-    "4947-joseph-mirabelli"
+    "4947-joseph-mirabelli",
+    "4949-nathan-li"
    ]
   },
   {

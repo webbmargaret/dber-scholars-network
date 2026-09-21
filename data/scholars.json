@@ -152157,5 +152157,33 @@
   "n_citations": null,
   "h_index": null,
   "match_confidence": null
+ },
+ {
+  "id": "4949-nathan-li",
+  "name": "Nathan Li",
+  "institution": [
+   {
+    "name": "Virginia Tech",
+    "status": "current",
+    "note": ""
+   }
+  ],
+  "program": [],
+  "dber_field": [
+   "EER"
+  ],
+  "dber_field_inferred": [],
+  "research_interests": "Sustainability; Engineering Education; Design Thinking; Energy Studies",
+  "position_title": "",
+  "position_type": "",
+  "phd_year": null,
+  "phd_era": null,
+  "dissertation_title": "",
+  "position_or_advisor_note": "",
+  "notes": "Added via Add/Edit submission, Sept 2026.",
+  "completeness": 0.4,
+  "n_citations": 1,
+  "h_index": 1,
+  "match_confidence": "high"
  }
 ]
