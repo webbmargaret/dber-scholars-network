@@ -152185,5 +152185,593 @@
   "n_citations": 1,
   "h_index": 1,
   "match_confidence": "high"
+ },
+ {
+  "id": "4950-deepthi-e-suresh",
+  "name": "Deepthi E. Suresh",
+  "institution": [
+   {
+    "name": "University of Michigan",
+    "status": "current",
+    "note": ""
+   }
+  ],
+  "program": [],
+  "dber_field": [
+   "EER"
+  ],
+  "dber_field_inferred": [],
+  "research_interests": "Engineering Education; Biomedical Engineering",
+  "position_title": "Graduate Student",
+  "position_type": "Student",
+  "phd_year": null,
+  "phd_era": null,
+  "dissertation_title": "",
+  "position_or_advisor_note": "",
+  "notes": "Added via Add/Edit submission, Sept 2026.",
+  "completeness": 0.6,
+  "n_citations": 74,
+  "h_index": 5,
+  "match_confidence": "high"
+ },
+ {
+  "id": "4951-v-sanchez-padilla",
+  "name": "V. Sanchez Padilla",
+  "institution": [
+   {
+    "name": "Virginia Tech",
+    "status": "current",
+    "note": ""
+   }
+  ],
+  "program": [],
+  "dber_field": [
+   "EER"
+  ],
+  "dber_field_inferred": [],
+  "research_interests": "Accreditation; Low-Power IoT; Quality Assurance; Technology Management; Workforce; WSN",
+  "position_title": "Research and Project Support Specialist",
+  "position_type": "Staff",
+  "phd_year": null,
+  "phd_era": null,
+  "dissertation_title": "",
+  "position_or_advisor_note": "Center for Excellence in Teaching and Learning",
+  "notes": "Added via Add/Edit submission, Sept 2026.",
+  "completeness": 0.7,
+  "n_citations": 208,
+  "h_index": 7,
+  "match_confidence": "high"
+ },
+ {
+  "id": "4952-madison-swirtz",
+  "name": "Madison Swirtz",
+  "institution": [
+   {
+    "name": "University of Utah",
+    "status": "current",
+    "note": ""
+   }
+  ],
+  "program": [],
+  "dber_field": [
+   "PER"
+  ],
+  "dber_field_inferred": [],
+  "research_interests": "Gender and LGBTQ+ experiences in physics; social network analysis; physics identity; workplace climate",
+  "position_title": "",
+  "position_type": "",
+  "phd_year": null,
+  "phd_era": null,
+  "dissertation_title": "",
+  "position_or_advisor_note": "",
+  "notes": "Added via Add/Edit submission, Sept 2026.",
+  "completeness": 0.4,
+  "n_citations": 117,
+  "h_index": 6,
+  "match_confidence": "high"
+ },
+ {
+  "id": "4953-parker-e-poulos",
+  "name": "Parker E. Poulos",
+  "institution": [
+   {
+    "name": "Kansas State University",
+    "status": "current",
+    "note": ""
+   }
+  ],
+  "program": [],
+  "dber_field": [
+   "PER"
+  ],
+  "dber_field_inferred": [],
+  "research_interests": "Physics education research; Assessment",
+  "position_title": "",
+  "position_type": "",
+  "phd_year": null,
+  "phd_era": null,
+  "dissertation_title": "",
+  "position_or_advisor_note": "",
+  "notes": "Added via Add/Edit submission, Sept 2026.",
+  "completeness": 0.4,
+  "n_citations": 34,
+  "h_index": 1,
+  "match_confidence": "high"
+ },
+ {
+  "id": "4954-sarah-dart",
+  "name": "Sarah Dart",
+  "institution": [
+   {
+    "name": "Queensland University of Technology",
+    "status": "current",
+    "note": ""
+   }
+  ],
+  "program": [],
+  "dber_field": [
+   "EER"
+  ],
+  "dber_field_inferred": [],
+  "research_interests": "Engineering education; higher-education evaluation; academic development; educational technology; capability development of engineering education researchers",
+  "position_title": "Senior Lecturer",
+  "position_type": "Faculty",
+  "phd_year": null,
+  "phd_era": null,
+  "dissertation_title": "",
+  "position_or_advisor_note": "Strategic Lead, Learner Experience & Evaluation, Learning and Teaching Unit",
+  "notes": "Added via Add/Edit submission, Sept 2026.",
+  "completeness": 0.7,
+  "n_citations": null,
+  "h_index": null,
+  "match_confidence": null
+ },
+ {
+  "id": "4955-samuel-cunningham",
+  "name": "Samuel Cunningham",
+  "institution": [
+   {
+    "name": "Queensland University of Technology",
+    "status": "current",
+    "note": ""
+   }
+  ],
+  "program": [],
+  "dber_field": [
+   "EER"
+  ],
+  "dber_field_inferred": [],
+  "research_interests": "Engineering education; NLP applied to student-written text; first-year engineering success; institutional evaluation reform",
+  "position_title": "Senior Lecturer, Electrical Engineering",
+  "position_type": "Faculty",
+  "phd_year": null,
+  "phd_era": null,
+  "dissertation_title": "",
+  "position_or_advisor_note": "",
+  "notes": "Added via Add/Edit submission, Sept 2026.",
+  "completeness": 0.6,
+  "n_citations": null,
+  "h_index": null,
+  "match_confidence": null
+ },
+ {
+  "id": "4956-les-dawes",
+  "name": "Les Dawes",
+  "institution": [
+   {
+    "name": "Queensland University of Technology",
+    "status": "current",
+    "note": ""
+   }
+  ],
+  "program": [],
+  "dber_field": [
+   "EER"
+  ],
+  "dber_field_inferred": [],
+  "research_interests": "STEM/engineering education; inquiry-focused teaching; Indigenous participation in engineering",
+  "position_title": "Professor",
+  "position_type": "Faculty",
+  "phd_year": null,
+  "phd_era": null,
+  "dissertation_title": "",
+  "position_or_advisor_note": "Head of School, Civil and Environmental Engineering; Past President, AAEE",
+  "notes": "Added via Add/Edit submission, Sept 2026.",
+  "completeness": 0.7,
+  "n_citations": null,
+  "h_index": null,
+  "match_confidence": null
+ },
+ {
+  "id": "4957-amy-young",
+  "name": "Amy Young",
+  "institution": [
+   {
+    "name": "Queensland University of Technology",
+    "status": "current",
+    "note": ""
+   }
+  ],
+  "program": [],
+  "dber_field": [
+   "EER"
+  ],
+  "dber_field_inferred": [],
+  "research_interests": "Professional identity development; engineering education; student success; journey-mapping methodology",
+  "position_title": "Lecturer",
+  "position_type": "Faculty",
+  "phd_year": null,
+  "phd_era": null,
+  "dissertation_title": "",
+  "position_or_advisor_note": "Educator Development and Recognition, Education Portfolio",
+  "notes": "Added via Add/Edit submission, Sept 2026.",
+  "completeness": 0.7,
+  "n_citations": null,
+  "h_index": null,
+  "match_confidence": null
+ },
+ {
+  "id": "4958-alexander-gregg",
+  "name": "Alexander Gregg",
+  "institution": [
+   {
+    "name": "Monash University",
+    "status": "current",
+    "note": ""
+   }
+  ],
+  "program": [],
+  "dber_field": [
+   "EER"
+  ],
+  "dber_field_inferred": [],
+  "research_interests": "Engineering education quality and teaching practices; video-based learning resources",
+  "position_title": "Senior Lecturer",
+  "position_type": "Faculty",
+  "phd_year": null,
+  "phd_era": null,
+  "dissertation_title": "",
+  "position_or_advisor_note": "Deputy Director of Education, Department of Materials Science and Engineering",
+  "notes": "Added via Add/Edit submission, Sept 2026.",
+  "completeness": 0.7,
+  "n_citations": null,
+  "h_index": null,
+  "match_confidence": null
+ },
+ {
+  "id": "4959-tony-vo",
+  "name": "Tony Vo",
+  "institution": [
+   {
+    "name": "Monash University",
+    "status": "current",
+    "note": ""
+   }
+  ],
+  "program": [],
+  "dber_field": [
+   "EER"
+  ],
+  "dber_field_inferred": [],
+  "research_interests": "First-year student success; digital and physical learning technologies; TA development; outreach and diversity",
+  "position_title": "Senior Lecturer",
+  "position_type": "Faculty",
+  "phd_year": null,
+  "phd_era": null,
+  "dissertation_title": "",
+  "position_or_advisor_note": "Director of Education, Department of Mechanical and Aerospace Engineering",
+  "notes": "Added via Add/Edit submission, Sept 2026.",
+  "completeness": 0.7,
+  "n_citations": null,
+  "h_index": null,
+  "match_confidence": null
+ },
+ {
+  "id": "4960-scott-daniel",
+  "name": "Scott Daniel",
+  "institution": [
+   {
+    "name": "University of Technology Sydney",
+    "status": "current",
+    "note": ""
+   }
+  ],
+  "program": [],
+  "dber_field": [
+   "EER"
+  ],
+  "dber_field_inferred": [],
+  "research_interests": "Humanitarian engineering education; socio-technical thinking; co-design expertise assessment",
+  "position_title": "Associate Professor, Humanitarian Engineering",
+  "position_type": "Faculty",
+  "phd_year": null,
+  "phd_era": null,
+  "dissertation_title": "",
+  "position_or_advisor_note": "School of Professional Practice and Leadership",
+  "notes": "Added via Add/Edit submission, Sept 2026.",
+  "completeness": 0.7,
+  "n_citations": null,
+  "h_index": null,
+  "match_confidence": null
+ },
+ {
+  "id": "4961-tania-machet",
+  "name": "Tania Machet",
+  "institution": [
+   {
+    "name": "University of Technology Sydney",
+    "status": "current",
+    "note": ""
+   }
+  ],
+  "program": [],
+  "dber_field": [
+   "EER"
+  ],
+  "dber_field_inferred": [],
+  "research_interests": "Engineering education; Women in STEM; professional practice skill development; GenAI's impact on student writing; remote laboratories",
+  "position_title": "Senior Lecturer",
+  "position_type": "Faculty",
+  "phd_year": null,
+  "phd_era": null,
+  "dissertation_title": "",
+  "position_or_advisor_note": "School of Professional Practice and Leadership",
+  "notes": "Added via Add/Edit submission, Sept 2026.",
+  "completeness": 0.7,
+  "n_citations": null,
+  "h_index": null,
+  "match_confidence": null
+ },
+ {
+  "id": "4962-rosalie-goldsmith",
+  "name": "Rosalie Goldsmith",
+  "institution": [
+   {
+    "name": "University of Technology Sydney",
+    "status": "current",
+    "note": ""
+   }
+  ],
+  "program": [],
+  "dber_field": [
+   "EER"
+  ],
+  "dber_field_inferred": [],
+  "research_interests": "Writing practices in the engineering curriculum; academic literacies; practice-architectures theory",
+  "position_title": "Associate Professor",
+  "position_type": "Faculty",
+  "phd_year": null,
+  "phd_era": null,
+  "dissertation_title": "",
+  "position_or_advisor_note": "",
+  "notes": "Added via Add/Edit submission, Sept 2026.",
+  "completeness": 0.6,
+  "n_citations": null,
+  "h_index": null,
+  "match_confidence": null
+ },
+ {
+  "id": "4963-karen-whelan",
+  "name": "Karen Whelan",
+  "institution": [
+   {
+    "name": "University of Technology Sydney",
+    "status": "current",
+    "note": ""
+   }
+  ],
+  "program": [],
+  "dber_field": [
+   "EER"
+  ],
+  "dber_field_inferred": [],
+  "research_interests": "Gender in engineering education; inclusive teaching practices",
+  "position_title": "Associate Dean, Learning and Teaching",
+  "position_type": "Faculty",
+  "phd_year": null,
+  "phd_era": null,
+  "dissertation_title": "",
+  "position_or_advisor_note": "Faculty of Engineering and IT",
+  "notes": "Added via Add/Edit submission, Sept 2026.",
+  "completeness": 0.7,
+  "n_citations": null,
+  "h_index": null,
+  "match_confidence": null
+ },
+ {
+  "id": "4964-enda-crossin",
+  "name": "Enda Crossin",
+  "institution": [
+   {
+    "name": "University of Canterbury",
+    "status": "current",
+    "note": ""
+   }
+  ],
+  "program": [],
+  "dber_field": [
+   "EER"
+  ],
+  "dber_field_inferred": [],
+  "research_interests": "Engineering education; longitudinal study of engineering practice (BeLongEng); materials sustainability",
+  "position_title": "Associate Professor",
+  "position_type": "Faculty",
+  "phd_year": null,
+  "phd_era": null,
+  "dissertation_title": "",
+  "position_or_advisor_note": "Director, Master of Engineering in Management Programme; Vice President, AAEE",
+  "notes": "Added via Add/Edit submission, Sept 2026.",
+  "completeness": 0.7,
+  "n_citations": null,
+  "h_index": null,
+  "match_confidence": null
+ },
+ {
+  "id": "4965-zach-quince",
+  "name": "Zach Quince",
+  "institution": [
+   {
+    "name": "Southern Cross University",
+    "status": "current",
+    "note": ""
+   }
+  ],
+  "program": [],
+  "dber_field": [
+   "EER"
+  ],
+  "dber_field_inferred": [],
+  "research_interests": "Programmatic assessment; professional skills development; ethical integration of GenAI in engineering curriculum",
+  "position_title": "Lecturer",
+  "position_type": "Faculty",
+  "phd_year": null,
+  "phd_era": null,
+  "dissertation_title": "",
+  "position_or_advisor_note": "School of Engineering",
+  "notes": "Added via Add/Edit submission, Sept 2026.",
+  "completeness": 0.7,
+  "n_citations": null,
+  "h_index": null,
+  "match_confidence": null
+ },
+ {
+  "id": "4966-shannon-rios",
+  "name": "Shannon Rios",
+  "institution": [
+   {
+    "name": "University of Melbourne",
+    "status": "current",
+    "note": ""
+   }
+  ],
+  "program": [],
+  "dber_field": [
+   "EER"
+  ],
+  "dber_field_inferred": [],
+  "research_interests": "Engineering education; GenAI-powered teaching tools; differentiated education and engagement",
+  "position_title": "Senior Lecturer",
+  "position_type": "Faculty",
+  "phd_year": null,
+  "phd_era": null,
+  "dissertation_title": "",
+  "position_or_advisor_note": "Teaching and Learning Laboratory, Faculty of Engineering and IT",
+  "notes": "Added via Add/Edit submission, Sept 2026.",
+  "completeness": 0.7,
+  "n_citations": null,
+  "h_index": null,
+  "match_confidence": null
+ },
+ {
+  "id": "4967-ashlee-pearson",
+  "name": "Ashlee Pearson",
+  "institution": [
+   {
+    "name": "University of Sydney",
+    "status": "current",
+    "note": ""
+   }
+  ],
+  "program": [],
+  "dber_field": [
+   "EER"
+  ],
+  "dber_field_inferred": [],
+  "research_interests": "Critical thinking; engineering education; scholarship of teaching and learning; diversity and inclusion in engineering",
+  "position_title": "Senior Lecturer",
+  "position_type": "Faculty",
+  "phd_year": null,
+  "phd_era": null,
+  "dissertation_title": "",
+  "position_or_advisor_note": "Faculty of Engineering",
+  "notes": "Added via Add/Edit submission, Sept 2026.",
+  "completeness": 0.7,
+  "n_citations": null,
+  "h_index": null,
+  "match_confidence": null
+ },
+ {
+  "id": "4968-tom-goldfinch",
+  "name": "Tom Goldfinch",
+  "institution": [
+   {
+    "name": "University of Sydney",
+    "status": "current",
+    "note": ""
+   }
+  ],
+  "program": [],
+  "dber_field": [
+   "EER"
+  ],
+  "dber_field_inferred": [],
+  "research_interests": "Engineering education; intercultural competence; engineering mechanics; project-based learning",
+  "position_title": "Associate Professor",
+  "position_type": "Faculty",
+  "phd_year": null,
+  "phd_era": null,
+  "dissertation_title": "",
+  "position_or_advisor_note": "Associate Dean (Teaching and Learning), Faculty of Engineering",
+  "notes": "Added via Add/Edit submission, Sept 2026.",
+  "completeness": 0.7,
+  "n_citations": null,
+  "h_index": null,
+  "match_confidence": null
+ },
+ {
+  "id": "4969-rob-mchenry",
+  "name": "Rob McHenry",
+  "institution": [
+   {
+    "name": "Deakin University",
+    "status": "current",
+    "note": ""
+   }
+  ],
+  "program": [],
+  "dber_field": [
+   "EER"
+  ],
+  "dber_field_inferred": [],
+  "research_interests": "Engineering-practice ethnography; early-career engineer capability development; industry-embedded curriculum; clean-energy workforce transition",
+  "position_title": "Lecturer, Engineering Professional Practice",
+  "position_type": "Faculty",
+  "phd_year": null,
+  "phd_era": null,
+  "dissertation_title": "",
+  "position_or_advisor_note": "School of Engineering, Faculty of Science, Engineering and Built Environment",
+  "notes": "Added via Add/Edit submission, Sept 2026.",
+  "completeness": 0.7,
+  "n_citations": null,
+  "h_index": null,
+  "match_confidence": null
+ },
+ {
+  "id": "4970-steven-goh",
+  "name": "Steven Goh",
+  "institution": [
+   {
+    "name": "University of Southern Queensland",
+    "status": "current",
+    "note": ""
+   }
+  ],
+  "program": [],
+  "dber_field": [
+   "EER"
+  ],
+  "dber_field_inferred": [],
+  "research_interests": "Engineering education, practice, and management; biomedical engineering; university-industry collaboration",
+  "position_title": "Associate Professor",
+  "position_type": "Faculty",
+  "phd_year": null,
+  "phd_era": null,
+  "dissertation_title": "",
+  "position_or_advisor_note": "Mechanical and Mechatronic Engineering, School of Engineering; VP Engineering Education, IFEES",
+  "notes": "Added via Add/Edit submission, Sept 2026. Institution now branded UniSQ (same institution).",
+  "completeness": 0.7,
+  "n_citations": null,
+  "h_index": null,
+  "match_confidence": null
  }
 ]
